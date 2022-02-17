@@ -25,5 +25,7 @@ module.exports = {
     'no-var': 'error',
     'no-empty': ['error', { allowEmptyCatch: true }],
 
+    '@typescript-eslint/no-var-requires': 'off'
+
   }
 }
