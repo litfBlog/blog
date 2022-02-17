@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-plus": "^2.0.2",
+    "style-resources-loader": "^1.5.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
@@ -29,8 +30,10 @@
     "eslint-plugin-vue": "^7.0.0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
+    "style-resources-loader": "^1.4.1",
     "typescript": "~4.1.5",
     "unplugin-auto-import": "^0.6.0",
-    "unplugin-vue-components": "^0.17.18"
+    "unplugin-vue-components": "^0.17.18",
+    "vue-cli-plugin-style-resources-loader": "~0.1.5"
   }
 }
