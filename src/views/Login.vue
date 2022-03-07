@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 08:39:21
- * @LastEditTime: 2022-03-07 17:52:15
+ * @LastEditTime: 2022-03-07 18:25:28
  * @LastEditors: litfa
  * @Description: 登录
  * @FilePath: /blog/src/views/Login.vue
@@ -12,17 +12,35 @@
 import { ref } from 'vue'
 import getCodeApi from '@/apis/getCode'
 import getQRCodeApi from '@/apis/getQRCode'
+import queryStatusApi from '@/apis/queryStatus'
 
 const QRCode = ref('')
 
+// 获取code
 const getCode = async () => {
   let { data: res } = await getCodeApi()
   getQRCode(res.code)
 }
+// 直接调用
 getCode()
+// 获取二维码
 const getQRCode = async (code: string) => {
   let { data: res } = await getQRCodeApi(code)
   QRCode.value = window.URL.createObjectURL(new Blob([res]))
+  queryStatus(code)
+}
+
+// 查询登录状态
+const queryStatus = (code: string) => {
+  let querty = setInterval(async () => {
+    let { data: res } = await queryStatusApi(code)
+    // 登录成功
+    if (res.loginStatus == 2) {
+      // 存token
+      localStorage.setItem('token', res.token)
+      clearInterval(querty)
+    }
+  }, 1000 * 3)
 }
 
 </script>
