@@ -1,3 +1,12 @@
+/*
+ * @Author: litfa
+ * @Date: 2022-02-16 02:07:22
+ * @LastEditTime: 2022-03-07 08:44:18
+ * @LastEditors: litfa
+ * @Description: router
+ * @FilePath: /blog/src/router/index.ts
+ * 
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 
@@ -15,6 +24,13 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () =>
+      import(/* webpackChunkName: "login" */ '@/views/Login.vue')
+
   }
 ]
 
