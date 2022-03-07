@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 08:39:21
- * @LastEditTime: 2022-03-07 18:25:28
+ * @LastEditTime: 2022-03-07 19:02:35
  * @LastEditors: litfa
  * @Description: 登录
  * @FilePath: /blog/src/views/Login.vue
@@ -9,11 +9,14 @@
 -->
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onUnmounted, ref } from 'vue'
 import getCodeApi from '@/apis/getCode'
 import getQRCodeApi from '@/apis/getQRCode'
 import queryStatusApi from '@/apis/queryStatus'
-
+// 退出时清除循环
+onUnmounted(() => {
+  clearTimeout(querty)
+})
 const QRCode = ref('')
 
 // 获取code
@@ -31,8 +34,9 @@ const getQRCode = async (code: string) => {
 }
 
 // 查询登录状态
+let querty = -1
 const queryStatus = (code: string) => {
-  let querty = setInterval(async () => {
+  querty = setInterval(async () => {
     let { data: res } = await queryStatusApi(code)
     // 登录成功
     if (res.loginStatus == 2) {
@@ -41,6 +45,7 @@ const queryStatus = (code: string) => {
       clearInterval(querty)
     }
   }, 1000 * 3)
+
 }
 
 </script>
