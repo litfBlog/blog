@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-03-07 17:58:16
+ * @LastEditTime: 2022-03-09 11:20:21
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -16,18 +16,24 @@
       </router-link>
     </div>
     <div class="right">
-      <div>
+      <div class="login" v-if="!user.isLogin">
         <router-link to="/login">注册/登录</router-link>
+      </div>
+      <div class="user" v-else>
+        <NavBarUser></NavBarUser>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import { computed } from 'vue'
+import NavBarUser from './NavBarUser.vue'
+import { useStore } from 'vuex'
+const store = useStore()
 
-export default defineComponent({
-  name: 'App'
+const user = computed(() => {
+  return store.state.user
 })
 </script>
 
@@ -53,7 +59,11 @@ export default defineComponent({
     }
   }
   .right {
+    height: 100%;
     margin-right: 10px;
+    .user {
+      height: 100%;
+    }
   }
 }
 </style>
