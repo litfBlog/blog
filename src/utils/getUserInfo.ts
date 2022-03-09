@@ -20,7 +20,7 @@ export default async (): Promise<any> => {
   // 有 token
   if (localStorage.getItem('token')) {
     const { data: res } = await getUserInfoApi()
-    const { username: userName, avatar, id } = res.userInfo.user
+    const { username: userName, avatar, id } = res.userInfo
     console.log(store.commit('setUserInfo', { isLogin: true, userName, avatar, id }))
     console.log(store.state)
 
