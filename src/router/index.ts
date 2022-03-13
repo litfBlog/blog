@@ -30,7 +30,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Login',
     component: () =>
       import(/* webpackChunkName: "login" */ '@/views/Login.vue')
-
+  },
+  {
+    path: '/edit',
+    name: 'Edit',
+    component: () =>
+      import(/* webpackChunkName: "edit" */ '@/views/Edit.vue')
   }
 ]
 
