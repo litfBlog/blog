@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-14 08:39:46
+ * @LastEditTime: 2022-03-14 17:19:43
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -41,62 +41,40 @@ const initPage = async () => {
 }
 initPage()
 
+const save = () => {
+  // 存草稿
+}
+
+const push = () => {
+  // 发布文章
+}
+
 </script>
 
 <template>
-  {{ content }}|{{ title }}
+  <el-input class="title" v-model="title" show-word-limit maxlength="10" placeholder="标题"></el-input>
   <component
     v-bind:is="Editior"
     v-model="content"
     left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
     :disabled-menus="[]"
   ></component>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+  <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
+  <el-button type="success" plain size="large" @click="save">存草稿</el-button>
 </template>
 
 <style lang="less" scoped>
+.title {
+  margin: 10px 0;
+  font-size: 24px;
+  /deep/ .el-input__inner {
+    height: 50px;
+    margin: 0 10px;
+  }
+}
+.el-button.is-plain {
+  border-radius: var(--el-border-radius-round);
+}
 .v-md-editor {
   max-height: 80vh;
   min-height: 500px;
