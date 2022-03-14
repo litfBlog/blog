@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-14 17:33:07
+ * @LastEditTime: 2022-03-14 17:54:57
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -9,6 +9,8 @@
 -->
 <script lang="ts" setup>
 import articlesInitApi from '@/apis/articlesInit'
+import saveApi from '@/apis/save'
+import pushApi from '@/apis/push'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -41,12 +43,23 @@ const initPage = async () => {
 }
 initPage()
 
-const save = () => {
+const save = async () => {
+  let uuid = route.query.id as string
   // 存草稿
+  await saveApi({
+    uuid,
+    contenttype: 'markdown',
+    title: title.value,
+    content: content.value
+  })
 }
 
-const push = () => {
+const push = async () => {
+  let uuid = route.query.id as string
   // 发布文章
+  // 发布前调用保存草稿
+  await save()
+  await pushApi({ uuid })
 }
 
 </script>
