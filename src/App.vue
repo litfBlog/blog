@@ -17,3 +17,9 @@ export default defineComponent({
   }
 })
 </script>
+<style lang="less">
+.navBar {
+  position: sticky;
+  top: 0;
+}
+</style>

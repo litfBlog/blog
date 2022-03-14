@@ -11,3 +11,26 @@ a {
 body {
   background-color: @body-background-color;
 }
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  padding: 0 5px;
+}
+
+// -webkit-scrollbar-track {
+//   border: none;
+//   background: transparent !important;
+// }
+
+::-webkit-scrollbar-thumb {
+  background: @scrollbar-color  !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: @scrollbar-color-hover  !important;
+}

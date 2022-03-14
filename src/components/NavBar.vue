@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-03-09 11:20:21
+ * @LastEditTime: 2022-03-14 08:36:10
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -45,6 +45,7 @@ const user = computed(() => {
   align-items: center;
   background-color: @card-background-color;
   box-shadow: 0 0px 10px 5px rgba(114, 114, 114, 0.096);
+  z-index: 1000;
   .left,
   a {
     display: flex;

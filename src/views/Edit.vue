@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-14 08:29:38
+ * @LastEditTime: 2022-03-14 08:39:46
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -51,11 +51,60 @@ initPage()
     left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
     :disabled-menus="[]"
   ></component>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 </template>
 
 <style lang="less" scoped>
 .v-md-editor {
   max-height: 80vh;
   min-height: 500px;
+  /deep/ .v-md-editor__toolbar {
+    position: sticky;
+    top: 70px;
+    z-index: 10;
+    background-color: #fff;
+  }
 }
 </style>
