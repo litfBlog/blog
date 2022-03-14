@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-14 17:19:43
+ * @LastEditTime: 2022-03-14 17:33:07
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -74,6 +74,7 @@ const push = () => {
 }
 .el-button.is-plain {
   border-radius: var(--el-border-radius-round);
+  border-color: @primary;
 }
 .v-md-editor {
   max-height: 80vh;
