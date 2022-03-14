@@ -7,6 +7,7 @@ declare module 'vue' {
     Card: typeof import('./src/components/Card.vue')['default']
     ElImage: typeof import('element-plus/es')['ElImage']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Markdown: typeof import('./src/components/Editior/markdown.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     NavBarUser: typeof import('./src/components/NavBarUser.vue')['default']
   }

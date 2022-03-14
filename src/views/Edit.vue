@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-13 17:29:25
+ * @LastEditTime: 2022-03-14 08:29:38
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -12,9 +12,10 @@ import articlesInitApi from '@/apis/articlesInit'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
+import Editior from '@/components/Editior/markdown.vue'
+
 const route = useRoute()
 const router = useRouter()
-// 编辑器
 
 let content = ref('')
 let title = ref('')
@@ -42,7 +43,19 @@ initPage()
 
 </script>
 
-<template>{{ content }}|{{ title }}</template>
+<template>
+  {{ content }}|{{ title }}
+  <component
+    v-bind:is="Editior"
+    v-model="content"
+    left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
+    :disabled-menus="[]"
+  ></component>
+</template>
 
 <style lang="less" scoped>
+.v-md-editor {
+  max-height: 80vh;
+  min-height: 500px;
+}
 </style>
