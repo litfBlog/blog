@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-02 18:37:25
+ * @LastEditTime: 2022-03-15 18:37:55
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -13,14 +13,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup >
 import Card from '@/components/Card.vue'
-
-export default defineComponent({
-  name: 'Home',
-  components: {
-    Card
-  }
-})
 </script>
+
+<style lang="less" scoped></style>
