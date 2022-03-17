@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-14 17:54:57
+ * @LastEditTime: 2022-03-17 19:08:13
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -27,7 +27,7 @@ const initPage = async () => {
   if (res.uuid) {
     // 路由不存在id 跳转到有id的界面
     if (!route.query.id) {
-      router.push({ query: { id: res.uuid } })
+      return router.push({ query: { id: res.uuid } })
     }
     // 路由有id
     if (res.uuid == route.query.id) {
