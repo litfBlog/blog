@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-17 19:57:07
+ * @LastEditTime: 2022-03-17 20:23:37
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -11,7 +11,7 @@
 import articlesInitApi from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
-import { ref, watch } from 'vue'
+import { onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import Editior from '@/components/Editior/markdown.vue'
@@ -43,7 +43,8 @@ const initPage = async () => {
 }
 
 watch(() => route.query.id, (e) => {
-  console.log(e)
+  // 解决跳转回其他页面时触发
+  if (route.name != 'Edit') return
   initPage()
 }, {
   immediate: true
