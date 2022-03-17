@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-17 19:54:26
+ * @LastEditTime: 2022-03-17 19:57:07
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -11,7 +11,7 @@
 import articlesInitApi from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
-import { ref, watch, watchEffect } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import Editior from '@/components/Editior/markdown.vue'
