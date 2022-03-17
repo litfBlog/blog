@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-17 19:08:13
+ * @LastEditTime: 2022-03-17 19:44:05
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -65,15 +65,19 @@ const push = async () => {
 </script>
 
 <template>
-  <el-input class="title" v-model="title" show-word-limit maxlength="10" placeholder="标题"></el-input>
-  <component
-    v-bind:is="Editior"
-    v-model="content"
-    left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
-    :disabled-menus="[]"
-  ></component>
-  <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
-  <el-button type="success" plain size="large" @click="save">存草稿</el-button>
+  <div class="edit">
+    <el-input class="title" v-model="title" show-word-limit maxlength="10" placeholder="标题"></el-input>
+    <component
+      v-bind:is="Editior"
+      v-model="content"
+      left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
+      :disabled-menus="[]"
+    ></component>
+    <div class="buttons">
+      <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
+      <el-button type="success" plain size="large" @click="save">存草稿</el-button>
+    </div>
+  </div>
 </template>
 
 <style lang="less" scoped>
@@ -82,8 +86,11 @@ const push = async () => {
   font-size: 24px;
   /deep/ .el-input__inner {
     height: 50px;
-    margin: 0 10px;
   }
+}
+
+.buttons {
+  margin-top: 10px;
 }
 .el-button.is-plain {
   border-radius: var(--el-border-radius-round);
@@ -97,6 +104,23 @@ const push = async () => {
     top: 70px;
     z-index: 10;
     background-color: #fff;
+  }
+}
+.edit {
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 1040px) {
+  .edit {
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .edit {
+    padding: 0;
   }
 }
 </style>
