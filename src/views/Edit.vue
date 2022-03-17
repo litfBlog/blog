@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-17 19:44:05
+ * @LastEditTime: 2022-03-17 19:54:26
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -11,7 +11,7 @@
 import articlesInitApi from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
-import { ref } from 'vue'
+import { ref, watch, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import Editior from '@/components/Editior/markdown.vue'
@@ -41,7 +41,13 @@ const initPage = async () => {
     }
   }
 }
-initPage()
+
+watch(() => route.query.id, (e) => {
+  console.log(e)
+  initPage()
+}, {
+  immediate: true
+})
 
 const save = async () => {
   let uuid = route.query.id as string
