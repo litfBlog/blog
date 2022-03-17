@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-17 17:07:37
+ * @LastEditTime: 2022-03-17 17:21:35
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -15,7 +15,7 @@
       :name="i.title"
       :avatar="i.avatar"
       :username="i.username"
-      :date="'一天前'"
+      :date="i.createDate"
       :title="i.title"
       :desc="i.content"
     ></Card>

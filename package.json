@@ -13,6 +13,7 @@
     "@kangc/v-md-editor": "^2.3.14",
     "axios": "^0.26.0",
     "core-js": "^3.6.5",
+    "dayjs": "^1.11.0",
     "element-plus": "^2.0.2",
     "style-resources-loader": "^1.5.0",
     "vue": "^3.0.0",

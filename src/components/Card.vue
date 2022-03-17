@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-03-17 17:08:40
+ * @LastEditTime: 2022-03-17 17:41:55
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card.vue
@@ -13,7 +13,7 @@
       <el-image class="avatar" :src="avatar" fit="cover"></el-image>
       <div class="info">
         <span class="username">{{ username }}</span>
-        <span class="date">{{ date }}</span>
+        <span class="date">{{ date ? formatDate(date) : '' }}</span>
       </div>
     </div>
     <div class="articles">
@@ -43,6 +43,7 @@
 
 <script lang="ts" setup>
 import { ThumbsUp, PreviewOpen, Comment } from '@icon-park/vue-next'
+import formatDate from '@/utils/formatDate'
 const size = 18
 const props = defineProps({
   name: {
