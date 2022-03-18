@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-17 20:23:37
+ * @LastEditTime: 2022-03-18 15:09:06
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -11,8 +11,10 @@
 import articlesInitApi from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
+import uploadApi from '@/apis/upload'
 import { onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 
 import Editior from '@/components/Editior/markdown.vue'
 
@@ -50,6 +52,41 @@ watch(() => route.query.id, (e) => {
   immediate: true
 })
 
+const handleUploadImage = async (event: any, insertImage: any, files: any) => {
+  let uuid = route.query.id as string
+  // 拿到 files 之后上传到文件服务器，然后向编辑框中插入对应的内容
+  console.log(event, insertImage, files)
+  let formdata = new FormData()
+  console.log(formdata)
+  formdata.append('file', files[0])
+
+  let { data: res } = await uploadApi(formdata, uuid)
+
+  if (res.status != 1) return ElMessage.error('图片上传失败')
+
+  if (res.fileStatus != 1) {
+    switch (res.fileStatus) {
+      case 1:
+        break
+      case 2:
+        ElMessage.error('文件过大/过小')
+        break
+      case 3:
+        ElMessage.error('暂不支持该文件类型')
+        break
+      default:
+        break
+    }
+    return
+  }
+
+  // 此处只做示例
+  insertImage({
+    url: res.filename,
+    desc: 'res.filename'
+  })
+}
+
 const save = async () => {
   let uuid = route.query.id as string
   // 存草稿
@@ -79,6 +116,7 @@ const push = async () => {
       v-model="content"
       left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
       :disabled-menus="[]"
+      @upload-image="handleUploadImage"
     ></component>
     <div class="buttons">
       <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
