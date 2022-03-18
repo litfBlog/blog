@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-18 15:09:06
+ * @LastEditTime: 2022-03-18 18:17:55
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -82,8 +82,8 @@ const handleUploadImage = async (event: any, insertImage: any, files: any) => {
 
   // 此处只做示例
   insertImage({
-    url: res.filename,
-    desc: 'res.filename'
+    url: res.path,
+    desc: res.fileName || 'image'
   })
 }
 
