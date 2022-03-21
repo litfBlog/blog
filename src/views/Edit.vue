@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-18 18:17:55
+ * @LastEditTime: 2022-03-21 09:08:57
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -17,6 +17,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 
 import Editior from '@/components/Editior/markdown.vue'
+import UploadCover from '@/components/UploadCover.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -118,6 +119,9 @@ const push = async () => {
       :disabled-menus="[]"
       @upload-image="handleUploadImage"
     ></component>
+
+    <upload-cover :uuid="(route.query.id as string)"></upload-cover>
+
     <div class="buttons">
       <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
       <el-button type="success" plain size="large" @click="save">存草稿</el-button>
