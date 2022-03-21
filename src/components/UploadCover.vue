@@ -1,14 +1,14 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-18 18:41:55
- * @LastEditTime: 2022-03-21 18:12:09
+ * @LastEditTime: 2022-03-21 19:29:30
  * @LastEditors: litfa
  * @Description: 上传封面
  * @FilePath: /blog/src/components/UploadCover.vue
  * 
 -->
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { UploadOne } from '@icon-park/vue-next'
 import uploadApi from '@/apis/upload'
@@ -17,16 +17,19 @@ const props = defineProps({
   uuid: {
     type: String,
     required: true
+  },
+  cover: {
+    type: String
   }
 })
 
+// 更新事件
+const emits = defineEmits(['update:cover'])
+// input dom
 const inputElement: any = ref(null)
-const show = ref(true)
-const src = ref('')
-console.log(inputElement)
 
+// 输入事件
 const input = () => {
-
   const files = inputElement.value.files
   console.log(files)
   const { name, size, type } = files[0]
@@ -50,25 +53,27 @@ const fileType = (type: string): boolean => {
   return ['image/png', 'image/jpeg', 'image/gif'].indexOf(type) !== -1
 }
 
-const error = (msg: string) => {
-  console.log('err')
-  show.value = false
-  setTimeout(() => {
-    show.value = true
-  }, 0)
+/**
+ * @description: 文件错误
+ * @param {*} msg
+ * @return {*}
+ */
+const error = (msg: string): void => {
   ElMessage.error(msg)
 }
 
+/**
+ * @description: 上传图片
+ * @param {*} files
+ * @return {*}
+ */
 const upload = async (files: File[]) => {
   const { uuid } = props
   let formdata = new FormData()
   formdata.append('file', files[0])
-
-  let { data: res } = await uploadApi(formdata, uuid)
-  console.log(res)
+  let { data: res } = await uploadApi(formdata, uuid, true)
   if (res.status != 1 || res.fileStatus != 1) return ElMessage.error('上传失败')
-  show.value = false
-  src.value = res.path
+  emits('update:cover', res.path)
 }
 
 </script>
@@ -78,7 +83,7 @@ const upload = async (files: File[]) => {
     <upload-one theme="outline" size="34" fill="#333" />
     <span>上传封面</span>
     <input type="file" ref="inputElement" id="file" @input="input" />
-    <el-image v-show="!show" fit="cover" :src="src"></el-image>
+    <el-image v-show="props.cover" fit="cover" :src="cover"></el-image>
   </div>
 </template>
 

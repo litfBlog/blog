@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-21 18:15:00
+ * @LastEditTime: 2022-03-21 19:04:47
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -24,6 +24,7 @@ const router = useRouter()
 
 let content = ref('')
 let title = ref('')
+let cover = ref('')
 
 const initPage = async () => {
   let { data: res } = await articlesInitApi()
@@ -37,6 +38,7 @@ const initPage = async () => {
       // 正常情况
       content.value = res.content || ''
       title.value = res.title || ''
+      cover.value = res.cover || ''
     } else {
       //  但与获取的不符 跳转到有id的
       alert('您有其他文章正在编辑，是否跳转')
@@ -95,7 +97,8 @@ const save = async () => {
     uuid,
     contenttype: 'markdown',
     title: title.value,
-    content: content.value
+    content: content.value,
+    cover: cover.value
   })
 }
 
@@ -120,7 +123,7 @@ const push = async () => {
       @upload-image="handleUploadImage"
     ></component>
     <h4>设置封面</h4>
-    <upload-cover :uuid="(route.query.id as string)"></upload-cover>
+    <upload-cover :uuid="(route.query.id as string)" v-model:cover="cover"></upload-cover>
 
     <div class="buttons">
       <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>

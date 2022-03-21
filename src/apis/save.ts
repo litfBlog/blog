@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-03-14 17:35:06
- * @LastEditTime: 2022-03-14 17:55:25
+ * @LastEditTime: 2022-03-21 19:05:13
  * @LastEditors: litfa
  * @Description: 保存草稿
  * @FilePath: /blog/src/apis/save.ts
@@ -14,6 +14,7 @@ interface data {
   uuid: string
   title?: string
   content?: string
+  cover?: string
 }
 
 export default (data: data): any => {
