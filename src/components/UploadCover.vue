@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-18 18:41:55
- * @LastEditTime: 2022-03-21 17:32:48
+ * @LastEditTime: 2022-03-21 18:12:09
  * @LastEditors: litfa
  * @Description: 上传封面
  * @FilePath: /blog/src/components/UploadCover.vue
@@ -11,9 +11,18 @@
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { UploadOne } from '@icon-park/vue-next'
+import uploadApi from '@/apis/upload'
+
+const props = defineProps({
+  uuid: {
+    type: String,
+    required: true
+  }
+})
 
 const inputElement: any = ref(null)
 const show = ref(true)
+const src = ref('')
 console.log(inputElement)
 
 const input = () => {
@@ -28,6 +37,8 @@ const input = () => {
   if (size > 5242880) {
     return error('文件过大(5M)')
   }
+  // 验证通过
+  upload(files)
 }
 
 /**
@@ -48,22 +59,35 @@ const error = (msg: string) => {
   ElMessage.error(msg)
 }
 
+const upload = async (files: File[]) => {
+  const { uuid } = props
+  let formdata = new FormData()
+  formdata.append('file', files[0])
+
+  let { data: res } = await uploadApi(formdata, uuid)
+  console.log(res)
+  if (res.status != 1 || res.fileStatus != 1) return ElMessage.error('上传失败')
+  show.value = false
+  src.value = res.path
+}
+
 </script>
 
 <template>
   <div class="upload">
     <upload-one theme="outline" size="34" fill="#333" />
     <span>上传封面</span>
-    <input type="file" ref="inputElement" id="file" @input="input" v-if="show" />
-    <el-image v-show="!show" cover></el-image>
+    <input type="file" ref="inputElement" id="file" @input="input" />
+    <el-image v-show="!show" fit="cover" :src="src"></el-image>
   </div>
 </template>
 
 <style lang="less" scoped>
 .upload {
-  width: 100%;
+  // width: 100%;
+  width: 400px;
   margin: 10px 0;
-  height: 180px;
+  height: 230px;
   background-color: #fff;
   display: flex;
   flex-direction: column-reverse;
@@ -71,6 +95,7 @@ const error = (msg: string) => {
   align-items: center;
   color: #333;
   position: relative;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.13);
   span {
     font-size: 18px;
     color: #000;
@@ -82,7 +107,14 @@ const error = (msg: string) => {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 11;
     opacity: 0;
+  }
+  .el-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
   }
 }
 </style>

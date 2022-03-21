@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-21 09:08:57
+ * @LastEditTime: 2022-03-21 18:15:00
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -119,7 +119,7 @@ const push = async () => {
       :disabled-menus="[]"
       @upload-image="handleUploadImage"
     ></component>
-
+    <h4>设置封面</h4>
     <upload-cover :uuid="(route.query.id as string)"></upload-cover>
 
     <div class="buttons">
@@ -160,6 +160,10 @@ const push = async () => {
   margin: 0 auto;
   box-sizing: border-box;
   transition: all 0.5s;
+}
+
+h4 {
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 1040px) {
