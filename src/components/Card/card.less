@@ -1,0 +1,90 @@
+.card {
+  max-width: 700px;
+  height: 200px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+
+  .avatar {
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+
+    .username {
+      font-weight: 600;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #666;
+    }
+  }
+}
+
+.articles {
+  display: flex;
+  margin-left: 56px;
+  flex: 1;
+  flex-shrink: 0;
+
+  .cover {
+    width: 180px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    text-overflow: ellipsis;
+    height: 100%;
+
+    h3,
+    p {
+      margin: 5px 0 5px 10px;
+    }
+
+    p {
+      flex-shrink: 0;
+      height: 3.8em;
+      max-height: 3.8em;
+
+      white-space: wrap;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  margin: 10px 0 5px 56px;
+
+  .item {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color: #97a2ab;
+
+    .i-icon {
+      margin-right: 2px;
+    }
+  }
+}

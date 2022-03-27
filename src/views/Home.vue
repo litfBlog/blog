@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup >
-import Card from '@/components/Card.vue'
+import Card from '@/components/Card/Card.vue'
 import getListApi from '@/apis/getList'
 import { ref } from 'vue'
 
