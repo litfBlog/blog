@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-21 20:30:30
+ * @LastEditTime: 2022-03-27 20:42:31
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -12,6 +12,7 @@
     <Card
       v-for="i in articlesList"
       :key="i.id"
+      :id="i.id"
       :name="i.title"
       :avatar="i.avatar"
       :username="i.username"
