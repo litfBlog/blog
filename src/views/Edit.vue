@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-21 19:04:47
+ * @LastEditTime: 2022-03-27 20:10:12
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -136,7 +136,7 @@ const push = async () => {
 .title {
   margin: 10px 0;
   font-size: 24px;
-  /deep/ .el-input__inner {
+  :deep(.el-input__inner) {
     height: 50px;
   }
 }
@@ -151,7 +151,7 @@ const push = async () => {
 .v-md-editor {
   max-height: 80vh;
   min-height: 500px;
-  /deep/ .v-md-editor__toolbar {
+  :deep(.v-md-editor__toolbar) {
     position: sticky;
     top: 70px;
     z-index: 10;
