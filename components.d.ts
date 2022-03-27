@@ -6,15 +6,14 @@ declare module 'vue' {
   export interface GlobalComponents {
     Card: typeof import('./src/components/Card.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElUpload: typeof import('element-plus/es')['ElUpload']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Markdown: typeof import('./src/components/Editior/markdown.vue')['default']
     MyButton: typeof import('./src/components/MyButton.bak/MyButton.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     NavBarUser: typeof import('./src/components/NavBarUser.vue')['default']
+    Render: typeof import('./src/components/Render/Render.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
   }
 }

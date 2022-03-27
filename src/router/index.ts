@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-07 08:44:18
+ * @LastEditTime: 2022-03-22 11:05:30
  * @LastEditors: litfa
  * @Description: router
  * @FilePath: /blog/src/router/index.ts
@@ -36,6 +36,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Edit',
     component: () =>
       import(/* webpackChunkName: "edit" */ '@/views/Edit.vue')
+  },
+  {
+    path: '/p/:id',
+    name: 'Page',
+    component: () =>
+      import(/* webpackChunkName: "page" */ '@/views/Page.vue')
   }
 ]
 
