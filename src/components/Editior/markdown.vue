@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 17:44:23
- * @LastEditTime: 2022-03-13 17:44:59
+ * @LastEditTime: 2022-03-28 11:57:12
  * @LastEditors: litfa
  * @Description: markdown编辑器
  * @FilePath: /blog/src/components/Editior/markdown.vue
@@ -22,7 +22,10 @@ import 'prismjs/components/prism-json'
 VMdEditor.use(vuepressTheme, {
   Prism
 })
-
+const getHTML = (content: string) => {
+  return VMdEditor.vMdParser.themeConfig.markdownParser.render(content)
+}
+defineExpose({ getHTML })
 </script>
 
 <template>

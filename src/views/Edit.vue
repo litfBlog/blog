@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-27 20:10:12
+ * @LastEditTime: 2022-03-28 14:07:44
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -19,12 +19,15 @@ import { ElMessage } from 'element-plus'
 import Editior from '@/components/Editior/markdown.vue'
 import UploadCover from '@/components/UploadCover.vue'
 
+import htmlToText from '@/utils/html2text'
+
 const route = useRoute()
 const router = useRouter()
 
 let content = ref('')
 let title = ref('')
 let cover = ref('')
+let editior = ref<any>()
 
 const initPage = async () => {
   let { data: res } = await articlesInitApi()
@@ -92,13 +95,20 @@ const handleUploadImage = async (event: any, insertImage: any, files: any) => {
 
 const save = async () => {
   let uuid = route.query.id as string
+  const html = editior.value.getHTML(content.value)
+  const desc = htmlToText(html, {
+    warp: false,
+    length: 60
+  })
+
   // 存草稿
   await saveApi({
     uuid,
     contenttype: 'markdown',
     title: title.value,
     content: content.value,
-    cover: cover.value
+    cover: cover.value,
+    desc
   })
 }
 
@@ -121,6 +131,7 @@ const push = async () => {
       left-toolbar="undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code"
       :disabled-menus="[]"
       @upload-image="handleUploadImage"
+      ref="editior"
     ></component>
     <h4>设置封面</h4>
     <upload-cover :uuid="(route.query.id as string)" v-model:cover="cover"></upload-cover>
