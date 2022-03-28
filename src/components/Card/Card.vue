@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-03-27 20:43:25
+ * @LastEditTime: 2022-03-28 14:54:47
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="articles">
-      <el-image class="cover" :src="cover" fix="cover" lazy></el-image>
+      <el-image class="cover" :src="cover" fit="cover" lazy></el-image>
       <div class="text">
         <h3>{{ title }}</h3>
         <p>{{ desc }}</p>

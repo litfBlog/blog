@@ -51,6 +51,7 @@
 
   .cover {
     width: 180px;
+    height: 100px;
     border-radius: 12px;
     flex-shrink: 0;
   }
@@ -58,7 +59,6 @@
   .text {
     display: flex;
     flex-direction: column;
-    text-overflow: ellipsis;
     height: 100%;
 
     h3,
@@ -67,11 +67,11 @@
     }
 
     p {
-      flex-shrink: 0;
       height: 3.8em;
       max-height: 3.8em;
-
+      width: 70%;
       white-space: wrap;
+      word-break: break-all;
       display: -webkit-box;
       overflow: hidden;
       -webkit-line-clamp: 3;

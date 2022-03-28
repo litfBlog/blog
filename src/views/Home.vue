@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-27 20:42:31
+ * @LastEditTime: 2022-03-28 15:29:08
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -18,7 +18,7 @@
       :username="i.username"
       :date="i.createDate"
       :title="i.title"
-      :desc="i.content"
+      :desc="i.desc || i.content"
       :cover="i.cover"
     ></Card>
   </div>
@@ -34,7 +34,6 @@ let articlesList: any = ref([])
 const initArticles = async () => {
   const { data: res } = await getListApi()
   articlesList.value = res.list
-
 }
 initArticles()
 </script>
