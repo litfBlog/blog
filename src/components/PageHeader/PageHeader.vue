@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-28 18:57:08
- * @LastEditTime: 2022-03-28 19:36:38
+ * @LastEditTime: 2022-03-28 19:52:14
  * @LastEditors: litfa
  * @Description: 
  * @FilePath: /blog/src/components/PageHeader/PageHeader.vue
@@ -31,7 +31,7 @@ const createDate = computed(() => {
           <div class="info"></div>
         </div>
       </div>
-      <el-button>关注</el-button>
+      <el-button type="success" plain>+ 关注</el-button>
     </div>
     <hr />
   </div>
