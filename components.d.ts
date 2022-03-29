@@ -13,8 +13,10 @@ declare module 'vue' {
     MyButton: typeof import('./src/components/MyButton.bak/MyButton.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     NavBarUser: typeof import('./src/components/NavBarUser.vue')['default']
+    PageHeader: typeof import('./src/components/PageHeader/PageHeader.vue')['default']
     Render: typeof import('./src/components/Render/Render.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
+    User: typeof import('./src/components/Account/User/User.vue')['default']
   }
 }
 

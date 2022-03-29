@@ -32,7 +32,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/components/UploadCover.d.ts.bak"
+    "*.bak",
   ],
   "exclude": [
     "node_modules"
