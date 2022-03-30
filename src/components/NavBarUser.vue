@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 19:16:33
- * @LastEditTime: 2022-03-09 11:10:12
+ * @LastEditTime: 2022-03-30 16:17:55
  * @LastEditors: litfa
  * @Description: 顶部栏用户模块
  * @FilePath: /blog/src/components/NavBarUser.vue
@@ -19,10 +19,10 @@ let user = computed(() => {
 </script>
 
 <template>
-  <div class="user">
+  <router-link to="/account" class="user">
     {{ user.userName }}
     <el-image class="avatar" :src="user.avatar" fit="cover"></el-image>
-  </div>
+  </router-link>
 </template>
 
 <style lang="less" scoped>
