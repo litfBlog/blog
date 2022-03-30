@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 20:28:23
- * @LastEditTime: 2022-03-29 21:03:20
+ * @LastEditTime: 2022-03-30 15:59:40
  * @LastEditors: litfa
  * @Description: 我的文章
  * @FilePath: /blog/src/components/Account/MyArticles/MyArticles.vue
@@ -9,7 +9,7 @@
 -->
 <script lang="ts" setup>
 import Card from '@/components/Card/Card.vue'
-import getListApi from '@/apis/getList'
+import { getUser as getListApi } from '@/apis/getList'
 import { computed } from '@vue/reactivity'
 import { useStore } from 'vuex'
 import { ref } from 'vue'
