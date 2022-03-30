@@ -1,14 +1,14 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 20:28:23
- * @LastEditTime: 2022-03-30 15:59:40
+ * @LastEditTime: 2022-03-30 16:06:00
  * @LastEditors: litfa
  * @Description: 我的文章
  * @FilePath: /blog/src/components/Account/MyArticles/MyArticles.vue
  * 
 -->
 <script lang="ts" setup>
-import Card from '@/components/Card/Card.vue'
+import Card from '../Card/Card.vue'
 import { getUser as getListApi } from '@/apis/getList'
 import { computed } from '@vue/reactivity'
 import { useStore } from 'vuex'
