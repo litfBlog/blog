@@ -10,6 +10,7 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Markdown: typeof import('./src/components/Editior/markdown.vue')['default']
+    MyArticles: typeof import('./src/components/Account/MyArticles/MyArticles.vue')['default']
     MyButton: typeof import('./src/components/MyButton.bak/MyButton.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     NavBarUser: typeof import('./src/components/NavBarUser.vue')['default']

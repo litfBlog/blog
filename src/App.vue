@@ -1,3 +1,12 @@
+<!--
+ * @Author: litfa
+ * @Date: 2022-03-29 21:07:21
+ * @LastEditTime: 2022-03-30 19:39:34
+ * @LastEditors: litfa
+ * @Description: 
+ * @FilePath: /blog/src/App.vue
+ * 
+-->
 <template>
   <NavBar></NavBar>
   <router-view></router-view>
