@@ -1,12 +1,17 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-03-30 16:08:17
+ * @LastEditTime: 2022-03-30 16:29:59
  * @LastEditors: litfa
  * @Description: 个人页文章卡片
  * @FilePath: /blog/src/components/Account/Card/Card.vue
  * 
 -->
+<!-- 
+  待修改： 展示文章、点赞的文章、收藏的文章、
+  主页各展示一部分，点击查看更多跳转到对应的导航栏
+  暂时只展示文章
+ -->
 <template>
   <div class="card" @click="router.push(`/p/${props.id}`)">
     <div class="articles">
@@ -26,6 +31,7 @@
       <div class="item">
         <comment theme="filled" :size="size" fill="#97a2ab" />0
       </div>
+      <div class="item">{{ props.date ? formatDate(props.date) : '' }}</div>
     </div>
   </div>
 </template>
