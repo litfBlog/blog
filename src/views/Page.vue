@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-03-28 19:43:07
+ * @LastEditTime: 2022-04-01 16:15:17
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -11,6 +11,7 @@
 import Render from '@/components/Render/Render.vue'
 import PageHeader from '@/components/PageHeader/PageHeader.vue'
 import getArticlesApi from '@/apis/getArticles'
+import SideToolbar from '@/components/SideToolbar/SideToolbar.vue'
 
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
@@ -37,6 +38,7 @@ getArticles()
   <div class="Page">
     <page-header v-bind="headerInfo"></page-header>
     <Render :text="content"></Render>
+    <SideToolbar></SideToolbar>
   </div>
 </template>
 

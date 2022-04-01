@@ -5,11 +5,14 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Card: typeof import('./src/components/Card/Card.vue')['default']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    HomeComponents: typeof import('./src/components/HomeComponents/HomeComponents.vue')['default']
     Markdown: typeof import('./src/components/Editior/markdown.vue')['default']
+    Miniprogram: typeof import('./src/components/HomeComponents/Miniprogram.vue')['default']
     MyArticles: typeof import('./src/components/Account/MyArticles/MyArticles.vue')['default']
     MyButton: typeof import('./src/components/MyButton.bak/MyButton.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
