@@ -1,22 +1,32 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-01 18:02:43
+ * @LastEditTime: 2022-04-02 15:46:32
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
  * 
 -->
 <script lang="ts" setup>
+import { ref } from 'vue'
 import Icon from './Icon/Icon.vue'
 import { ThumbsUp, Up, Star } from '@icon-park/vue-next'
 import { ElBacktop } from 'element-plus'
+import scrollObserver from '@/utils/scrollObserver'
+
+const isScroll = ref(false)
+
+// 是否滚动useScroll(document.body)
+scrollObserver(document.body, (e: boolean): void => {
+  console.log(e, '1')
+  isScroll.value = e
+})
 const size = 30
 </script>
 
 <template>
   <div class="SideToolbar">
-    <div class="SideBar">
+    <div class="SideBar" :class="{ hidden: isScroll }">
       <div class="box">
         <Icon :count="1000">
           <ThumbsUp theme="outline" :size="size" fill="#333" :stroke-width="3" />
@@ -47,6 +57,7 @@ const size = 30
     right: 0;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s;
     align-items: center;
     .box {
       border-radius: 10px;
@@ -58,6 +69,9 @@ const size = 30
       background-color: #fff;
       transition: all 0.3s;
     }
+  }
+  .hidden {
+    opacity: 0;
   }
 }
 </style>
