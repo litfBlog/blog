@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-30 19:40:12
+ * @LastEditTime: 2022-04-02 19:23:52
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -21,6 +21,7 @@
         :title="i.title"
         :desc="i.desc || i.content"
         :cover="i.cover"
+        :likes-count="i.likes_count"
       ></Card>
     </div>
     <HomeComponents></HomeComponents>

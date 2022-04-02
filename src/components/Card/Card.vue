@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-03-28 14:54:47
+ * @LastEditTime: 2022-04-02 19:25:44
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -28,7 +28,8 @@
         <preview-open theme="filled" :size="size" fill="#97a2ab" />9
       </div>
       <div class="item">
-        <thumbs-up theme="filled" :size="size" fill="#97a2ab" />3
+        <thumbs-up theme="filled" :size="size" fill="#97a2ab" />
+        {{ props.likesCount }}
       </div>
       <div class="item">
         <comment theme="filled" :size="size" fill="#97a2ab" />0
