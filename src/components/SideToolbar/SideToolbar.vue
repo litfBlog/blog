@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-02 15:46:32
+ * @LastEditTime: 2022-04-02 19:51:33
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -21,6 +21,15 @@ scrollObserver(document.body, (e: boolean): void => {
   console.log(e, '1')
   isScroll.value = e
 })
+
+const props = defineProps({
+  likes: {
+    type: Number
+  }
+})
+
+const emits = defineEmits(['update:likes'])
+
 const size = 30
 </script>
 
@@ -28,7 +37,7 @@ const size = 30
   <div class="SideToolbar">
     <div class="SideBar" :class="{ hidden: isScroll }">
       <div class="box">
-        <Icon :count="1000">
+        <Icon :count="props.likes ? props.likes : 0">
           <ThumbsUp theme="outline" :size="size" fill="#333" :stroke-width="3" />
         </Icon>
         <Icon :count="1000">

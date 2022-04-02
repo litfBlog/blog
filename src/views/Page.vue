@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-01 16:15:17
+ * @LastEditTime: 2022-04-02 19:52:06
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -17,8 +17,14 @@ import { useRoute } from 'vue-router'
 import { ref } from 'vue'
 const route = useRoute()
 
+interface ToolbarData {
+  likes?: number
+}
+
 const content = ref('')
 const headerInfo: any = ref({})
+const likes = ref(0)
+const toolbarData = ref<ToolbarData>({})
 
 const getArticles = async () => {
   const { data: res } = await getArticlesApi(route.params.id as string)
@@ -29,6 +35,7 @@ const getArticles = async () => {
     headerInfo.value.avatar = res.data.avatar
     headerInfo.value.date = res.data.createDate
     headerInfo.value.name = res.data.username
+    likes.value = res.data.likes_count
   }
 }
 getArticles()
@@ -38,7 +45,7 @@ getArticles()
   <div class="Page">
     <page-header v-bind="headerInfo"></page-header>
     <Render :text="content"></Render>
-    <SideToolbar></SideToolbar>
+    <SideToolbar v-model:likes="likes"></SideToolbar>
   </div>
 </template>
 
