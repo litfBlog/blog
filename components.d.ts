@@ -9,6 +9,8 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HomeComponents: typeof import('./src/components/HomeComponents/HomeComponents.vue')['default']
     Icon: typeof import('./src/components/SideToolbar/Icon/Icon.vue')['default']

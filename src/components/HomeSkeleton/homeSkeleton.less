@@ -1,0 +1,57 @@
+.HomeSkeleton {
+  max-width: 700px;
+  // min-width: 500px;
+  height: 200px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 5px 5px 15px 0 rgba(177, 177, 177, 0.212);
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 5px 5px 15px 0 rgba(133, 133, 133, 0.397);
+
+    .cover :deep(.el-image__inner) {
+      transform: scale(1.1);
+    }
+  }
+}
+
+:deep(.user) {
+  display: flex;
+}
+
+:deep(.info) {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  justify-content: space-around;
+
+  div {
+    margin: 0 !important;
+  }
+}
+
+:deep(.articles) {
+  display: flex;
+
+
+  .cover {
+    width: 25%;
+    height: 100px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    margin-left: 8%;
+  }
+
+  :deep(.info) {
+    display: flex;
+    flex: 1;
+  }
+}
