@@ -11,6 +11,7 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HomeComponents: typeof import('./src/components/HomeComponents/HomeComponents.vue')['default']
+    Icon: typeof import('./src/components/SideToolbar/Icon/Icon.vue')['default']
     Markdown: typeof import('./src/components/Editior/markdown.vue')['default']
     Miniprogram: typeof import('./src/components/HomeComponents/Miniprogram.vue')['default']
     MyArticles: typeof import('./src/components/Account/MyArticles/MyArticles.vue')['default']
@@ -19,6 +20,7 @@ declare module 'vue' {
     NavBarUser: typeof import('./src/components/NavBarUser.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader/PageHeader.vue')['default']
     Render: typeof import('./src/components/Render/Render.vue')['default']
+    SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
     User: typeof import('./src/components/Account/User/User.vue')['default']
   }

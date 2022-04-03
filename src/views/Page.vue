@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-02 19:52:06
+ * @LastEditTime: 2022-04-03 16:15:21
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -24,6 +24,7 @@ interface ToolbarData {
 const content = ref('')
 const headerInfo: any = ref({})
 const likes = ref(0)
+const liked = ref(false)
 const toolbarData = ref<ToolbarData>({})
 
 const getArticles = async () => {
@@ -36,6 +37,7 @@ const getArticles = async () => {
     headerInfo.value.date = res.data.createDate
     headerInfo.value.name = res.data.username
     likes.value = res.data.likes_count
+    liked.value = res.data.liked == 1 ? true : false
   }
 }
 getArticles()
@@ -45,7 +47,7 @@ getArticles()
   <div class="Page">
     <page-header v-bind="headerInfo"></page-header>
     <Render :text="content"></Render>
-    <SideToolbar v-model:likes="likes"></SideToolbar>
+    <SideToolbar v-model:likes="likes" v-model:liked="liked"></SideToolbar>
   </div>
 </template>
 

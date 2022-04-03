@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:09:23
- * @LastEditTime: 2022-04-01 18:00:26
+ * @LastEditTime: 2022-04-03 16:39:38
  * @LastEditors: litfa
  * @Description: icon
  * @FilePath: /blog/src/components/SideToolbar/Icon/Icon.vue
@@ -29,9 +29,21 @@ const props = defineProps(propNames)
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  user-select: none;
   &:hover {
     :deep(path) {
       stroke: @primary !important;
+    }
+    color: @primary;
+  }
+  :deep(.liked) {
+    path {
+      fill: @primary !important;
+      stroke: none !important;
+      stroke-width: 0;
+      &:first-child {
+        transform: translateX(1px);
+      }
     }
     color: @primary;
   }
