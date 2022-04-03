@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-03 16:15:21
+ * @LastEditTime: 2022-04-03 17:50:52
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -37,7 +37,7 @@ const getArticles = async () => {
     headerInfo.value.date = res.data.createDate
     headerInfo.value.name = res.data.username
     likes.value = res.data.likes_count
-    liked.value = res.data.liked == 1 ? true : false
+    liked.value = res.data.liked != null ? true : false
   }
 }
 getArticles()
