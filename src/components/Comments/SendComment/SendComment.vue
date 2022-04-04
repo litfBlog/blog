@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-04 18:51:27
+ * @LastEditTime: 2022-04-04 19:09:44
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -12,9 +12,11 @@ import { ref } from 'vue'
 import Emoji from '@/components/Emoji/Emoji.vue'
 
 const textarea = ref('')
+const input = ref<HTMLElement | null>(null)
 
 const selectEmoji = (emoji: string) => {
   textarea.value += `[${emoji}]`
+  input.value?.focus()
 }
 
 </script>
@@ -28,6 +30,7 @@ const selectEmoji = (emoji: string) => {
       :autosize="{ minRows: 2, maxRows: 4 }"
       type="textarea"
       placeholder="输入评论"
+      ref="input"
     />
     <div class="bottom">
       <div class="icons">
