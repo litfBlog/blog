@@ -1,18 +1,18 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-03 16:38:27
+ * @LastEditTime: 2022-04-04 14:21:19
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
  * 
 -->
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onUnmounted, ref } from 'vue'
 import Icon from './Icon/Icon.vue'
 import { ThumbsUp, Up, Star } from '@icon-park/vue-next'
 import { ElBacktop } from 'element-plus'
-import scrollObserver from '@/utils/scrollObserver'
+import ScrollObserver from '@/utils/scrollObserver'
 import likeApi from '@/apis/like'
 import { useRoute } from 'vue-router'
 
@@ -20,10 +20,13 @@ const route = useRoute()
 
 const isScroll = ref(false)
 
-// 是否滚动useScroll(document.body)
-scrollObserver(document.body, (e: boolean): void => {
-  console.log(e, '1')
+// 是否滚动
+let scrollObserver = new ScrollObserver(document.body, (e: boolean): void => {
   isScroll.value = e
+})
+
+onUnmounted(() => {
+  scrollObserver.destroy()
 })
 
 const props = defineProps({

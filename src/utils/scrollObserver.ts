@@ -1,25 +1,32 @@
 /*
  * @Author: litfa
  * @Date: 2022-04-01 18:30:18
- * @LastEditTime: 2022-04-02 15:44:32
+ * @LastEditTime: 2022-04-04 14:21:52
  * @LastEditors: litfa
  * @Description: 
  * @FilePath: /blog/src/utils/scrollObserver.ts
  * 
  */
-// interface Cb {
-//   () => void;
-// }
 type callBack = (scroll: boolean) => void
-let timeOut = -1
-export default (el: HTMLElement | Window, cb: callBack): void => {
-  window.onscroll = function () {
-    // const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-    // console.log('滚动距离' + scrollTop)
-    cb(true)
-    clearTimeout(timeOut)
-    timeOut = setTimeout(() => {
-      cb(false)
-    }, 200)
+
+export default class scrollObserver {
+  private el: HTMLElement | Window
+  private cb: callBack
+  // 添加监听
+  private create() {
+    console.log('creata')
+
+    this.el.ontouchstart = () => this.cb(true)
+    this.el.ontouchend = () => this.cb(false)
+  }
+  // 销毁（vue销毁时调用）
+  destroy(): void {
+    this.el.ontouchstart = null
+    this.el.ontouchend = null
+  }
+  constructor(el: HTMLElement | Window, cb: callBack) {
+    this.el = el
+    this.cb = cb
+    this.create()
   }
 }
