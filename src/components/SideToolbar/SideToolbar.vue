@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-04 14:21:19
+ * @LastEditTime: 2022-04-04 17:02:34
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -96,6 +96,7 @@ const like = async () => {
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   .SideBar {
     position: absolute;
     right: 0;
@@ -103,6 +104,7 @@ const like = async () => {
     flex-direction: column;
     transition: all 0.3s;
     align-items: center;
+    pointer-events: all;
     .box {
       border-radius: 10px;
       margin: 10px;

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-03 21:10:13
+ * @LastEditTime: 2022-04-04 15:49:13
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -12,6 +12,7 @@ import Render from '@/components/Render/Render.vue'
 import PageHeader from '@/components/PageHeader/PageHeader.vue'
 import getArticlesApi from '@/apis/getArticles'
 import SideToolbar from '@/components/SideToolbar/SideToolbar.vue'
+import Comments from '@/components/Comments/Comments.vue'
 
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
@@ -48,6 +49,7 @@ getArticles()
     <page-header v-bind="headerInfo"></page-header>
     <Render :text="content"></Render>
     <SideToolbar v-model:likes="likes" v-model:liked="liked"></SideToolbar>
+    <Comments></Comments>
   </div>
 </template>
 
