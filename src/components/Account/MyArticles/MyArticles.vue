@@ -1,14 +1,14 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 20:28:23
- * @LastEditTime: 2022-03-30 16:06:00
+ * @LastEditTime: 2022-04-04 15:04:12
  * @LastEditors: litfa
  * @Description: 我的文章
  * @FilePath: /blog/src/components/Account/MyArticles/MyArticles.vue
  * 
 -->
 <script lang="ts" setup>
-import Card from '../Card/Card.vue'
+import Card from '@/components/Card/Card.vue'
 import { getUser as getListApi } from '@/apis/getList'
 import { computed } from '@vue/reactivity'
 import { useStore } from 'vuex'
@@ -28,19 +28,31 @@ getList()
 </script>
 
 <template>
-  <div v-for="i in articlesList" :key="i.id">
+  <div class="MyArticles">
     <Card
+      v-for="i in articlesList"
+      :key="i.id"
+      :view-author="false"
+      :view-shadow="false"
       :id="i.id"
-      :name="i.title"
       :avatar="i.avatar"
       :username="i.username"
       :date="i.createDate"
       :title="i.title"
       :desc="i.desc || i.content"
       :cover="i.cover"
+      :likes-count="i.likes_count"
     ></Card>
   </div>
 </template>
 
 <style lang="less" scoped>
+.MyArticles {
+  padding-top: 40px;
+  .card {
+    border-top: 0.5px #aaaa solid;
+    border-radius: 0;
+    height: 160px;
+  }
+}
 </style>

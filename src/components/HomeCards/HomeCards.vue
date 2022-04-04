@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-03 19:02:49
- * @LastEditTime: 2022-04-03 19:12:13
+ * @LastEditTime: 2022-04-04 15:02:51
  * @LastEditors: litfa
  * @Description: 首页文章
  * @FilePath: /blog/src/components/HomeCards/HomeCards.vue
@@ -27,7 +27,6 @@ await initArticles()
       v-for="i in articlesList"
       :key="i.id"
       :id="i.id"
-      :name="i.title"
       :avatar="i.avatar"
       :username="i.username"
       :date="i.createDate"

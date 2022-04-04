@@ -1,15 +1,15 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-02 19:25:44
+ * @LastEditTime: 2022-04-04 14:36:52
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
  * 
 -->
 <template>
-  <div class="card" @click="router.push(`/p/${props.id}`)">
-    <div class="user">
+  <div class="card" :class="{ shadow: props.viewShadow }" @click="router.push(`/p/${props.id}`)">
+    <div class="user" v-if="props.viewAuthor">
       <el-image class="avatar" :src="avatar" fit="cover"></el-image>
       <div class="info">
         <span class="username">{{ username }}</span>
