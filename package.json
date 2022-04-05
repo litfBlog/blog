@@ -20,7 +20,8 @@
     "style-resources-loader": "^1.5.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "xss": "^1.0.11"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
