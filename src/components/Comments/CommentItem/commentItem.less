@@ -1,0 +1,56 @@
+.CommentItem {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  border-bottom: 0.5px solid #aaa6;
+
+  .data {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .el-image {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    word-break: break-all;
+
+    .name {
+      font-size: 12px;
+      line-height: 30px;
+      height: 30px;
+      flex-shrink: 0;
+
+    }
+
+    .content {
+      font-size: 14px;
+      line-height: 24px;
+      max-height: 500px;
+      max-width: 600px;
+      overflow: hidden;
+    }
+
+    .bottom {
+
+      &,
+      span {
+        color: #666;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      width: 180px;
+
+    }
+  }
+}
