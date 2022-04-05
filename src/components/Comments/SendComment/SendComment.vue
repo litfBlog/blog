@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-04 19:09:44
+ * @LastEditTime: 2022-04-05 17:26:05
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -10,15 +10,29 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import Emoji from '@/components/Emoji/Emoji.vue'
+import { useRoute } from 'vue-router'
+import sendCommentApi from '@/apis/sendComment'
 
 const textarea = ref('')
 const input = ref<HTMLElement | null>(null)
+const route = useRoute()
+const loading = ref(false)
 
 const selectEmoji = (emoji: string) => {
   textarea.value += `[${emoji}]`
   input.value?.focus()
 }
 
+const sendComment = async () => {
+  loading.value = true
+  const { data: res } = await sendCommentApi(Number(route.params.id), textarea.value)
+  if (res.status === 1) {
+    textarea.value = ''
+  } else {
+    // alert
+  }
+  loading.value = false
+}
 </script>
 
 <template>
@@ -36,7 +50,7 @@ const selectEmoji = (emoji: string) => {
       <div class="icons">
         <Emoji @select-emoji="selectEmoji"></Emoji>
       </div>
-      <el-button type="success">发送</el-button>
+      <el-button type="success" @click="sendComment" :loading="loading">发送</el-button>
     </div>
   </div>
 </template>
