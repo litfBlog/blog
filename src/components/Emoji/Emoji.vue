@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 17:11:23
- * @LastEditTime: 2022-04-04 18:44:05
+ * @LastEditTime: 2022-04-05 18:52:44
  * @LastEditors: litfa
  * @Description: 表情
  * @FilePath: /blog/src/components/Emoji/Emoji.vue
@@ -11,6 +11,7 @@
 import { ref } from 'vue'
 import { EmotionHappy } from '@icon-park/vue-next'
 import emojis from '@/assets/emoji/list'
+import emojiUrl from '@/utils/emojiList'
 const visible = ref(false)
 
 const emits = defineEmits(['selectEmoji'])
@@ -25,7 +26,7 @@ const selectEmoji = (emoji: string) => {
     <p>选择表情</p>
     <div class="emoji-box">
       <span v-for="emoji in emojis" :key="emoji" @click="selectEmoji(emoji)">
-        <img :src="require(`@/assets/emoji/${emoji}.jpg`)" :alt="emoji" />
+        <img :src="emojiUrl[emoji]" :alt="emoji" />
       </span>
     </div>
     <template #reference>

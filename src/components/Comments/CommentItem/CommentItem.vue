@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-05 17:05:02
+ * @LastEditTime: 2022-04-05 18:32:20
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -11,7 +11,13 @@
 import propNames from './props'
 import CommentChildItem from '../CommentChildItem/CommentChildItem.vue'
 import { GoodTwo, More } from '@icon-park/vue-next'
+import emoji from '@/assets/emoji/list'
+import replaceEmoji from '../utils/replaceEmoji'
+import { computed } from '@vue/reactivity'
 const props = defineProps(propNames)
+const content = computed(() => {
+  return replaceEmoji(props.content as string, emoji)
+})
 </script>
 
 <template>
@@ -20,7 +26,7 @@ const props = defineProps(propNames)
       <el-image :src="props.avatar" :alt="`${props.avatar}的头像`" fit="cover" />
       <div class="info">
         <div class="name">{{ username }}</div>
-        <div class="content">{{ content }}</div>
+        <div class="content" v-html="content"></div>
         <div class="bottom">
           <span>一小时前</span>
           <span>
