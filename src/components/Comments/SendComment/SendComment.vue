@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-05 17:26:05
+ * @LastEditTime: 2022-04-05 19:30:25
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -12,6 +12,9 @@ import { ref } from 'vue'
 import Emoji from '@/components/Emoji/Emoji.vue'
 import { useRoute } from 'vue-router'
 import sendCommentApi from '@/apis/sendComment'
+import propNames from './props'
+
+const props = defineProps(propNames)
 
 const textarea = ref('')
 const input = ref<HTMLElement | null>(null)
@@ -37,13 +40,13 @@ const sendComment = async () => {
 
 <template>
   <div class="SendComments">
-    <h3>评论</h3>
+    <h3>{{ props.title || '评论' }}</h3>
     <el-input
       v-model="textarea"
       :rows="2"
       :autosize="{ minRows: 2, maxRows: 4 }"
       type="textarea"
-      placeholder="输入评论"
+      :placeholder="props.placeholder || '输入评论'"
       ref="input"
     />
     <div class="bottom">
@@ -60,12 +63,17 @@ const sendComment = async () => {
   display: flex;
   min-height: 130px;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
   margin: 0 20px;
   .el-button {
     margin-right: 0;
     margin-left: auto;
+  }
+  .el-textarea {
+    margin: 15px 0;
+    :deep(textarea) {
+      resize: none;
+    }
   }
   .bottom {
     display: flex;
