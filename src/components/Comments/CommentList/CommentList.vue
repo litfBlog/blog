@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 16:09:09
- * @LastEditTime: 2022-04-05 16:21:38
+ * @LastEditTime: 2022-04-06 18:41:35
  * @LastEditors: litfa
  * @Description: 评论列表
  * @FilePath: /blog/src/components/Comments/CommentList/CommentList.vue
@@ -12,6 +12,7 @@ import CommentItem from '../CommentItem/CommentItem.vue'
 import getCommentApi from '@/apis/getComment'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
+import bus from 'vue3-eventbus'
 const route = useRoute()
 const commentList = ref<any>([])
 const getComment = async () => {
@@ -20,6 +21,9 @@ const getComment = async () => {
     commentList.value = res.data
   }
 }
+bus.on('reSetComment', () => {
+  getComment()
+})
 getComment()
 </script>
 

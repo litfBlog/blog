@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-06 18:07:07
+ * @LastEditTime: 2022-04-06 18:42:29
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -13,6 +13,7 @@ import Emoji from '@/components/Emoji/Emoji.vue'
 import { useRoute } from 'vue-router'
 import sendCommentApi from '@/apis/sendComment'
 import propNames from './props'
+import bus from 'vue3-eventbus'
 
 const props = defineProps(propNames)
 
@@ -35,6 +36,7 @@ const sendComment = async () => {
   const { data: res } = await sendCommentApi(Number(route.params.id), textarea.value, props.father, props.parent)
   if (res.status === 1) {
     textarea.value = ''
+    bus.emit('reSetComment')
   } else {
     // alert
   }
