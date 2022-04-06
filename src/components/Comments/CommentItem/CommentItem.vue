@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-06 16:58:31
+ * @LastEditTime: 2022-04-06 17:58:03
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -21,6 +21,15 @@ const content = computed(() => {
   return replaceEmoji(props.content as string, emoji)
 })
 const showSend = ref(false)
+const parentUsername = (parent: number) => {
+  for (const i in props.children) {
+    let index = Number(i)
+    let item = props.children[index] as any
+    if (item?.id == parent) {
+      return item.username
+    }
+  }
+}
 </script>
 
 <template>
@@ -55,8 +64,7 @@ const showSend = ref(false)
       v-for="item in (props.children as any)"
       :key="item.id"
       v-bind="item"
-      :id="id"
-      :parent="item.id"
+      :parentUsername="parentUsername(item.parent)"
     ></CommentChildItem>
   </div>
 </template>

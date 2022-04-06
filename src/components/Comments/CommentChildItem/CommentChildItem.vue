@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 16:41:48
- * @LastEditTime: 2022-04-06 16:57:49
+ * @LastEditTime: 2022-04-06 17:57:39
  * @LastEditors: litfa
  * @Description: 评论回复
  * @FilePath: /blog/src/components/Comments/CommentChildItem/CommentChildItem.vue
@@ -30,7 +30,7 @@ const showSend = ref(false)
       <el-image :src="props.avatar" :alt="`${props.avatar}的头像`" fit="cover" />
       <div class="info">
         <div class="name">{{ username }}</div>
-        <div class="content" v-html="content"></div>
+        <div class="content" v-html="(parentUsername ? `回复 ${parentUsername}：` : '') + content"></div>
         <div class="bottom">
           <span>一小时前</span>
           <span>
@@ -48,8 +48,8 @@ const showSend = ref(false)
         v-if="showSend"
         title=" "
         :placeholder="`回复：${username}`"
-        :father="id"
-        :parent="parent"
+        :father="props.father"
+        :parent="props.id"
       ></SendComment>
     </transition>
   </div>

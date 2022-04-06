@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-04-05 15:51:34
- * @LastEditTime: 2022-04-05 16:04:50
+ * @LastEditTime: 2022-04-06 17:55:27
  * @LastEditors: litfa
  * @Description: props
  * @FilePath: /blog/src/components/Comments/CommentItem/props.ts
@@ -23,6 +23,9 @@ export default {
   avatar: {
     type: String,
     required: true
+  },
+  father: {
+    type: Number
   },
   parent: {
     type: Number
