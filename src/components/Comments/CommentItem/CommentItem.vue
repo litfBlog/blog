@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-05 19:26:35
+ * @LastEditTime: 2022-04-06 16:04:46
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -43,7 +43,13 @@ const showSend = ref(false)
       </div>
     </div>
     <transition name="el-zoom-in-top">
-      <SendComment v-if="showSend" title=" " :placeholder="`回复：${username}`"></SendComment>
+      <SendComment
+        v-if="showSend"
+        title=" "
+        :placeholder="`回复：${username}`"
+        :father="id"
+        :parent="id"
+      ></SendComment>
     </transition>
     <CommentChildItem v-for="item in (props.children as any)" :key="item.id" v-bind="item"></CommentChildItem>
   </div>

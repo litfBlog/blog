@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-05 19:30:25
+ * @LastEditTime: 2022-04-06 16:09:19
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -28,7 +28,7 @@ const selectEmoji = (emoji: string) => {
 
 const sendComment = async () => {
   loading.value = true
-  const { data: res } = await sendCommentApi(Number(route.params.id), textarea.value)
+  const { data: res } = await sendCommentApi(Number(route.params.id), textarea.value, props.father, props.parent)
   if (res.status === 1) {
     textarea.value = ''
   } else {
