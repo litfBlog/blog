@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-06 16:09:19
+ * @LastEditTime: 2022-04-06 18:07:07
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -23,6 +23,10 @@ const loading = ref(false)
 
 const selectEmoji = (emoji: string) => {
   textarea.value += `[${emoji}]`
+  focusInput()
+}
+
+const focusInput = () => {
   input.value?.focus()
 }
 
@@ -36,6 +40,9 @@ const sendComment = async () => {
   }
   loading.value = false
 }
+defineExpose({
+  focusInput
+})
 </script>
 
 <template>

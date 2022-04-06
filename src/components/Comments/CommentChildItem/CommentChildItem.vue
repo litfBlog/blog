@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 16:41:48
- * @LastEditTime: 2022-04-06 17:57:39
+ * @LastEditTime: 2022-04-06 18:22:08
  * @LastEditors: litfa
  * @Description: 评论回复
  * @FilePath: /blog/src/components/Comments/CommentChildItem/CommentChildItem.vue
@@ -9,7 +9,7 @@
 -->
 <script lang="ts" setup>
 import propNames from './props'
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import { GoodTwo, More } from '@icon-park/vue-next'
 import SendComment from '../SendComment/SendComment.vue'
 import emoji from '@/assets/emoji/list'
@@ -22,6 +22,15 @@ const content = computed(() => {
 
 const props = defineProps(propNames)
 const showSend = ref(false)
+const sendComment = ref<any | null>(null)
+const viewSend = () => {
+  showSend.value = !showSend.value
+  if (showSend.value) {
+    nextTick(() => {
+      sendComment.value?.focusInput()
+    })
+  }
+}
 </script>
 
 <template>
@@ -36,7 +45,7 @@ const showSend = ref(false)
           <span>
             <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />100
           </span>
-          <span class="reply" @click="showSend = !showSend">回复</span>
+          <span class="reply" @click="viewSend">回复</span>
           <span class="more">
             <more theme="outline" size="20" fill="#666" :strokeWidth="3" />
           </span>
@@ -46,6 +55,7 @@ const showSend = ref(false)
     <transition name="el-zoom-in-top">
       <SendComment
         v-if="showSend"
+        ref="sendComment"
         title=" "
         :placeholder="`回复：${username}`"
         :father="props.father"

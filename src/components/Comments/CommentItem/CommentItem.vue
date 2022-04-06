@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-06 17:58:03
+ * @LastEditTime: 2022-04-06 18:23:50
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -15,7 +15,7 @@ import emoji from '@/assets/emoji/list'
 import replaceEmoji from '../utils/replaceEmoji'
 import { computed } from '@vue/reactivity'
 import SendComment from '../SendComment/SendComment.vue'
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 const props = defineProps(propNames)
 const content = computed(() => {
   return replaceEmoji(props.content as string, emoji)
@@ -28,6 +28,16 @@ const parentUsername = (parent: number) => {
     if (item?.id == parent) {
       return item.username
     }
+  }
+}
+
+const sendComment = ref<any | null>(null)
+const viewSend = () => {
+  showSend.value = !showSend.value
+  if (showSend.value) {
+    nextTick(() => {
+      sendComment.value?.focusInput()
+    })
   }
 }
 </script>
@@ -44,7 +54,7 @@ const parentUsername = (parent: number) => {
           <span>
             <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />100
           </span>
-          <span @click="showSend = !showSend">回复</span>
+          <span @click="viewSend">回复</span>
           <span>
             <more theme="outline" size="20" fill="#666" :strokeWidth="3" />
           </span>
@@ -54,6 +64,7 @@ const parentUsername = (parent: number) => {
     <transition name="el-zoom-in-top">
       <SendComment
         v-if="showSend"
+        ref="sendComment"
         title=" "
         :placeholder="`回复：${username}`"
         :father="id"
