@@ -20,6 +20,7 @@
     "style-resources-loader": "^1.5.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
+    "vue3-eventbus": "^2.0.0",
     "vuex": "^4.0.0-0",
     "xss": "^1.0.11"
   },

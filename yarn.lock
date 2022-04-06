@@ -6936,6 +6936,11 @@ mississippi@^3.0.0:
     stream-each "^1.1.0"
     through2 "^2.0.0"
 
+mitt@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmmirror.com/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
+  integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
+
 mixin-deep@^1.2.0:
   version "1.3.2"
   resolved "https://registry.npmmirror.com/mixin-deep/-/mixin-deep-1.3.2.tgz"
@@ -9904,6 +9909,13 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npmmirror.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
+vue3-eventbus@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/vue3-eventbus/-/vue3-eventbus-2.0.0.tgz#0ee35d7286a164f8e635b7a3f2b7b0270ddfbd47"
+  integrity sha512-AzgA5ShZqWy6zeuZbnwAOZDt/GHRcUwUEyNmUoOEK7MtwpjABXtyh1m6JHzcEulrRrxMgpI2qDFsjss3fYpYuw==
+  dependencies:
+    mitt "^2.1.0"
+
 vue@^3.0.0:
   version "3.2.31"
   resolved "https://registry.npmmirror.com/vue/-/vue-3.2.31.tgz"
@@ -10205,15 +10217,7 @@ ws@^6.0.0, ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-xss@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.npmmirror.com/xss/-/xss-1.0.11.tgz#211cb82e95b5071d4c75d597283c021157ebe46a"
-  integrity sha512-EimjrjThZeK2MO7WKR9mN5ZC1CSqivSl55wvUK5EtU6acf0rzEE1pN+9ZDrFXJ82BRp3JL38pPE6S4o/rpp1zQ==
-  dependencies:
-    commander "^2.20.3"
-    cssfilter "0.0.10"
-
-xss@^1.0.9:
+xss@^1.0.11, xss@^1.0.9:
   version "1.0.11"
   resolved "https://registry.npmmirror.com/xss/-/xss-1.0.11.tgz"
   integrity sha512-EimjrjThZeK2MO7WKR9mN5ZC1CSqivSl55wvUK5EtU6acf0rzEE1pN+9ZDrFXJ82BRp3JL38pPE6S4o/rpp1zQ==
