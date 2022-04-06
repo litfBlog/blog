@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 16:09:09
- * @LastEditTime: 2022-04-06 18:41:35
+ * @LastEditTime: 2022-04-06 19:03:22
  * @LastEditors: litfa
  * @Description: 评论列表
  * @FilePath: /blog/src/components/Comments/CommentList/CommentList.vue
@@ -18,7 +18,7 @@ const commentList = ref<any>([])
 const getComment = async () => {
   const { data: res } = await getCommentApi(Number(route.params.id))
   if (res.status == 1) {
-    commentList.value = res.data
+    commentList.value = res.data.reverse()
   }
 }
 bus.on('reSetComment', () => {

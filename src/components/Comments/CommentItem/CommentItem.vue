@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-06 18:23:50
+ * @LastEditTime: 2022-04-06 18:57:23
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -16,6 +16,7 @@ import replaceEmoji from '../utils/replaceEmoji'
 import { computed } from '@vue/reactivity'
 import SendComment from '../SendComment/SendComment.vue'
 import { ref, nextTick } from 'vue'
+import formatDate from '@/utils/formatDate'
 const props = defineProps(propNames)
 const content = computed(() => {
   return replaceEmoji(props.content as string, emoji)
@@ -50,7 +51,7 @@ const viewSend = () => {
         <div class="name">{{ username }}</div>
         <div class="content" v-html="content"></div>
         <div class="bottom">
-          <span>一小时前</span>
+          <span>{{ formatDate(props.date || 0) }}</span>
           <span>
             <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />100
           </span>

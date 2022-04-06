@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-04-05 15:51:34
- * @LastEditTime: 2022-04-06 17:55:27
+ * @LastEditTime: 2022-04-06 18:59:28
  * @LastEditors: litfa
  * @Description: props
  * @FilePath: /blog/src/components/Comments/CommentItem/props.ts
@@ -32,5 +32,8 @@ export default {
   },
   children: {
     type: Array
+  },
+  date: {
+    type: String
   }
 }
