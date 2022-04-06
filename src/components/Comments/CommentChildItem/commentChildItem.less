@@ -1,7 +1,18 @@
 .CommentChildItem {
   display: flex;
-  margin: 5px 0 5px 20px;
+  flex-direction: column;
+  margin: 5px 0 5px 45px;
   align-items: flex-start;
+
+  :deep(.SendComments) {
+    margin-left: 55px;
+    width: 75%;
+  }
+
+  .data {
+    display: flex;
+    align-items: flex-start;
+  }
 
   .el-image {
     width: 40px;
@@ -30,6 +41,50 @@
       max-height: 500px;
       max-width: 600px;
       overflow: hidden;
+
+      :deep(img) {
+        display: inline;
+        height: 1.5em;
+      }
+    }
+
+    .bottom {
+
+      &,
+      span {
+        color: #666;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+
+      span:first-child {
+        cursor: initial;
+      }
+
+      width: 180px;
+
+    }
+  }
+
+  .bottom {
+
+    .reply,
+    .more {
+      transition: all 0.3s;
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    .bottom {
+
+      .reply,
+      .more {
+        opacity: 1;
+      }
     }
   }
 }

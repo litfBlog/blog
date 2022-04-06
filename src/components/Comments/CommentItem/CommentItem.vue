@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-06 16:04:46
+ * @LastEditTime: 2022-04-06 16:58:31
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -51,7 +51,13 @@ const showSend = ref(false)
         :parent="id"
       ></SendComment>
     </transition>
-    <CommentChildItem v-for="item in (props.children as any)" :key="item.id" v-bind="item"></CommentChildItem>
+    <CommentChildItem
+      v-for="item in (props.children as any)"
+      :key="item.id"
+      v-bind="item"
+      :id="id"
+      :parent="item.id"
+    ></CommentChildItem>
   </div>
 </template>
 
