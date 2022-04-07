@@ -1,10 +1,10 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 19:16:33
- * @LastEditTime: 2022-04-07 21:01:08
+ * @LastEditTime: 2022-04-07 21:04:48
  * @LastEditors: litfa
  * @Description: 顶部栏用户模块
- * @FilePath: /blog/src/components/NavBarUser.vue
+ * @FilePath: /blog/src/components/NavBarUser/NavBarUser.vue
  * 
 -->
 <script lang="ts" setup>
@@ -47,63 +47,7 @@ const showPopover = (isShow: boolean) => {
 </template>
 
 <style lang="less" scoped>
-.user {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  position: relative;
-  .avatar-mini {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background-color: #aaa;
-  }
-  .avatar-position {
-    position: absolute;
-    transform: translateX(-40%);
-    z-index: 30000;
-    width: 82px;
-    height: 82px;
-    left: 0;
-    top: 0;
-    .avatar {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-    }
-  }
-}
-.hide {
-  .avatar-position {
-    .avatar {
-      animation: hide-avatar 0.5s forwards;
-    }
-  }
-}
-.open {
-  .avatar-position {
-    .avatar {
-      animation: open-avatar 0.5s forwards;
-    }
-  }
-}
-@keyframes open-avatar {
-  0% {
-    transform: scale(0.7) translate(28px, -9px);
-  }
-  100% {
-    transform: scale(1.2) translate(0);
-  }
-}
-@keyframes hide-avatar {
-  0% {
-    transform: scale(1.2) translate(0);
-  }
-  100% {
-    transform: scale(0.7) translate(28px, -9px);
-  }
-}
+@import "./navBarUser.less";
 </style>
 
 <style>

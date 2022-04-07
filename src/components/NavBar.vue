@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-07 19:52:20
+ * @LastEditTime: 2022-04-07 21:05:27
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -31,7 +31,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import NavBarUser from './NavBarUser.vue'
+import NavBarUser from './NavBarUser/NavBarUser.vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 const store = useStore()
