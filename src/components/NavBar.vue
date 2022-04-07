@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-03-17 19:01:53
+ * @LastEditTime: 2022-04-07 19:52:20
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -16,14 +16,14 @@
       </router-link>
     </div>
     <div class="right">
-      <div class="nav">
-        <el-button type="success" @click="router.push('/edit')">投稿</el-button>
-      </div>
       <div class="login" v-if="!user.isLogin">
         <router-link to="/login">注册/登录</router-link>
       </div>
       <div class="user" v-else>
         <NavBarUser></NavBarUser>
+      </div>
+      <div class="nav">
+        <el-button type="success" @click="router.push('/edit')">投稿</el-button>
       </div>
     </div>
   </div>
