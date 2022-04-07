@@ -4,13 +4,13 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Account: typeof import('./src/components/Account/Account.vue')['default']
     Card: typeof import('./src/components/Card/Card.vue')['default']
     CommentChildItem: typeof import('./src/components/Comments/CommentChildItem/CommentChildItem.vue')['default']
     CommentItem: typeof import('./src/components/Comments/CommentItem/CommentItem.vue')['default']
     CommentList: typeof import('./src/components/Comments/CommentList/CommentList.vue')['default']
     Comments: typeof import('./src/components/Comments/Comments.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElCheckTag: typeof import('element-plus/es')['ElCheckTag']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
@@ -26,6 +26,7 @@ declare module 'vue' {
     HomeComponents: typeof import('./src/components/HomeComponents/HomeComponents.vue')['default']
     HomeSkeleton: typeof import('./src/components/HomeSkeleton/HomeSkeleton.vue')['default']
     Icon: typeof import('./src/components/SideToolbar/Icon/Icon.vue')['default']
+    Likes: typeof import('./src/components/Account/Likes/Likes.vue')['default']
     Markdown: typeof import('./src/components/Editior/markdown.vue')['default']
     Miniprogram: typeof import('./src/components/HomeComponents/Miniprogram.vue')['default']
     MyArticles: typeof import('./src/components/Account/MyArticles/MyArticles.vue')['default']
@@ -33,6 +34,7 @@ declare module 'vue' {
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     NavBarUser: typeof import('./src/components/NavBarUser.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader/PageHeader.vue')['default']
+    Preview: typeof import('./src/components/Account/Likes/Preview.vue')['default']
     Render: typeof import('./src/components/Render/Render.vue')['default']
     SendComment: typeof import('./src/components/Comments/SendComment/SendComment.vue')['default']
     SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']

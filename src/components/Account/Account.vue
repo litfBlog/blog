@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:11:53
- * @LastEditTime: 2022-04-07 16:38:34
+ * @LastEditTime: 2022-04-07 17:52:09
  * @LastEditors: litfa
  * @Description: 卡片信息
  * @FilePath: /blog/src/components/Account/Account.vue
@@ -12,8 +12,9 @@ import { defineAsyncComponent, ref } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
 import { Home, Word, Like, Star } from '@icon-park/vue-next'
 import MyArticlesPreview from '@/components/Account/MyArticles/Preview.vue'
-
+import LikesPreview from '@/components/Account/Likes/Preview.vue'
 const MyArticles = defineAsyncComponent(() => import('./MyArticles/MyArticles.vue'))
+const Likes = defineAsyncComponent(() => import('./Likes/Likes.vue'))
 
 const activeName = ref(window.location.hash.replace('#', '') || 'home')
 
@@ -47,6 +48,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
         </span>
       </template>
       <my-articles-preview></my-articles-preview>
+      <likes-preview></likes-preview>
     </el-tab-pane>
     <el-tab-pane name="articles" lazy>
       <template #label>
@@ -66,9 +68,9 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
           </el-icon>喜欢
         </span>
       </template>
-      Role
+      <Likes></Likes>
     </el-tab-pane>
-    <el-tab-pane name="stars">
+    <!-- <el-tab-pane name="stars">
       <template #label>
         <span class="custom-tabs-label">
           <el-icon>
@@ -77,7 +79,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
         </span>
       </template>
       Task
-    </el-tab-pane>
+    </el-tab-pane>-->
   </el-tabs>
 </template>
 
