@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:27:25
- * @LastEditTime: 2022-04-07 18:26:49
+ * @LastEditTime: 2022-04-07 18:34:29
  * @LastEditors: litfa
  * @Description: 预览组件(框架)
  * @FilePath: /blog/src/components/Account/Preview/Preview.vue
@@ -12,8 +12,8 @@ import propNames from './props'
 const props = defineProps(propNames)
 const checked = () => {
   if (props.to) {
-    document.documentElement.scrollTop = 0
-    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 80
+    document.body.scrollTop = 80
     window.location.hash = props.to
   }
 }

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:11:53
- * @LastEditTime: 2022-04-07 18:08:09
+ * @LastEditTime: 2022-04-07 18:32:57
  * @LastEditors: litfa
  * @Description: 卡片信息
  * @FilePath: /blog/src/components/Account/Account.vue
@@ -95,5 +95,11 @@ watch(() => route.hash, (e) => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+:deep(.el-tabs__header) {
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+  background-color: @card-background-color;
 }
 </style>
