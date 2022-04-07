@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:11:53
- * @LastEditTime: 2022-04-07 16:22:50
+ * @LastEditTime: 2022-04-07 16:38:34
  * @LastEditors: litfa
  * @Description: 卡片信息
  * @FilePath: /blog/src/components/Account/Account.vue
@@ -12,18 +12,33 @@ import { defineAsyncComponent, ref } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
 import { Home, Word, Like, Star } from '@icon-park/vue-next'
 import MyArticlesPreview from '@/components/Account/MyArticles/Preview.vue'
+
 const MyArticles = defineAsyncComponent(() => import('./MyArticles/MyArticles.vue'))
 
-const activeName = ref('first')
+const activeName = ref(window.location.hash.replace('#', '') || 'home')
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
-  // console.log(tab, event)
+  switch (tab.props.name) {
+    case 'home':
+      window.location.hash = ''
+      break
+    case 'articles':
+      window.location.hash = 'articles'
+      break
+    case 'likes':
+      window.location.hash = 'likes'
+      break
+    case 'stars':
+      window.location.hash = 'stars'
+      break
+  }
+
 }
 </script>
 
 <template>
   <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-    <el-tab-pane name="first">
+    <el-tab-pane name="home">
       <template #label>
         <span class="custom-tabs-label">
           <el-icon>
@@ -33,7 +48,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
       </template>
       <my-articles-preview></my-articles-preview>
     </el-tab-pane>
-    <el-tab-pane name="second" lazy>
+    <el-tab-pane name="articles" lazy>
       <template #label>
         <span class="custom-tabs-label">
           <el-icon>
@@ -43,7 +58,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
       </template>
       <my-articles></my-articles>
     </el-tab-pane>
-    <el-tab-pane name="third">
+    <el-tab-pane name="likes">
       <template #label>
         <span class="custom-tabs-label">
           <el-icon>
@@ -53,7 +68,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
       </template>
       Role
     </el-tab-pane>
-    <el-tab-pane label="收藏" name="fourth">
+    <el-tab-pane name="stars">
       <template #label>
         <span class="custom-tabs-label">
           <el-icon>
