@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 19:16:33
- * @LastEditTime: 2022-04-07 21:04:48
+ * @LastEditTime: 2022-04-07 21:08:55
  * @LastEditors: litfa
  * @Description: 顶部栏用户模块
  * @FilePath: /blog/src/components/NavBarUser/NavBarUser.vue
@@ -41,7 +41,9 @@ const showPopover = (isShow: boolean) => {
           <el-image class="avatar" :src="user.avatar" fit="cover"></el-image>
         </div>
       </template>
-      {{ user.userName }}
+      <div class="popover">
+        <span class="username">{{ user.userName }}</span>
+      </div>
     </el-popover>
   </router-link>
 </template>
