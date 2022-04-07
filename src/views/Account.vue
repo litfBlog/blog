@@ -1,20 +1,21 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 19:18:53
- * @LastEditTime: 2022-03-29 20:59:57
+ * @LastEditTime: 2022-04-06 19:14:57
  * @LastEditors: litfa
  * @Description: 个人中心
  * @FilePath: /blog/src/views/Account.vue
  * 
 -->
 <script lang="ts" setup>
-import { User, MyArticles } from '@/components/Account/index'
+import User from '@/components/Account/User/User.vue'
+import Account from '@/components/Account/Account.vue'
 </script>
 
 <template>
   <div class="Account">
     <User></User>
-    <my-articles></my-articles>
+    <Account></Account>
   </div>
 </template>
 

@@ -3,6 +3,7 @@
 declare global {
   const ElButton: typeof import('element-plus/es')['ElButton']
   const ElCheckTag: typeof import('element-plus/es')['ElCheckTag']
+  const ElIcon: typeof import('element-plus/es')['ElIcon']
   const ElImage: typeof import('element-plus/es')['ElImage']
   const ElInput: typeof import('element-plus/es')['ElInput']
   const ElPopover: typeof import('element-plus/es')['ElPopover']

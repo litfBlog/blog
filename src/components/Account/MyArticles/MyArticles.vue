@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 20:28:23
- * @LastEditTime: 2022-04-04 15:04:12
+ * @LastEditTime: 2022-04-07 15:55:44
  * @LastEditors: litfa
  * @Description: 我的文章
  * @FilePath: /blog/src/components/Account/MyArticles/MyArticles.vue
@@ -48,11 +48,14 @@ getList()
 
 <style lang="less" scoped>
 .MyArticles {
-  padding-top: 40px;
+  padding-bottom: 40px;
   .card {
-    border-top: 0.5px #aaaa solid;
+    border-bottom: 0.5px #aaaa solid;
     border-radius: 0;
     height: 160px;
+    :deep(.articles) {
+      margin-left: 0;
+    }
   }
 }
 </style>
