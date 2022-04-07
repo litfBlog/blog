@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:27:25
- * @LastEditTime: 2022-04-07 15:52:56
+ * @LastEditTime: 2022-04-07 18:26:49
  * @LastEditors: litfa
  * @Description: 预览组件(框架)
  * @FilePath: /blog/src/components/Account/Preview/Preview.vue
@@ -11,7 +11,11 @@
 import propNames from './props'
 const props = defineProps(propNames)
 const checked = () => {
-  // 
+  if (props.to) {
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+    window.location.hash = props.to
+  }
 }
 
 </script>
@@ -21,7 +25,7 @@ const checked = () => {
     <header>
       <div class="title">{{ title }}</div>
       <div>
-        <el-tag type="info" :checked="checked">更多 ></el-tag>
+        <el-tag type="info" @click="checked">更多 ></el-tag>
       </div>
     </header>
     <slot />

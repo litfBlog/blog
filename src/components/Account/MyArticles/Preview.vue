@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:25:17
- * @LastEditTime: 2022-04-07 17:53:08
+ * @LastEditTime: 2022-04-07 18:27:37
  * @LastEditors: litfa
  * @Description: 文章预览
  * @FilePath: /blog/src/components/Account/MyArticles/Preview.vue
@@ -29,7 +29,7 @@ getList()
 </script>
 
 <template>
-  <Preview title="发布的文章">
+  <Preview title="发布的文章" to="articles">
     <div class="MyArticles">
       <Card
         v-for="i in articlesList"

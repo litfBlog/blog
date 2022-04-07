@@ -1,18 +1,20 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:11:53
- * @LastEditTime: 2022-04-07 17:52:09
+ * @LastEditTime: 2022-04-07 18:08:09
  * @LastEditors: litfa
  * @Description: 卡片信息
  * @FilePath: /blog/src/components/Account/Account.vue
  * 
 -->
 <script lang="ts" setup>
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent, ref, watch } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
 import { Home, Word, Like, Star } from '@icon-park/vue-next'
+import { useRoute } from 'vue-router'
 import MyArticlesPreview from '@/components/Account/MyArticles/Preview.vue'
 import LikesPreview from '@/components/Account/Likes/Preview.vue'
+const route = useRoute()
 const MyArticles = defineAsyncComponent(() => import('./MyArticles/MyArticles.vue'))
 const Likes = defineAsyncComponent(() => import('./Likes/Likes.vue'))
 
@@ -35,6 +37,11 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
   }
 
 }
+watch(() => route.hash, (e) => {
+  if (e == '') return
+  activeName.value = e.replace('#', '')
+})
+
 </script>
 
 <template>

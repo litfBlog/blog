@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:05:05
- * @LastEditTime: 2022-04-07 17:52:32
+ * @LastEditTime: 2022-04-07 17:57:19
  * @LastEditors: litfa
  * @Description: 预览
  * @FilePath: /blog/src/components/Account/Likes/Preview.vue
@@ -27,7 +27,7 @@ getLikes()
 
 <template>
   <div class="Likes">
-    <Preview title="最近点赞的文章">
+    <Preview title="最近点赞的文章" to="#likes">
       <Card
         v-for="i in likesList"
         :key="i.id"
