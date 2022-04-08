@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-04-03 20:15:48
+ * @LastEditTime: 2022-04-08 18:38:42
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -34,7 +34,6 @@ import HomeSkeleton from '@/components/HomeSkeleton/HomeSkeleton.vue'
 <style lang="less" scoped>
 .Home {
   display: flex;
-  max-width: 1500px;
   justify-content: center;
 }
 </style>
