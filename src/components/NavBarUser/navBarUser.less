@@ -10,6 +10,7 @@
     height: 56px;
     border-radius: 50%;
     background-color: #aaa;
+    opacity: 1;
   }
 
   .avatar-position {
@@ -19,7 +20,7 @@
     width: 82px;
     height: 82px;
     left: 0;
-    top: 0;
+    top: 15px;
 
     .avatar {
       width: 82px;
@@ -30,6 +31,10 @@
 }
 
 .hide {
+  .avatar-mini {
+    animation: hide-avatar-mini 0.5s forwards;
+  }
+
   .avatar-position {
     .avatar {
       animation: hide-avatar 0.5s forwards;
@@ -38,6 +43,10 @@
 }
 
 .open {
+  .avatar-mini {
+    animation: open-avatar-mini 0.5s forwards;
+  }
+
   .avatar-position {
     .avatar {
       animation: open-avatar 0.5s forwards;
@@ -47,11 +56,11 @@
 
 @keyframes open-avatar {
   0% {
-    transform: scale(0.7) translate(28px, -9px);
+    transform: scale(0.69) translate(28.5px, -30.4px);
   }
 
   30% {
-    transform: scale(0.8) translate(28.5px, -9.5px);
+    transform: scale(0.8) translate(29px, -31px);
   }
 
   100% {
@@ -64,12 +73,32 @@
     transform: scale(1.2) translate(0);
   }
 
-  30% {
-    transform: scale(0.8) translate(28.5px, -9.5px);
+  50% {
+    transform: scale(0.8) translate(29px, -31px);
   }
 
   100% {
-    transform: scale(0.7) translate(28px, -9px);
+    transform: scale(0.69) translate(28.5px, -30.4px);
+  }
+}
+
+@keyframes open-avatar-mini {
+  // 0% {
+  //   opacity: 1;
+  // }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hide-avatar-mini {
+  // 0% {
+  //   opacity: 0;
+  // }
+
+  100% {
+    opacity: 1;
   }
 }
 
