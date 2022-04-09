@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-30 19:30:56
- * @LastEditTime: 2022-04-08 18:59:53
+ * @LastEditTime: 2022-04-09 17:39:29
  * @LastEditors: litfa
  * @Description: 首页侧边组件
  * @FilePath: /blog/src/components/HomeComponents/HomeComponents.vue
@@ -9,8 +9,9 @@
 -->
 <script lang="ts" setup>
 import Miniprogram from './Miniprogram.vue'
+import FriendLink from './FriendLink.vue'
 import Footer from './Footer.vue'
-const components = [Miniprogram, Footer]
+const components = [Miniprogram, FriendLink, Footer]
 </script>
 
 <template>
