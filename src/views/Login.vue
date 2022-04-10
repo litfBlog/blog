@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 08:39:21
- * @LastEditTime: 2022-04-10 17:11:15
+ * @LastEditTime: 2022-04-10 17:48:36
  * @LastEditors: litfa
  * @Description: 登录
  * @FilePath: /blog/src/views/Login.vue
@@ -13,6 +13,11 @@ import { onUnmounted, ref } from 'vue'
 import getCodeApi from '@/apis/getCode'
 import getQRCodeApi from '@/apis/getQRCode'
 import queryStatusApi from '@/apis/queryStatus'
+import { CheckOne } from '@icon-park/vue-next'
+import getUserInfo from '@/utils/getUserInfo'
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
+const router = useRouter()
 // 退出时清除循环
 onUnmounted(() => {
   clearTimeout(querty)
@@ -32,7 +37,7 @@ const getQRCode = async (code: string) => {
   QRCode.value = window.URL.createObjectURL(new Blob([res]))
   queryStatus(code)
 }
-
+const loginSuccess = ref(false)
 // 查询登录状态
 let querty: any = -1
 const queryStatus = (code: string) => {
@@ -43,6 +48,15 @@ const queryStatus = (code: string) => {
       // 存token
       localStorage.setItem('token', res.token)
       clearInterval(querty)
+      getUserInfo()
+      loginSuccess.value = true
+      setTimeout(() => {
+        if (route.query.back) {
+          router.push(route.query.back as string)
+        } else {
+          router.push('/')
+        }
+      }, 5000)
     }
   }, 1000 * 3)
 
@@ -53,11 +67,17 @@ const queryStatus = (code: string) => {
 <template>
   <div class="content">
     <div class="box">
-      <div class="QRCode">
+      <div class="QRCode" v-if="!loginSuccess">
         <span>请使用微信扫一扫登录</span>
-        <img :src="QRCode" />
+        <div class="icon">
+          <img :src="QRCode" />
+        </div>
         <span>新用户将自动注册</span>
       </div>
+      <template v-else>
+        <check-one theme="outline" fill="red" size="140" :strokeWidth="5" />
+        <span>登录成功</span>
+      </template>
     </div>
   </div>
 </template>
@@ -71,12 +91,16 @@ const queryStatus = (code: string) => {
   justify-content: center;
 
   .box {
-    max-width: 300px;
+    width: 300px;
     height: 400px;
     background-color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    span {
+      font-size: 18px;
+    }
   }
 
   .QRCode {
@@ -84,7 +108,11 @@ const queryStatus = (code: string) => {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     span {
       color: rgb(119, 119, 119);
     }
@@ -94,5 +122,9 @@ const queryStatus = (code: string) => {
       margin: 5px 0;
     }
   }
+}
+
+:deep(svg path) {
+  stroke: @primary;
 }
 </style>
