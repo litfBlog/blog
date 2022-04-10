@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 08:39:21
- * @LastEditTime: 2022-03-07 19:02:35
+ * @LastEditTime: 2022-04-10 17:11:15
  * @LastEditors: litfa
  * @Description: 登录
  * @FilePath: /blog/src/views/Login.vue
@@ -34,7 +34,7 @@ const getQRCode = async (code: string) => {
 }
 
 // 查询登录状态
-let querty = -1
+let querty: any = -1
 const queryStatus = (code: string) => {
   querty = setInterval(async () => {
     let { data: res } = await queryStatusApi(code)
@@ -52,9 +52,12 @@ const queryStatus = (code: string) => {
 
 <template>
   <div class="content">
-    <div class="QRCode">
-      <span>请使用微信扫一扫登录</span>
-      <img :src="QRCode" />
+    <div class="box">
+      <div class="QRCode">
+        <span>请使用微信扫一扫登录</span>
+        <img :src="QRCode" />
+        <span>新用户将自动注册</span>
+      </div>
     </div>
   </div>
 </template>
@@ -62,19 +65,33 @@ const queryStatus = (code: string) => {
 <style lang="less" scoped>
 .content {
   width: 100%;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .box {
+    max-width: 300px;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .QRCode {
-    width: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     span {
       color: rgb(119, 119, 119);
     }
+
     img {
       width: 70%;
+      margin: 5px 0;
     }
   }
 }
