@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 16:41:48
- * @LastEditTime: 2022-04-12 15:59:16
+ * @LastEditTime: 2022-04-12 17:47:49
  * @LastEditors: litfa
  * @Description: 评论回复
  * @FilePath: /blog/src/components/Comments/CommentChildItem/CommentChildItem.vue
@@ -44,7 +44,8 @@ const viewSend = () => {
         <div class="bottom">
           <span>{{ formatDate(props.date || 0) }}</span>
           <span>
-            <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />100
+            <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />
+            {{ likes_count }}
           </span>
           <span class="reply" @click="viewSend">回复</span>
           <span class="more">
