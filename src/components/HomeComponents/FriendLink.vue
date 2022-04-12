@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-09 17:38:05
- * @LastEditTime: 2022-04-09 18:11:21
+ * @LastEditTime: 2022-04-12 15:02:34
  * @LastEditors: litfa
  * @Description: 友情链接
  * @FilePath: /blog/src/components/HomeComponents/FriendLink.vue
@@ -26,17 +26,25 @@ import { LinkOne, Right } from '@icon-park/vue-next'
         />大佬朋友们
       </router-link>
     </div>
-    <div class="item">
+    <!-- <div class="item">
       <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
+    </div>-->
+    <div class="item">
+      <el-image
+        class="cover"
+        src="https://www.buerka.xyz/upload/2022/04/buerka@500px.jpg"
+        fit="cover"
+      />不二卡博客
     </div>
     <div class="item">
-      <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
+      <el-image
+        class="cover"
+        src="https://www.daiyuyang.cn/upload/2022/02/logo-2032cb2433a94dcdbc487946d3a49990.jpg"
+        fit="cover"
+      />Sigma的博客
     </div>
     <div class="item">
-      <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
-    </div>
-    <div class="item">
-      <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
+      <el-image class="cover" src="https://jsun969.cn/favicon.ico" fit="cover" />荆棘小栈
     </div>
     <div class="any">
       <router-link to="/">

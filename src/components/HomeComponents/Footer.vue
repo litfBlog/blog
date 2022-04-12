@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-08 18:56:38
- * @LastEditTime: 2022-04-09 17:35:54
+ * @LastEditTime: 2022-04-12 14:59:29
  * @LastEditors: litfa
  * @Description: 底部信息
  * @FilePath: /blog/src/components/HomeComponents/Footer.vue
@@ -69,6 +69,9 @@ const icons = ['qq', '微信', 'github', 'email']
     display: flex;
     flex-direction: column;
     // align-items: center;
+    img {
+      margin-right: 3px;
+    }
     a {
       display: flex;
       align-items: center;
@@ -76,36 +79,36 @@ const icons = ['qq', '微信', 'github', 'email']
   }
   .contact {
     display: flex;
-    justify-content: space-between;
-    padding-right: 10px;
+    margin-top: 10px;
     box-sizing: border-box;
     .icon {
-      width: 35px;
-      height: 35px;
+      width: 30px;
+      height: 30px;
       background-color: blue;
       border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-right: 15px;
       &::after {
         content: "";
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
         display: block;
         background-image: url(./../../assets/icon.png);
-        background-size: 25px;
+        background-size: 20px;
       }
       &:nth-child(1)::after {
         background-position-y: 0;
       }
       &:nth-child(2)::after {
-        background-position-y: -25px;
+        background-position-y: -20px;
       }
       &:nth-child(3)::after {
-        background-position-y: -50px;
+        background-position-y: -40px;
       }
       &:nth-child(4)::after {
-        background-position-y: -75px;
+        background-position-y: -60px;
       }
     }
   }
