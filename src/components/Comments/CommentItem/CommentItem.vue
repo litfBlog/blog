@@ -52,7 +52,7 @@ const viewSend = () => {
         <div class="content" v-html="content"></div>
         <div class="bottom">
           <span>{{ formatDate(props.date || 0) }}</span>
-          <span>
+          <span :class="{ liked: liked }">
             <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />
             {{ likes_count }}
           </span>

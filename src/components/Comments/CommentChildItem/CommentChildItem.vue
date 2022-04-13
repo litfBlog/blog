@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 16:41:48
- * @LastEditTime: 2022-04-12 17:47:49
+ * @LastEditTime: 2022-04-13 14:13:35
  * @LastEditors: litfa
  * @Description: 评论回复
  * @FilePath: /blog/src/components/Comments/CommentChildItem/CommentChildItem.vue
@@ -42,8 +42,8 @@ const viewSend = () => {
         <div class="name">{{ username }}</div>
         <div class="content" v-html="(parentUsername ? `回复 ${parentUsername}：` : '') + content"></div>
         <div class="bottom">
-          <span>{{ formatDate(props.date || 0) }}</span>
-          <span>
+          <span>{{ formatDate(Number(props.date) || 0) }}</span>
+          <span :class="{ liked: props.liked }">
             <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />
             {{ likes_count }}
           </span>

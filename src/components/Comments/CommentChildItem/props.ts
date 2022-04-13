@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-04-05 16:42:30
- * @LastEditTime: 2022-04-12 17:47:13
+ * @LastEditTime: 2022-04-13 14:11:17
  * @LastEditors: litfa
  * @Description: props
  * @FilePath: /blog/src/components/Comments/CommentChildItem/props.ts
@@ -37,10 +37,13 @@ export default {
     type: Array
   },
   date: {
-    type: Number,
+    type: [Number, String],
     required: true
   },
   likes_count: {
+    type: Number
+  },
+  liked: {
     type: Number
   }
 }
