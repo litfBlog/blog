@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-12 17:46:17
+ * @LastEditTime: 2022-04-13 16:18:49
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -17,7 +17,10 @@ import { computed } from '@vue/reactivity'
 import SendComment from '../SendComment/SendComment.vue'
 import { ref, nextTick } from 'vue'
 import formatDate from '@/utils/formatDate'
+import likeCommentApi from '@/apis/likeComment'
+import { useRoute } from 'vue-router'
 const props = defineProps(propNames)
+const route = useRoute()
 const content = computed(() => {
   return replaceEmoji(props.content as string, emoji)
 })
@@ -41,6 +44,35 @@ const viewSend = () => {
     })
   }
 }
+
+const isLiked = ref(Boolean(props.liked))
+const likesCount = ref(props.likes_count || 0)
+
+const likeComment = async () => {
+  let id = route.params.id as string
+
+  if (props.id == undefined) return
+
+  // 先切换状态
+  isLiked.value = !isLiked.value
+  if (isLiked.value) {
+    likesCount.value++
+  } else {
+    likesCount.value--
+  }
+  // 发起请求
+  const { data: res } = await likeCommentApi(id, isLiked.value, props.id)
+  if (res.status != 1) {
+    if (isLiked.value) {
+      likesCount.value--
+    } else {
+      likesCount.value++
+    }
+    isLiked.value = !isLiked.value
+  } else {
+    isLiked.value = res.liked
+  }
+}
 </script>
 
 <template>
@@ -52,9 +84,9 @@ const viewSend = () => {
         <div class="content" v-html="content"></div>
         <div class="bottom">
           <span>{{ formatDate(props.date || 0) }}</span>
-          <span :class="{ liked: liked }">
+          <span :class="{ liked: isLiked }" @click="likeComment()">
             <good-two theme="outline" size="18" fill="#666" :strokeWidth="3" />
-            {{ likes_count }}
+            {{ likesCount }}
           </span>
           <span @click="viewSend">回复</span>
           <span>
