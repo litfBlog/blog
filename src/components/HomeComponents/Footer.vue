@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-08 18:56:38
- * @LastEditTime: 2022-04-12 14:59:29
+ * @LastEditTime: 2022-04-18 17:22:07
  * @LastEditors: litfa
  * @Description: 底部信息
  * @FilePath: /blog/src/components/HomeComponents/Footer.vue
@@ -64,7 +64,7 @@ const icons = ['qq', '微信', 'github', 'email']
   font-size: 14px;
   word-break: break-all;
   flex-wrap: wrap;
-  color: #000a;
+  color: @text-color-line;
   .icp {
     display: flex;
     flex-direction: column;

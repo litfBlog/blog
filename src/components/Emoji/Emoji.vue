@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 17:11:23
- * @LastEditTime: 2022-04-05 18:52:44
+ * @LastEditTime: 2022-04-18 18:33:38
  * @LastEditors: litfa
  * @Description: 表情
  * @FilePath: /blog/src/components/Emoji/Emoji.vue
@@ -30,7 +30,7 @@ const selectEmoji = (emoji: string) => {
       </span>
     </div>
     <template #reference>
-      <emotion-happy theme="outline" size="24" fill="#000000" :strokeWidth="3" />
+      <emotion-happy theme="outline" size="24" fill="var(--text-color)" :strokeWidth="3" />
     </template>
   </el-popover>
 </template>

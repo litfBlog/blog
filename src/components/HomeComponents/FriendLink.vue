@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-09 17:38:05
- * @LastEditTime: 2022-04-12 15:02:34
+ * @LastEditTime: 2022-04-18 17:23:37
  * @LastEditors: litfa
  * @Description: 友情链接
  * @FilePath: /blog/src/components/HomeComponents/FriendLink.vue
@@ -62,7 +62,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
   box-sizing: border-box;
   .title {
     font-size: 20px;
-    color: #2c3e50;
+    color: @text-color;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -74,6 +74,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
     align-items: center;
     font-size: 18px;
     margin: 5px 0 5px 5px;
+    color: @text-color;
     .cover {
       width: 40px;
       height: 40px;
@@ -84,7 +85,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
   .any {
     display: flex;
     align-items: center;
-    color: #2c3e50;
+    color: @text-color-line;
     font-weight: 600;
     font-size: 17px;
   }

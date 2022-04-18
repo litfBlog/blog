@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-06 18:42:29
+ * @LastEditTime: 2022-04-18 18:36:37
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -74,6 +74,7 @@ defineExpose({
   flex-direction: column;
   align-items: flex-start;
   margin: 0 20px;
+  color: @text-color;
   .el-button {
     margin-right: 0;
     margin-left: auto;
@@ -89,6 +90,8 @@ defineExpose({
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    color: @text-color-line;
+
     .icons {
       display: flex;
       justify-content: flex-start;

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-12 16:18:55
+ * @LastEditTime: 2022-04-18 17:16:41
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -36,14 +36,14 @@ const size = 18
     </div>
     <div class="icons">
       <div class="item">
-        <preview-open theme="filled" :size="size" fill="#97a2ab" />9
+        <preview-open theme="filled" :size="size" fill="var(--text-color-line)" />9
       </div>
       <div class="item">
-        <thumbs-up theme="filled" :size="size" fill="#97a2ab" />
+        <thumbs-up theme="filled" :size="size" fill="var(--text-color-line)" />
         {{ props.likesCount }}
       </div>
       <div class="item">
-        <comment theme="filled" :size="size" fill="#97a2ab" />
+        <comment theme="filled" :size="size" fill="var(--text-color-line)" />
         {{ props.commentCount }}
       </div>
     </div>

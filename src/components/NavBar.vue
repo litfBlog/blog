@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-08 15:52:11
+ * @LastEditTime: 2022-04-18 17:09:02
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -61,7 +61,7 @@ const user = computed(() => {
     .title {
       font-size: 26px;
       font-weight: 600;
-      color: #2c3e50;
+      color: @text-color;
     }
   }
   .right {

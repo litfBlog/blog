@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-04-18 16:37:05
- * @LastEditTime: 2022-04-18 17:06:58
+ * @LastEditTime: 2022-04-18 17:16:20
  * @LastEditors: litfa
  * @Description: 主题
  * @FilePath: /blog/src/assets/theme/themes.ts
@@ -13,8 +13,8 @@ export const themes: any = {
   default: {
     'primary': primary,
     'body-background-color': '#e0e5ef',
-    'text-color': '#000',
-    'text-color-line': '#292929',
+    'text-color': '#2c3e50',
+    'text-color-line': '#737373',
     'card-background-color': '#fff',
     'scrollbar-color': '#00000049',
     'scrollbar-color-hover': '#585353'
@@ -23,7 +23,7 @@ export const themes: any = {
     'primary': primary,
     'body-background-color': '#010409',
     'text-color': '#fff',
-    'text-color-line': '#fff',
+    'text-color-line': '#aaa',
     'card-background-color': '#0e1218',
     'scrollbar-color': '#00000049',
     'scrollbar-color-hover': '#585353'

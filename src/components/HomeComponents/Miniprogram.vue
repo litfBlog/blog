@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-30 19:24:50
- * @LastEditTime: 2022-03-30 19:47:29
+ * @LastEditTime: 2022-04-18 17:27:13
  * @LastEditors: litfa
  * @Description: 使用微信小程序
  * @FilePath: /blog/src/components/HomeComponents/Miniprogram.vue
@@ -28,6 +28,9 @@
   background-color: @card-background-color;
   padding: 10px;
   box-sizing: border-box;
+  .el-image {
+    border-radius: 50%;
+  }
   div.text {
     display: flex;
     flex-direction: column;
@@ -38,9 +41,10 @@
     span {
       &:first-child {
         font-size: 18px;
+        color: @text-color;
       }
       &:last-child {
-        color: #000a;
+        color: @text-color-line;
       }
     }
   }

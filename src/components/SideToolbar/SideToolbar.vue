@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-04 17:02:34
+ * @LastEditTime: 2022-04-18 18:35:55
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -70,18 +70,18 @@ const like = async () => {
           <ThumbsUp
             theme="outline"
             :size="size"
-            fill="#333"
+            fill="var(--text-color)"
             :stroke-width="3"
             :class="{ liked: props.liked }"
           />
         </Icon>
         <Icon :count="1000">
-          <Star theme="outline" :size="size" fill="#333" />
+          <Star theme="outline" :size="size" fill="var(--text-color)" />
         </Icon>
       </div>
 
       <el-backtop :right="100" :bottom="100">
-        <up theme="outline" :size="size" fill="#333" />
+        <up theme="outline" :size="size" fill="var(--text-color)" />
       </el-backtop>
     </div>
   </div>
@@ -112,8 +112,9 @@ const like = async () => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #fff;
+      background-color: @card-background-color;
       transition: all 0.3s;
+      color: @text-color;
     }
   }
   .hidden {

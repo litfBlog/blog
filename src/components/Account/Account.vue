@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:11:53
- * @LastEditTime: 2022-04-07 18:32:57
+ * @LastEditTime: 2022-04-18 18:21:13
  * @LastEditors: litfa
  * @Description: 卡片信息
  * @FilePath: /blog/src/components/Account/Account.vue
@@ -95,6 +95,7 @@ watch(() => route.hash, (e) => {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: @text-color;
 }
 :deep(.el-tabs__header) {
   position: sticky;

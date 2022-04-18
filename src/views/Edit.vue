@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-03-30 19:31:12
+ * @LastEditTime: 2022-04-18 18:22:50
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -166,7 +166,7 @@ const push = async () => {
     position: sticky;
     top: 70px;
     z-index: 10;
-    background-color: #fff;
+    background-color: @card-background-color;
   }
 }
 .edit {
