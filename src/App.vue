@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 21:07:21
- * @LastEditTime: 2022-04-18 16:50:42
+ * @LastEditTime: 2022-04-18 18:46:33
  * @LastEditors: litfa
  * @Description: 
  * @FilePath: /blog/src/App.vue
@@ -26,7 +26,26 @@ export default defineComponent({
   },
   setup() {
     getUserInfo()
-    setTheme('default')
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark')
+    } else {
+      setTheme('default')
+    }
+    let listeners = {
+      dark: (mediaQueryList: any) => {
+        if (mediaQueryList.matches) {
+          setTheme('dark')
+        }
+      },
+      light: (mediaQueryList: any) => {
+        if (mediaQueryList.matches) {
+          setTheme('default')
+        }
+      }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(listeners.dark)
+    window.matchMedia('(prefers-color-scheme: light)').addListener(listeners.light)
     return { setTheme }
   }
 })
