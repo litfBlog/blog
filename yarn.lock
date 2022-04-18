@@ -9841,9 +9841,9 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npmmirror.com/vm-browserify/-/vm-browserify-1.1.2.tgz"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-cli-plugin-style-resources-loader@~0.1.5:
+vue-cli-plugin-style-resources-loader@^0.1.5:
   version "0.1.5"
-  resolved "https://registry.npmmirror.com/vue-cli-plugin-style-resources-loader/-/vue-cli-plugin-style-resources-loader-0.1.5.tgz"
+  resolved "https://registry.npmmirror.com/vue-cli-plugin-style-resources-loader/-/vue-cli-plugin-style-resources-loader-0.1.5.tgz#3e95f4df41f5408e1255664690698c0533648109"
   integrity sha512-LluhjWTZmpGl3tiXg51EciF+T70IN/9t6UvfmgluJBqxbrb6OV9i7L5lTd+OKtcTeghDkhcBmYhtTxxU4w/8sQ==
 
 vue-demi@*:
