@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-18 18:41:55
- * @LastEditTime: 2022-03-21 19:29:30
+ * @LastEditTime: 2022-04-19 14:41:06
  * @LastEditors: litfa
  * @Description: 上传封面
  * @FilePath: /blog/src/components/UploadCover.vue
@@ -93,17 +93,17 @@ const upload = async (files: File[]) => {
   width: 400px;
   margin: 10px 0;
   height: 230px;
-  background-color: #fff;
+  background-color: @card-background-color;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  color: #333;
+  color: @text-color;
   position: relative;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.13);
   span {
     font-size: 18px;
-    color: #000;
+    color: @text-color-line;
   }
   &::before {
     content: "选择或拖拽图片";

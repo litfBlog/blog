@@ -1,0 +1,31 @@
+.v-md-editor-preview,
+.vuepress-markdown-body {
+  background-color: @card-background-color ;
+  color: @text-color;
+  max-width: 800px;
+  min-height: 80vh;
+  margin: 0 auto;
+  word-break: break-all;
+  overflow: hidden;
+
+  :deep(.vuepress-markdown-body) {
+    background-color: @card-background-color;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: @text-color;
+    }
+  }
+
+  code {
+    color: @code-text-color;
+  }
+
+  .v-md-plugin-tip.tip {
+    background-color: @content-background-color;
+  }
+}

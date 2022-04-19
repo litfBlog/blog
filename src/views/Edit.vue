@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-18 18:22:50
+ * @LastEditTime: 2022-04-19 14:40:27
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -15,6 +15,7 @@ import uploadApi from '@/apis/upload'
 import { onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
+import '@/assets/style/markdownPreview.less'
 
 import Editior from '@/components/Editior/markdown.vue'
 import UploadCover from '@/components/UploadCover.vue'
@@ -143,6 +144,9 @@ const push = async () => {
   </div>
 </template>
 
+<style lang="less">
+@import "./../assets/style/markdownPreview.less";
+</style>
 <style lang="less" scoped>
 .title {
   margin: 10px 0;
@@ -168,16 +172,48 @@ const push = async () => {
     z-index: 10;
     background-color: @card-background-color;
   }
+  :deep(.v-md-editor__toolbar li) {
+    color: @text-color;
+    &:hover {
+      color: #000;
+    }
+  }
+  :deep(.v-md-editor__menu) {
+    background-color: @card-background-color;
+  }
+  :deep(.v-md-editor__toolbar-item--active),
+  :deep(.v-md-editor__toolbar-item--active:hover) {
+    background-color: #aaaa;
+    // color: #000;
+  }
+  :dep(.v-md-editor__toolbar-item:hover) {
+    color: #000 !important;
+  }
+  :deep(textarea) {
+    background-color: @card-background-color;
+    color: @text-color;
+  }
+  :deep(.scrollbar__wrap) {
+    background-color: @card-background-color;
+  }
 }
 .edit {
   max-width: 1000px;
   margin: 0 auto;
   box-sizing: border-box;
   transition: all 0.5s;
+  padding: 15px;
+  background-color: @card-background-color;
 }
 
 h4 {
   margin-top: 15px;
+  color: @text-color;
+}
+
+:deep(.el-input .el-input__count .el-input__count-inner) {
+  background-color: @card-background-color;
+  color: @text-color;
 }
 
 @media screen and (max-width: 1040px) {
