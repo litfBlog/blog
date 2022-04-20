@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-18 17:16:41
+ * @LastEditTime: 2022-04-20 18:42:00
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -28,11 +28,11 @@ const size = 18
       </div>
     </div>
     <div class="articles">
-      <el-image class="cover" :src="cover" fit="cover" lazy></el-image>
       <div class="text">
         <h3>{{ title }}</h3>
         <p>{{ desc }}</p>
       </div>
+      <el-image class="cover" :src="cover" fit="cover" lazy></el-image>
     </div>
     <div class="icons">
       <div class="item">

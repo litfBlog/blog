@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-04-20 18:32:20
+ * @LastEditTime: 2022-04-20 19:02:07
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -12,7 +12,7 @@
     <Suspense>
       <HomeCards></HomeCards>
       <template #fallback>
-        <div style="width: 50%;">
+        <div style="width: 50%; max-width: 700px;">
           <HomeSkeleton></HomeSkeleton>
           <HomeSkeleton></HomeSkeleton>
           <HomeSkeleton></HomeSkeleton>
