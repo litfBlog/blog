@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-03-29 19:19:20
+ * @LastEditTime: 2022-04-20 19:45:23
  * @LastEditors: litfa
  * @Description: router
  * @FilePath: /blog/src/router/index.ts
@@ -48,6 +48,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Account',
     component: () =>
       import(/* webpackChunkName: 'Account' */ '@/views/Account.vue')
+  },
+  {
+    path: '/friend',
+    name: 'Friend',
+    component: () =>
+      import(/* webpackChunkName: 'Friend' */ '@/views/Friend.vue')
+
   }
 ]
 

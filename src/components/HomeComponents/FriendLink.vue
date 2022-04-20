@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-09 17:38:05
- * @LastEditTime: 2022-04-18 17:23:37
+ * @LastEditTime: 2022-04-20 19:49:23
  * @LastEditors: litfa
  * @Description: 友情链接
  * @FilePath: /blog/src/components/HomeComponents/FriendLink.vue
@@ -47,7 +47,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
       <el-image class="cover" src="https://jsun969.cn/favicon.ico" fit="cover" />荆棘小栈
     </div>
     <div class="any">
-      <router-link to="/">
+      <router-link to="/friend">
         查看更多
         <right theme="filled" size="20" fill="#333" :strokeWidth="3" />
       </router-link>
