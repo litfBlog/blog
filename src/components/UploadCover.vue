@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-18 18:41:55
- * @LastEditTime: 2022-04-19 14:41:06
+ * @LastEditTime: 2022-04-20 17:02:40
  * @LastEditors: litfa
  * @Description: 上传封面
  * @FilePath: /blog/src/components/UploadCover.vue
@@ -72,8 +72,8 @@ const upload = async (files: File[]) => {
   let formdata = new FormData()
   formdata.append('file', files[0])
   let { data: res } = await uploadApi(formdata, uuid, true)
-  if (res.status != 1 || res.fileStatus != 1) return ElMessage.error('上传失败')
-  emits('update:cover', res.path)
+  if (res.status != 1) return ElMessage.error('上传失败')
+  emits('update:cover', `//${res.Location}`)
 }
 
 </script>

@@ -42,6 +42,7 @@ declare module 'vue' {
     Render: typeof import('./src/components/Render/Render.vue')['default']
     SendComment: typeof import('./src/components/Comments/SendComment/SendComment.vue')['default']
     SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']
+    SwitchTheme: typeof import('./src/components/SwitchTheme/SwitchTheme.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
     User: typeof import('./src/components/Account/User/User.vue')['default']
   }

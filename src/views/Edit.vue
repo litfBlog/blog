@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-19 14:40:27
+ * @LastEditTime: 2022-04-20 17:08:40
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -67,29 +67,14 @@ const handleUploadImage = async (event: any, insertImage: any, files: any) => {
   console.log(formdata)
   formdata.append('file', files[0])
 
-  let { data: res } = await uploadApi(formdata, uuid)
+  const { data: res } = await uploadApi(formdata, uuid)
 
   if (res.status != 1) return ElMessage.error('图片上传失败')
 
-  if (res.fileStatus != 1) {
-    switch (res.fileStatus) {
-      case 1:
-        break
-      case 2:
-        ElMessage.error('文件过大/过小')
-        break
-      case 3:
-        ElMessage.error('暂不支持该文件类型')
-        break
-      default:
-        break
-    }
-    return
-  }
+  console.log(res)
 
-  // 此处只做示例
   insertImage({
-    url: res.path,
+    url: `//${res.Location}`,
     desc: res.fileName || 'image'
   })
 }
