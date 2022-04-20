@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-04-08 18:38:42
+ * @LastEditTime: 2022-04-20 18:32:20
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -35,5 +35,10 @@ import HomeSkeleton from '@/components/HomeSkeleton/HomeSkeleton.vue'
 .Home {
   display: flex;
   justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  .HomeComponents {
+    display: none;
+  }
 }
 </style>
