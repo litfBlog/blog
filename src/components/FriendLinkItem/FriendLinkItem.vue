@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 20:59:37
- * @LastEditTime: 2022-04-21 14:11:50
+ * @LastEditTime: 2022-04-21 15:33:51
  * @LastEditors: litfa
  * @Description: 友链项
  * @FilePath: /blog/src/components/FriendLinkItem/FriendLinkItem.vue
@@ -19,7 +19,7 @@ const props = defineProps(propNames)
       <div class="desc">{{ props.desc }}</div>
     </div>
     <div class="avatar">
-      <el-image :src="props.avatar" fit="cover"></el-image>
+      <el-image v-if="props.avatar" :src="props.avatar" fit="cover"></el-image>
     </div>
   </div>
 </template>

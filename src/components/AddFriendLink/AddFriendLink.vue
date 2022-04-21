@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 20:33:03
- * @LastEditTime: 2022-04-21 15:32:09
+ * @LastEditTime: 2022-04-21 15:34:08
  * @LastEditors: litfa
  * @Description: 申请友链
  * @FilePath: /blog/src/components/AddFriendLink/AddFriendLink.vue
@@ -80,11 +80,11 @@ watch(() => form.icon, (value) => {
             <el-form-item label="主页地址" prop="url">
               <el-input v-model="form.url" />
             </el-form-item>
-            <el-form-item label="介绍">
-              <el-input v-model="form.desc" />
-            </el-form-item>
             <el-form-item label="头像">
               <el-input v-model="form.icon" />
+            </el-form-item>
+            <el-form-item label="介绍">
+              <el-input v-model="form.desc" />
             </el-form-item>
 
             <el-form-item>
