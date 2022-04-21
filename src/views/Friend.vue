@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 19:45:40
- * @LastEditTime: 2022-04-20 20:37:47
+ * @LastEditTime: 2022-04-21 14:57:25
  * @LastEditors: litfa
  * @Description: 友链
  * @FilePath: /blog/src/views/Friend.vue
