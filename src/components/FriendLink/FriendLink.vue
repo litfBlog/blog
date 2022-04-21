@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 19:50:59
- * @LastEditTime: 2022-04-21 14:57:06
+ * @LastEditTime: 2022-04-21 15:48:08
  * @LastEditors: litfa
  * @Description: 友链列表
  * @FilePath: /blog/src/components/FriendLink/FriendLink.vue
@@ -37,13 +37,3 @@ getFriendLink()
 <style lang="less" scoped>
 @import "./friendLink.less";
 </style>
-
-<!-- 
-  TODO - 4.20 => 4.21
-  这里的item搬走 √
-  用props传值 √
-  提交友链的预览 √
-  展示真实数据
-  表单验证
-  手机端warp
- -->

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 20:33:03
- * @LastEditTime: 2022-04-21 15:34:08
+ * @LastEditTime: 2022-04-21 17:19:01
  * @LastEditors: litfa
  * @Description: 申请友链
  * @FilePath: /blog/src/components/AddFriendLink/AddFriendLink.vue
@@ -28,6 +28,12 @@ const rules = reactive({
   url: [
     { required: true, message: '请填写首页地址', trigger: 'blur' },
     { min: 4, max: 50, message: '长度为4~50个字符', trigger: 'blur' }
+  ],
+  icon: [
+    { max: 100, message: '链接过长' }
+  ],
+  desc: [
+    { max: 20, message: '20字以内' }
   ]
 })
 
@@ -63,7 +69,7 @@ watch(() => form.icon, (value) => {
 <template>
   <div>
     <el-button type="success" @click="open = !open">添加友链</el-button>
-    <div style="margin-top: 20px; height: 200px">
+    <div style="margin-top: 20px; height: 400px">
       <el-collapse-transition>
         <div class="form" v-show="open">
           <el-form
@@ -80,10 +86,10 @@ watch(() => form.icon, (value) => {
             <el-form-item label="主页地址" prop="url">
               <el-input v-model="form.url" />
             </el-form-item>
-            <el-form-item label="头像">
+            <el-form-item label="头像" prop="icon">
               <el-input v-model="form.icon" />
             </el-form-item>
-            <el-form-item label="介绍">
+            <el-form-item label="介绍" prop="desc">
               <el-input v-model="form.desc" />
             </el-form-item>
 
