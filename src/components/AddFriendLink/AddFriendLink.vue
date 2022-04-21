@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 20:33:03
- * @LastEditTime: 2022-04-21 17:19:01
+ * @LastEditTime: 2022-04-21 17:51:33
  * @LastEditors: litfa
  * @Description: 申请友链
  * @FilePath: /blog/src/components/AddFriendLink/AddFriendLink.vue
@@ -30,7 +30,7 @@ const rules = reactive({
     { min: 4, max: 50, message: '长度为4~50个字符', trigger: 'blur' }
   ],
   icon: [
-    { max: 100, message: '链接过长' }
+    { max: 200, message: '链接过长' }
   ],
   desc: [
     { max: 20, message: '20字以内' }
