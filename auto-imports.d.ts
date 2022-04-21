@@ -2,10 +2,15 @@
 // We suggest you to commit this file into source control
 declare global {
   const ElButton: typeof import('element-plus/es')['ElButton']
+  const ElCollapseTransition: typeof import('element-plus/es')['ElCollapseTransition']
+  const ElForm: typeof import('element-plus/es')['ElForm']
+  const ElFormItem: typeof import('element-plus/es')['ElFormItem']
   const ElIcon: typeof import('element-plus/es')['ElIcon']
   const ElImage: typeof import('element-plus/es')['ElImage']
   const ElInput: typeof import('element-plus/es')['ElInput']
+  const ElOption: typeof import('element-plus/es')['ElOption']
   const ElPopover: typeof import('element-plus/es')['ElPopover']
+  const ElSelect: typeof import('element-plus/es')['ElSelect']
   const ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
   const ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
   const ElTabPane: typeof import('element-plus/es')['ElTabPane']
