@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-22 18:18:22
+ * @LastEditTime: 2022-04-22 18:31:12
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -33,9 +33,9 @@ let editior = ref<any>()
 const initPage = async () => {
   const { data: res } = await articlesInitApi()
   if (res.status == 1) {
-    content.value = res.content || ''
-    title.value = res.title || ''
-    cover.value = res.cover || ''
+    content.value = res.data.content || ''
+    title.value = res.data.title || ''
+    cover.value = res.data.cover || ''
   } else {
     ElMessage.error('数据获取失败，请稍后再试')
   }
@@ -70,7 +70,6 @@ const handleUploadImage = async (event: any, insertImage: any, files: any) => {
 }
 
 const save = async () => {
-  let uuid = route.query.id as string
   const html = editior.value.getHTML(content.value)
   const desc = htmlToText(html, {
     warp: false,
@@ -79,8 +78,6 @@ const save = async () => {
 
   // 存草稿
   await saveApi({
-    uuid,
-    contenttype: 'markdown',
     title: title.value,
     content: content.value,
     cover: cover.value,
