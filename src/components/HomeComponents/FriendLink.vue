@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-09 17:38:05
- * @LastEditTime: 2022-04-22 14:51:45
+ * @LastEditTime: 2022-04-22 14:57:22
  * @LastEditors: litfa
  * @Description: 友情链接
  * @FilePath: /blog/src/components/HomeComponents/FriendLink.vue
@@ -49,10 +49,10 @@ getHomeLink()
     <!-- <div class="item">
       <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
     </div>-->
-    <div class="item" v-for="i in links" :key="i.id">
+    <a class="item" v-for="i in links" :key="i.id" :href="i.url" target="_black">
       <el-image class="cover" :src="i.icon" fit="cover" />
       {{ i.name }}
-    </div>
+    </a>
     <div class="any">
       <router-link to="/friend">
         查看更多

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-20 19:50:59
- * @LastEditTime: 2022-04-21 15:48:08
+ * @LastEditTime: 2022-04-22 15:00:59
  * @LastEditors: litfa
  * @Description: 友链列表
  * @FilePath: /blog/src/components/FriendLink/FriendLink.vue
@@ -25,11 +25,12 @@ getFriendLink()
   <h1>小伙伴们</h1>
   <div class="list">
     <friend-link-item
-      v-for="(item, index) in friendLink"
-      :key="index"
+      v-for="item in friendLink"
+      :key="item.id"
       :name="item.name"
       :desc="item.desc"
       :avatar="item.icon"
+      :url="item.url"
     ></friend-link-item>
   </div>
 </template>
