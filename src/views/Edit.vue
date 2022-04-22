@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-22 19:06:50
+ * @LastEditTime: 2022-04-22 20:59:14
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -70,12 +70,15 @@ const handleUploadImage = async (event: any, insertImage: any, files: any) => {
   })
 }
 
-const save = async () => {
+const getDesc = (): string => {
   const html = editior.value.getHTML(content.value)
-  const desc = htmlToText(html, {
+  return htmlToText(html, {
     warp: false,
     length: 60
   })
+}
+
+const save = async () => {
 
   // 存草稿
   const { data: res } = await saveApi({
@@ -83,7 +86,7 @@ const save = async () => {
     title: title.value,
     content: content.value,
     cover: cover.value,
-    desc
+    desc: getDesc()
   })
   if (res.status == 1) {
     ElMessage.success('保存成功！')
@@ -93,11 +96,16 @@ const save = async () => {
 }
 
 const push = async () => {
-  let uuid = route.query.id as string
   // 发布文章
   // 发布前调用保存草稿
   await save()
-  await pushApi({ uuid })
+  await pushApi({
+    id: id.value,
+    title: title.value,
+    content: content.value,
+    cover: cover.value,
+    desc: getDesc()
+  })
 }
 
 </script>
