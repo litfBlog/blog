@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-20 18:42:00
+ * @LastEditTime: 2022-04-22 17:15:35
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -19,7 +19,12 @@ const size = 18
 </script>
 
 <template>
-  <div class="card" :class="{ shadow: props.viewShadow }" @click="router.push(`/p/${props.id}`)">
+  <router-link
+    class="card"
+    :class="{ shadow: props.viewShadow }"
+    :to="`/p/${props.id}`"
+    target="_blank"
+  >
     <div class="user" v-if="props.viewAuthor">
       <el-image class="avatar" :src="avatar" fit="cover"></el-image>
       <div class="info">
@@ -47,7 +52,7 @@ const size = 18
         {{ props.commentCount }}
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style lang="less" scoped>
