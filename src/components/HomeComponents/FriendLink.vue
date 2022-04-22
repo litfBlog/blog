@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-09 17:38:05
- * @LastEditTime: 2022-04-20 19:49:23
+ * @LastEditTime: 2022-04-22 14:51:45
  * @LastEditors: litfa
  * @Description: 友情链接
  * @FilePath: /blog/src/components/HomeComponents/FriendLink.vue
@@ -11,6 +11,26 @@
 <!-- 预留动态渲染接口 -->
 <script lang="ts" setup>
 import { LinkOne, Right } from '@icon-park/vue-next'
+import { getHomeLink as getHomeLinkApi } from '@/apis/getFriendLink'
+import { ref } from 'vue'
+
+const links = ref<Link[]>([])
+interface Link {
+  id: number
+  url: string
+  name: string
+  desc: string
+  icon: string
+  'user_id': number
+  date: string
+  status: number
+  'view_in_home': boolean
+}
+const getHomeLink = async () => {
+  const { data: res } = await getHomeLinkApi()
+  links.value = res.data
+}
+getHomeLink()
 </script>
 
 <template>
@@ -29,22 +49,9 @@ import { LinkOne, Right } from '@icon-park/vue-next'
     <!-- <div class="item">
       <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
     </div>-->
-    <div class="item">
-      <el-image
-        class="cover"
-        src="https://www.buerka.xyz/upload/2022/04/buerka@500px.jpg"
-        fit="cover"
-      />不二卡博客
-    </div>
-    <div class="item">
-      <el-image
-        class="cover"
-        src="https://www.daiyuyang.cn/upload/2022/02/logo-2032cb2433a94dcdbc487946d3a49990.jpg"
-        fit="cover"
-      />Sigma的博客
-    </div>
-    <div class="item">
-      <el-image class="cover" src="https://jsun969.cn/favicon.ico" fit="cover" />荆棘小栈
+    <div class="item" v-for="i in links" :key="i.id">
+      <el-image class="cover" :src="i.icon" fit="cover" />
+      {{ i.name }}
     </div>
     <div class="any">
       <router-link to="/friend">
