@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-18 18:41:55
- * @LastEditTime: 2022-04-20 17:02:40
+ * @LastEditTime: 2022-04-22 18:45:13
  * @LastEditors: litfa
  * @Description: 上传封面
  * @FilePath: /blog/src/components/UploadCover.vue
@@ -14,8 +14,8 @@ import { UploadOne } from '@icon-park/vue-next'
 import uploadApi from '@/apis/upload'
 
 const props = defineProps({
-  uuid: {
-    type: String,
+  id: {
+    type: Number,
     required: true
   },
   cover: {
@@ -68,10 +68,10 @@ const error = (msg: string): void => {
  * @return {*}
  */
 const upload = async (files: File[]) => {
-  const { uuid } = props
+  const { id } = props
   let formdata = new FormData()
   formdata.append('file', files[0])
-  let { data: res } = await uploadApi(formdata, uuid, true)
+  let { data: res } = await uploadApi(formdata, id, true)
   if (res.status != 1) return ElMessage.error('上传失败')
   emits('update:cover', `//${res.Location}`)
 }

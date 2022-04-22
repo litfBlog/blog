@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-22 18:31:12
+ * @LastEditTime: 2022-04-22 19:06:50
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -25,14 +25,16 @@ import htmlToText from '@/utils/html2text'
 const route = useRoute()
 const router = useRouter()
 
-let content = ref('')
-let title = ref('')
-let cover = ref('')
-let editior = ref<any>()
+const content = ref('')
+const title = ref('')
+const cover = ref('')
+const editior = ref<any>()
+const id = ref()
 
 const initPage = async () => {
   const { data: res } = await articlesInitApi()
   if (res.status == 1) {
+    id.value = res.data.id
     content.value = res.data.content || ''
     title.value = res.data.title || ''
     cover.value = res.data.cover || ''
@@ -50,14 +52,13 @@ watch(() => route.query.id, (e) => {
 })
 
 const handleUploadImage = async (event: any, insertImage: any, files: any) => {
-  let uuid = route.query.id as string
   // 拿到 files 之后上传到文件服务器，然后向编辑框中插入对应的内容
   console.log(event, insertImage, files)
   let formdata = new FormData()
   console.log(formdata)
   formdata.append('file', files[0])
 
-  const { data: res } = await uploadApi(formdata, uuid)
+  const { data: res } = await uploadApi(formdata, id.value)
 
   if (res.status != 1) return ElMessage.error('图片上传失败')
 
@@ -77,12 +78,18 @@ const save = async () => {
   })
 
   // 存草稿
-  await saveApi({
+  const { data: res } = await saveApi({
+    id: id.value,
     title: title.value,
     content: content.value,
     cover: cover.value,
     desc
   })
+  if (res.status == 1) {
+    ElMessage.success('保存成功！')
+  } else {
+    ElMessage.success('保存失败，请稍后再试')
+  }
 }
 
 const push = async () => {
@@ -107,7 +114,7 @@ const push = async () => {
       ref="editior"
     ></component>
     <h4>设置封面</h4>
-    <upload-cover :uuid="(route.query.id as string)" v-model:cover="cover"></upload-cover>
+    <upload-cover :id="id" v-model:cover="cover"></upload-cover>
 
     <div class="buttons">
       <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
