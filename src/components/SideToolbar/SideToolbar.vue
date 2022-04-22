@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-22 15:18:08
+ * @LastEditTime: 2022-04-22 15:45:59
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -16,6 +16,8 @@ import ScrollObserver from '@/utils/scrollObserver'
 import likeApi from '@/apis/like'
 import { getCommentsCount as getCommentsCountApi } from '@/apis/getComment'
 import { useRoute } from 'vue-router'
+import scrollIntoView from '@/utils/scrollIntoView'
+import bus from 'vue3-eventbus'
 
 const route = useRoute()
 
@@ -69,6 +71,11 @@ const getCommentsCount = async () => {
   commentsCount.value = '-'
 }
 getCommentsCount()
+
+const toComments = () => {
+  scrollIntoView('.SendComments')
+  bus.emit('sendCommentsFocus')
+}
 </script>
 
 <template>
@@ -84,7 +91,7 @@ getCommentsCount()
             :class="{ liked: props.liked }"
           />
         </Icon>
-        <Icon :count="commentsCount">
+        <Icon :count="commentsCount" @click="toComments">
           <comment theme="outline" :size="size" fill="var(--text-color)" />
         </Icon>
       </div>

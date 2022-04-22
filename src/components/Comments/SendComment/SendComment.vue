@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-04 15:41:30
- * @LastEditTime: 2022-04-18 18:36:37
+ * @LastEditTime: 2022-04-22 15:45:47
  * @LastEditors: litfa
  * @Description: 发送评论组件
  * @FilePath: /blog/src/components/Comments/SendComment/SendComment.vue
@@ -45,6 +45,8 @@ const sendComment = async () => {
 defineExpose({
   focusInput
 })
+
+bus.on('sendCommentsFocus', focusInput)
 </script>
 
 <template>
