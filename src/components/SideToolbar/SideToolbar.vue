@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-18 18:35:55
+ * @LastEditTime: 2022-04-22 15:18:08
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -10,10 +10,11 @@
 <script lang="ts" setup>
 import { onUnmounted, ref } from 'vue'
 import Icon from './Icon/Icon.vue'
-import { ThumbsUp, Up, Star } from '@icon-park/vue-next'
+import { ThumbsUp, Up, Comment } from '@icon-park/vue-next'
 import { ElBacktop } from 'element-plus'
 import ScrollObserver from '@/utils/scrollObserver'
 import likeApi from '@/apis/like'
+import { getCommentsCount as getCommentsCountApi } from '@/apis/getComment'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -60,6 +61,14 @@ const like = async () => {
   }
   // 请求成功
 }
+
+const commentsCount = ref<'-' | number>('-')
+const getCommentsCount = async () => {
+  const { data: res } = await getCommentsCountApi(Number(route.params.id as string))
+  if (res.status == 1) return commentsCount.value = res.count
+  commentsCount.value = '-'
+}
+getCommentsCount()
 </script>
 
 <template>
@@ -75,8 +84,8 @@ const like = async () => {
             :class="{ liked: props.liked }"
           />
         </Icon>
-        <Icon :count="1000">
-          <Star theme="outline" :size="size" fill="var(--text-color)" />
+        <Icon :count="commentsCount">
+          <comment theme="outline" :size="size" fill="var(--text-color)" />
         </Icon>
       </div>
 

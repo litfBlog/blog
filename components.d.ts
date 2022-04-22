@@ -12,6 +12,7 @@ declare module 'vue' {
     CommentList: typeof import('./src/components/Comments/CommentList/CommentList.vue')['default']
     Comments: typeof import('./src/components/Comments/Comments.vue')['default']
     Details: typeof import('./src/components/NavBarUser/Details.vue')['default']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCollapseTransition: typeof import('element-plus/es')['ElCollapseTransition']
     ElForm: typeof import('element-plus/es')['ElForm']
