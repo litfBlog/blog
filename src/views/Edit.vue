@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-20 17:08:40
+ * @LastEditTime: 2022-04-22 18:18:22
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -12,7 +12,7 @@ import articlesInitApi from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
 import uploadApi from '@/apis/upload'
-import { onUnmounted, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import '@/assets/style/markdownPreview.less'
@@ -31,23 +31,13 @@ let cover = ref('')
 let editior = ref<any>()
 
 const initPage = async () => {
-  let { data: res } = await articlesInitApi()
-  if (res.uuid) {
-    // 路由不存在id 跳转到有id的界面
-    if (!route.query.id) {
-      return router.push({ query: { id: res.uuid } })
-    }
-    // 路由有id
-    if (res.uuid == route.query.id) {
-      // 正常情况
-      content.value = res.content || ''
-      title.value = res.title || ''
-      cover.value = res.cover || ''
-    } else {
-      //  但与获取的不符 跳转到有id的
-      alert('您有其他文章正在编辑，是否跳转')
-      router.push({ query: { id: res.uuid } })
-    }
+  const { data: res } = await articlesInitApi()
+  if (res.status == 1) {
+    content.value = res.content || ''
+    title.value = res.title || ''
+    cover.value = res.cover || ''
+  } else {
+    ElMessage.error('数据获取失败，请稍后再试')
   }
 }
 
