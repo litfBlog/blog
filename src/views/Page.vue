@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-23 13:25:04
+ * @LastEditTime: 2022-04-23 13:33:00
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -35,7 +35,7 @@ const getArticles = async () => {
     content.value = res.data.content
     headerInfo.value.title = res.data.title
     headerInfo.value.avatar = res.data.avatar
-    headerInfo.value.date = res.data.createDate
+    headerInfo.value.date = res.data.create_date
     headerInfo.value.name = res.data.username
     likes.value = res.data.likes_count
     liked.value = Boolean(Number(res.data.liked))
