@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-22 20:59:14
+ * @LastEditTime: 2022-04-23 16:46:57
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -99,20 +99,28 @@ const push = async () => {
   // 发布文章
   // 发布前调用保存草稿
   await save()
-  await pushApi({
+  const { data: res } = await pushApi({
     id: id.value,
     title: title.value,
     content: content.value,
     cover: cover.value,
     desc: getDesc()
   })
+  if (res.status == 1) {
+    ElMessage.success('发布成功！请等待审核')
+    setTimeout(() => {
+      router.push('/')
+    }, 3000)
+  } else {
+    ElMessage.error('发布失败，请稍后再试')
+  }
 }
 
 </script>
 
 <template>
   <div class="edit">
-    <el-input class="title" v-model="title" show-word-limit maxlength="10" placeholder="标题"></el-input>
+    <el-input class="title" v-model="title" show-word-limit maxlength="40" placeholder="标题"></el-input>
     <component
       v-bind:is="Editior"
       v-model="content"
