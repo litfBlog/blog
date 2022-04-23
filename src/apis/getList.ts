@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-03-15 18:31:55
- * @LastEditTime: 2022-03-30 15:57:27
+ * @LastEditTime: 2022-04-23 12:22:16
  * @LastEditors: litfa
  * @Description: 获取首页文章列表
  * @FilePath: /blog/src/apis/getList.ts
@@ -12,7 +12,7 @@ import { AxiosPromise } from 'axios'
 
 export default (offset?: number, limit?: number): any => {
   return request({
-    url: '/articles/get/home',
+    url: '/v2/articles/get/home',
     method: 'POST',
     data: {
       offset,
@@ -23,7 +23,7 @@ export default (offset?: number, limit?: number): any => {
 
 export const getUser = (offset?: number, limit?: number, author?: number | string): AxiosPromise => {
   return request({
-    url: '/articles/get/user',
+    url: '/v2/articles/get/user',
     method: 'POST',
     data: {
       offset,
