@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-03-14 17:52:21
- * @LastEditTime: 2022-04-22 20:48:35
+ * @LastEditTime: 2022-04-23 12:38:42
  * @LastEditors: litfa
  * @Description: 发布文章
  * @FilePath: /blog/src/apis/push.ts
@@ -20,7 +20,7 @@ interface data {
 export default (data: data): any => {
   return request({
     method: 'POST',
-    url: '/v2/articles/push',
+    url: '/articles/push',
     data: data
   })
 }
