@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-20 17:08:40
+ * @LastEditTime: 2022-04-22 20:59:14
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
@@ -12,7 +12,7 @@ import articlesInitApi from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
 import uploadApi from '@/apis/upload'
-import { onUnmounted, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import '@/assets/style/markdownPreview.less'
@@ -25,29 +25,21 @@ import htmlToText from '@/utils/html2text'
 const route = useRoute()
 const router = useRouter()
 
-let content = ref('')
-let title = ref('')
-let cover = ref('')
-let editior = ref<any>()
+const content = ref('')
+const title = ref('')
+const cover = ref('')
+const editior = ref<any>()
+const id = ref()
 
 const initPage = async () => {
-  let { data: res } = await articlesInitApi()
-  if (res.uuid) {
-    // 路由不存在id 跳转到有id的界面
-    if (!route.query.id) {
-      return router.push({ query: { id: res.uuid } })
-    }
-    // 路由有id
-    if (res.uuid == route.query.id) {
-      // 正常情况
-      content.value = res.content || ''
-      title.value = res.title || ''
-      cover.value = res.cover || ''
-    } else {
-      //  但与获取的不符 跳转到有id的
-      alert('您有其他文章正在编辑，是否跳转')
-      router.push({ query: { id: res.uuid } })
-    }
+  const { data: res } = await articlesInitApi()
+  if (res.status == 1) {
+    id.value = res.data.id
+    content.value = res.data.content || ''
+    title.value = res.data.title || ''
+    cover.value = res.data.cover || ''
+  } else {
+    ElMessage.error('数据获取失败，请稍后再试')
   }
 }
 
@@ -60,14 +52,13 @@ watch(() => route.query.id, (e) => {
 })
 
 const handleUploadImage = async (event: any, insertImage: any, files: any) => {
-  let uuid = route.query.id as string
   // 拿到 files 之后上传到文件服务器，然后向编辑框中插入对应的内容
   console.log(event, insertImage, files)
   let formdata = new FormData()
   console.log(formdata)
   formdata.append('file', files[0])
 
-  const { data: res } = await uploadApi(formdata, uuid)
+  const { data: res } = await uploadApi(formdata, id.value)
 
   if (res.status != 1) return ElMessage.error('图片上传失败')
 
@@ -79,31 +70,42 @@ const handleUploadImage = async (event: any, insertImage: any, files: any) => {
   })
 }
 
-const save = async () => {
-  let uuid = route.query.id as string
+const getDesc = (): string => {
   const html = editior.value.getHTML(content.value)
-  const desc = htmlToText(html, {
+  return htmlToText(html, {
     warp: false,
     length: 60
   })
+}
+
+const save = async () => {
 
   // 存草稿
-  await saveApi({
-    uuid,
-    contenttype: 'markdown',
+  const { data: res } = await saveApi({
+    id: id.value,
     title: title.value,
     content: content.value,
     cover: cover.value,
-    desc
+    desc: getDesc()
   })
+  if (res.status == 1) {
+    ElMessage.success('保存成功！')
+  } else {
+    ElMessage.success('保存失败，请稍后再试')
+  }
 }
 
 const push = async () => {
-  let uuid = route.query.id as string
   // 发布文章
   // 发布前调用保存草稿
   await save()
-  await pushApi({ uuid })
+  await pushApi({
+    id: id.value,
+    title: title.value,
+    content: content.value,
+    cover: cover.value,
+    desc: getDesc()
+  })
 }
 
 </script>
@@ -120,7 +122,7 @@ const push = async () => {
       ref="editior"
     ></component>
     <h4>设置封面</h4>
-    <upload-cover :uuid="(route.query.id as string)" v-model:cover="cover"></upload-cover>
+    <upload-cover :id="id" v-model:cover="cover"></upload-cover>
 
     <div class="buttons">
       <el-button type="success" round size="large" auto-insert-space @click="push">发布</el-button>
