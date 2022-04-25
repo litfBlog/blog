@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-23 13:33:00
+ * @LastEditTime: 2022-04-25 19:49:15
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -13,9 +13,10 @@ import PageHeader from '@/components/PageHeader/PageHeader.vue'
 import getArticlesApi from '@/apis/getArticles'
 import SideToolbar from '@/components/SideToolbar/SideToolbar.vue'
 import Comments from '@/components/Comments/Comments.vue'
+import { ElLoading } from 'element-plus'
 
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 const route = useRoute()
 
 interface ToolbarData {
@@ -27,7 +28,10 @@ const headerInfo: any = ref({})
 const likes = ref(0)
 const liked = ref(false)
 const toolbarData = ref<ToolbarData>({})
-
+let loadingInstance: any
+onMounted(() => {
+  loadingInstance = ElLoading.service({ target: '.Page', fullscreen: false })
+})
 const getArticles = async () => {
   const { data: res } = await getArticlesApi(route.params.id as string)
 
@@ -41,6 +45,7 @@ const getArticles = async () => {
     liked.value = Boolean(Number(res.data.liked))
     document.title = res.data.title
   }
+  loadingInstance.close()
 }
 getArticles()
 </script>
