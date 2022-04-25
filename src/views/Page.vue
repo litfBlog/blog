@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-25 20:01:46
+ * @LastEditTime: 2022-04-25 20:21:16
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -14,6 +14,7 @@ import getArticlesApi from '@/apis/getArticles'
 import SideToolbar from '@/components/SideToolbar/SideToolbar.vue'
 import Comments from '@/components/Comments/Comments.vue'
 import Status from '@/components/Status/Status.vue'
+// import FourZeroTour from '@/components/Illustrations/FourZeroTour.vue'
 import { ElLoading } from 'element-plus'
 
 import { useRoute } from 'vue-router'
@@ -61,6 +62,12 @@ getArticles()
   <div class="Page">
     <template v-if="errCode">
       <Status :code="errCode"></Status>
+      <!-- <div style="text-align: center;">
+        <FourZeroTour></FourZeroTour>
+        <router-link to="/">
+          <el-button type="success">回首页</el-button>
+        </router-link>
+      </div>-->
     </template>
     <template v-else>
       <page-header v-bind="headerInfo"></page-header>
