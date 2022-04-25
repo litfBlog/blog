@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 19:21:27
- * @LastEditTime: 2022-03-29 20:20:36
+ * @LastEditTime: 2022-04-25 19:30:13
  * @LastEditors: litfa
  * @Description: 用户信息
  * @FilePath: /blog/src/components/Account/User/User.vue
@@ -9,11 +9,12 @@
 -->
 <script lang="ts" setup>
 import { computed } from '@vue/reactivity'
-import { useStore } from 'vuex'
-const store = useStore()
+import { useCounterStore } from '@/store/index'
+
+const store = useCounterStore()
 
 const user = computed(() => {
-  return store.state.user
+  return store
 })
 </script>
 

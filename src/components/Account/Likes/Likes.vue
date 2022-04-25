@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:04:51
- * @LastEditTime: 2022-04-07 17:28:20
+ * @LastEditTime: 2022-04-25 19:29:11
  * @LastEditors: litfa
  * @Description: 点赞的文章
  * @FilePath: /blog/src/components/Account/Likes/Likes.vue
@@ -11,10 +11,10 @@
 import Card from '@/components/Card/Card.vue'
 import { computed, ref } from 'vue'
 import getLikesApi from '@/apis/getLikes'
-import { useStore } from 'vuex'
-const store = useStore()
+import { useCounterStore } from '@/store/index'
+const store = useCounterStore()
 let user = computed(() => {
-  return store.state.user
+  return store
 })
 const likesList: any = ref([])
 const getLikes = async () => {

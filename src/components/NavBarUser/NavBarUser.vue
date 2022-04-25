@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 19:16:33
- * @LastEditTime: 2022-04-19 15:22:38
+ * @LastEditTime: 2022-04-25 19:25:08
  * @LastEditors: litfa
  * @Description: 顶部栏用户模块
  * @FilePath: /blog/src/components/NavBarUser/NavBarUser.vue
@@ -9,12 +9,12 @@
 -->
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useCounterStore } from '@/store/index'
 import Details from './Details.vue'
 
-const store = useStore()
+const store = useCounterStore()
 let user = computed(() => {
-  return store.state.user
+  return store
 })
 const open = ref(false)
 const display = ref(false)
