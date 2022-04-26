@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 21:07:21
- * @LastEditTime: 2022-04-19 15:09:00
+ * @LastEditTime: 2022-04-26 19:59:24
  * @LastEditors: litfa
  * @Description: 
  * @FilePath: /blog/src/App.vue
@@ -11,6 +11,7 @@
   <NavBar></NavBar>
   <SwitchTheme class="SwitchTheme" @click="swichTheme"></SwitchTheme>
   <router-view></router-view>
+  <Report></Report>
 </template>
 
 <script lang="ts">
@@ -19,11 +20,13 @@ import { defineComponent } from 'vue'
 import getUserInfo from '@/utils/getUserInfo'
 import { setTheme } from '@/assets/theme/index'
 import SwitchTheme from './components/SwitchTheme/SwitchTheme.vue'
+import Report from './components/Report/Report.vue'
 export default defineComponent({
   name: 'App',
   components: {
     NavBar,
-    SwitchTheme
+    SwitchTheme,
+    Report
   },
   setup() {
     getUserInfo()
