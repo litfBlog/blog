@@ -1,13 +1,13 @@
 /*
  * @Author: litfa
  * @Date: 2022-04-22 15:35:49
- * @LastEditTime: 2022-04-22 15:42:49
+ * @LastEditTime: 2022-04-26 17:08:31
  * @LastEditors: litfa
  * @Description: 平滑滚动
  * @FilePath: /blog/src/utils/scrollIntoView.ts
  * 
  */
-export default (traget: string, offset = -100): void => {
+export default async (traget: string, offset = -100): Promise<void> => {
   const tragetElem = document.querySelector(traget) as HTMLElement
 
   if (!tragetElem) return

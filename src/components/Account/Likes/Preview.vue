@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:05:05
- * @LastEditTime: 2022-04-25 19:28:49
+ * @LastEditTime: 2022-04-26 17:02:31
  * @LastEditors: litfa
  * @Description: 预览
  * @FilePath: /blog/src/components/Account/Likes/Preview.vue
@@ -50,7 +50,7 @@ getLikes()
 .Likes {
   padding-bottom: 40px;
   .card {
-    border-bottom: 0.5px #aaaa solid;
+    border-bottom: 0.5px rgba(170, 170, 170, 0.208) solid;
     border-radius: 0;
     height: 160px;
     :deep(.articles) {
