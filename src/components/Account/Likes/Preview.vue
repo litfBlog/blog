@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:05:05
- * @LastEditTime: 2022-04-26 17:02:31
+ * @LastEditTime: 2022-04-26 17:50:17
  * @LastEditors: litfa
  * @Description: 预览
  * @FilePath: /blog/src/components/Account/Likes/Preview.vue
@@ -20,7 +20,9 @@ let user = computed(() => {
 const likesList: any = ref([])
 const getLikes = async () => {
   const { data: res } = await getLikesApi(3, undefined, user.value.id)
-  likesList.value = res.data
+  likesList.value = res.data.filter((e: { id: null | number }) => {
+    return e.id !== null
+  })
 }
 getLikes()
 </script>

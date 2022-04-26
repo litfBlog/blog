@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:04:51
- * @LastEditTime: 2022-04-25 19:29:11
+ * @LastEditTime: 2022-04-26 17:49:17
  * @LastEditors: litfa
  * @Description: 点赞的文章
  * @FilePath: /blog/src/components/Account/Likes/Likes.vue
@@ -19,7 +19,9 @@ let user = computed(() => {
 const likesList: any = ref([])
 const getLikes = async () => {
   const { data: res } = await getLikesApi(undefined, undefined, user.value.id)
-  likesList.value = res.data
+  likesList.value = res.data.filter((e: { id: null | number }) => {
+    return e.id !== null
+  })
 }
 getLikes()
 </script>
