@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-26 19:49:42
- * @LastEditTime: 2022-04-26 20:30:05
+ * @LastEditTime: 2022-04-27 15:36:58
  * @LastEditors: litfa
  * @Description: 举报弹窗
  * @FilePath: /blog/src/components/Report/Report.vue
@@ -11,7 +11,21 @@
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import report from '@/apis/report'
-const dialogTableVisible = ref(false)
+const props = defineProps({
+  dialogTableVisible: {
+    type: Boolean,
+    default: false
+  },
+  type: {
+    type: String
+  },
+  reportId: {
+    type: Number
+  }
+})
+
+const emits = defineEmits(['close'])
+
 const formRef = ref<null | HTMLElement>(null)
 
 const form = reactive({
@@ -38,13 +52,19 @@ const onSubmit = async (formEl: any) => {
   await formEl.validate(async (valid: any, fields: any) => {
     if (valid) {
       // 提交api
-      await report({
+      const { data: res } = await report({
         // 这两项 等待完善props
         reportId: 0,
         type: 'comment',
         cause: Number(form.cause),
         note: form.note
       })
+      if (res.status == 1) {
+        ElMessage.success('举报成功')
+        emits('close')
+      } else {
+        ElMessage.error('举报失败，请稍后再试')
+      }
     } else {
       ElMessage.warning('请正确填写表单')
     }
@@ -54,7 +74,7 @@ const onSubmit = async (formEl: any) => {
 </script>
 
 <template>
-  <el-dialog v-model="dialogTableVisible" title="举报">
+  <el-dialog :model-value="dialogTableVisible" title="举报">
     <el-form :model="form" label-width="120px" ref="formRef" :rules="rules">
       <el-form-item label="举报原因" prop="cause">
         <el-radio-group v-model="form.cause">
@@ -76,7 +96,7 @@ const onSubmit = async (formEl: any) => {
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit(formRef)">提交</el-button>
-        <el-button>取消</el-button>
+        <el-button @click="emits('close')">取消</el-button>
       </el-form-item>
     </el-form>
   </el-dialog>
