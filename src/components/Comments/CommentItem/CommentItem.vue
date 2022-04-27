@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-05 15:50:52
- * @LastEditTime: 2022-04-13 16:18:49
+ * @LastEditTime: 2022-04-27 16:46:04
  * @LastEditors: litfa
  * @Description: 评论内容
  * @FilePath: /blog/src/components/Comments/CommentItem/CommentItem.vue
@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import propNames from './props'
 import CommentChildItem from '../CommentChildItem/CommentChildItem.vue'
-import { GoodTwo, More } from '@icon-park/vue-next'
+import { GoodTwo, More, Caution } from '@icon-park/vue-next'
 import emoji from '@/assets/emoji/list'
 import replaceEmoji from '../utils/replaceEmoji'
 import { computed } from '@vue/reactivity'
@@ -19,6 +19,7 @@ import { ref, nextTick } from 'vue'
 import formatDate from '@/utils/formatDate'
 import likeCommentApi from '@/apis/likeComment'
 import { useRoute } from 'vue-router'
+import { report } from '@/components/Report/report'
 const props = defineProps(propNames)
 const route = useRoute()
 const content = computed(() => {
@@ -90,7 +91,22 @@ const likeComment = async () => {
           </span>
           <span @click="viewSend">回复</span>
           <span>
-            <more theme="outline" size="20" fill="#666" :strokeWidth="3" />
+            <el-popover placement="bottom" :width="200" trigger="hover">
+              <template #reference>
+                <more theme="outline" size="20" fill="#666" :strokeWidth="3" />
+              </template>
+              <el-button
+                @click="report({
+                  open: true,
+                  reportId: Number(props.id),
+                  type: 'comment'
+                })"
+              >
+                <el-icon style="margin-right: 8px;">
+                  <Caution></Caution>
+                </el-icon>举报
+              </el-button>
+            </el-popover>
           </span>
         </div>
       </div>
