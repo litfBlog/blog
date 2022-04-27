@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-22 15:45:59
+ * @LastEditTime: 2022-04-27 16:02:47
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { onUnmounted, ref } from 'vue'
 import Icon from './Icon/Icon.vue'
-import { ThumbsUp, Up, Comment } from '@icon-park/vue-next'
+import { ThumbsUp, Up, Comment, Caution } from '@icon-park/vue-next'
 import { ElBacktop } from 'element-plus'
 import ScrollObserver from '@/utils/scrollObserver'
 import likeApi from '@/apis/like'
@@ -18,6 +18,7 @@ import { getCommentsCount as getCommentsCountApi } from '@/apis/getComment'
 import { useRoute } from 'vue-router'
 import scrollIntoView from '@/utils/scrollIntoView'
 import bus from 'vue3-eventbus'
+import { report } from '@/components/Report/report'
 
 const route = useRoute()
 
@@ -93,6 +94,16 @@ const toComments = () => {
         </Icon>
         <Icon :count="commentsCount" @click="toComments">
           <comment theme="outline" :size="size" fill="var(--text-color)" />
+        </Icon>
+        <Icon
+          count="举报"
+          @click="report({
+            open: true,
+            reportId: Number(route.params.id),
+            type: 'articles'
+          })"
+        >
+          <caution theme="outline" :size="size" fill="var(--text-color)" />
         </Icon>
       </div>
 

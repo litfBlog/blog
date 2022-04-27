@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-22 17:19:29
+ * @LastEditTime: 2022-04-27 15:59:28
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -11,11 +11,20 @@
 <script lang="ts" setup>
 import propNames from './props'
 import { useRouter } from 'vue-router'
-import { ThumbsUp, PreviewOpen, Comment } from '@icon-park/vue-next'
+import { ThumbsUp, PreviewOpen, Comment, More, Caution } from '@icon-park/vue-next'
 import formatDate from '@/utils/formatDate'
+import { report as Report } from '@/components/Report/report'
 const props = defineProps(propNames)
 const router = useRouter()
 const size = 18
+
+const report = (reportId: number, type: 'articles' | 'user' | 'comment') => {
+  Report({
+    open: true,
+    reportId,
+    type
+  })
+}
 </script>
 
 <template>
@@ -50,6 +59,18 @@ const size = 18
       <div class="item">
         <comment theme="filled" :size="size" fill="var(--text-color-line)" />
         {{ props.commentCount }}
+      </div>
+      <div class="item">
+        <el-popover placement="top" :width="30" trigger="hover">
+          <template #reference>
+            <more theme="filled" :size="size" fill="var(--text-color-line)" />
+          </template>
+          <el-button @click="report(Number(props.id), 'articles')">
+            <el-icon style="margin-right: 8px;">
+              <Caution></Caution>
+            </el-icon>举报
+          </el-button>
+        </el-popover>
       </div>
     </div>
   </router-link>
