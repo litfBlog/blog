@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-26 19:49:42
- * @LastEditTime: 2022-04-27 15:36:58
+ * @LastEditTime: 2022-04-28 16:30:43
  * @LastEditors: litfa
  * @Description: 举报弹窗
  * @FilePath: /blog/src/components/Report/Report.vue
@@ -53,9 +53,8 @@ const onSubmit = async (formEl: any) => {
     if (valid) {
       // 提交api
       const { data: res } = await report({
-        // 这两项 等待完善props
-        reportId: 0,
-        type: 'comment',
+        reportId: Number(props.reportId),
+        type: props.type as any,
         cause: Number(form.cause),
         note: form.note
       })
