@@ -1,18 +1,16 @@
-@body-background-color: #e0e5ef;
-
-@card-background-color: #fff;
-
-@text-color: #000;
-
-@text-color-line: rgb(41, 41, 41);
-
-@primary: #42b983;
-
-@scrollbar-color: #00000049;
-
-@scrollbar-color-hover: rgb(88, 83, 83);
+@body-background-color: var(--body-background-color);
+@card-background-color: var(--card-background-color);
+@content-background-color: var(--content-background-color);
+@text-color: var(--text-color);
+@text-color-line: var(--text-color-line);
+@primary: var(--primary);
+@scrollbar-color: var(--scrollbar-color);
+@scrollbar-color-hover: var(--scrollbar-color-hover);
+@code-text-color: var(--code-text-color);
 
 :root {
-  --el-color-primary: @primary;
-  --el-color-success: @primary;
+  --el-color-primary: var(--primary);
+  --el-color-success: var(--primary);
+  --el-color-white: var(--card-background-color);
+  --el-border-color-light: var(--body-background-color);
 }

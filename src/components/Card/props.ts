@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-03-27 20:18:30
- * @LastEditTime: 2022-04-12 16:02:10
+ * @LastEditTime: 2022-04-29 15:48:03
  * @LastEditors: litfa
  * @Description: props
  * @FilePath: /blog/src/components/Card/props.ts
@@ -26,7 +26,7 @@ export default {
   username: {
     type: String
   },
-  date: {
+  createDate: {
     type: [Number, String]
   },
   title: {
@@ -42,6 +42,9 @@ export default {
     type: Number
   },
   commentCount: {
+    type: Number
+  },
+  author: {
     type: Number
   }
 }

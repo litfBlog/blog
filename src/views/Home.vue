@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-04-08 18:38:42
+ * @LastEditTime: 2022-04-28 18:44:24
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -12,7 +12,7 @@
     <Suspense>
       <HomeCards></HomeCards>
       <template #fallback>
-        <div style="width: 50%;">
+        <div style="padding-right: 10px;">
           <HomeSkeleton></HomeSkeleton>
           <HomeSkeleton></HomeSkeleton>
           <HomeSkeleton></HomeSkeleton>
@@ -33,7 +33,20 @@ import HomeSkeleton from '@/components/HomeSkeleton/HomeSkeleton.vue'
 
 <style lang="less" scoped>
 .Home {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-column: 2;
+  grid-template-columns: 2fr 0.8fr;
+  grid-column-gap: 10px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 720px) {
+  .Home {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+  }
+  .HomeComponents {
+    display: none;
+  }
 }
 </style>

@@ -2,12 +2,25 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  background-color: @card-background-color;
+  padding: 20px 25px;
+}
+
+@media screen and (max-width: 500px) {
+  .User {
+    flex-direction: column;
+  }
+
+  .userInfo {
+    margin-bottom: 20px;
+  }
 }
 
 .userInfo {
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 80px;
+  color: @text-color;
 
   .avatar {
     width: 80px;
@@ -48,6 +61,7 @@
     span {
       &:first-child {
         font-weight: 400;
+        color: @text-color;
       }
 
       &:last-child {

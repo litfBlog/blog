@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:05:05
- * @LastEditTime: 2022-04-07 17:57:19
+ * @LastEditTime: 2022-04-26 17:50:17
  * @LastEditors: litfa
  * @Description: 预览
  * @FilePath: /blog/src/components/Account/Likes/Preview.vue
@@ -12,15 +12,17 @@ import Preview from '../Preview/Preview.vue'
 import Card from '@/components/Card/Card.vue'
 import { computed, ref } from 'vue'
 import getLikesApi from '@/apis/getLikes'
-import { useStore } from 'vuex'
-const store = useStore()
+import { useCounterStore } from '@/store/index'
+const store = useCounterStore()
 let user = computed(() => {
-  return store.state.user
+  return store
 })
 const likesList: any = ref([])
 const getLikes = async () => {
   const { data: res } = await getLikesApi(3, undefined, user.value.id)
-  likesList.value = res.data
+  likesList.value = res.data.filter((e: { id: null | number }) => {
+    return e.id !== null
+  })
 }
 getLikes()
 </script>
@@ -50,7 +52,7 @@ getLikes()
 .Likes {
   padding-bottom: 40px;
   .card {
-    border-bottom: 0.5px #aaaa solid;
+    border-bottom: 0.5px rgba(170, 170, 170, 0.208) solid;
     border-radius: 0;
     height: 160px;
     :deep(.articles) {

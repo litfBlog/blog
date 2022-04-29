@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-09 17:38:05
- * @LastEditTime: 2022-04-12 15:02:34
+ * @LastEditTime: 2022-04-22 14:57:22
  * @LastEditors: litfa
  * @Description: 友情链接
  * @FilePath: /blog/src/components/HomeComponents/FriendLink.vue
@@ -11,6 +11,26 @@
 <!-- 预留动态渲染接口 -->
 <script lang="ts" setup>
 import { LinkOne, Right } from '@icon-park/vue-next'
+import { getHomeLink as getHomeLinkApi } from '@/apis/getFriendLink'
+import { ref } from 'vue'
+
+const links = ref<Link[]>([])
+interface Link {
+  id: number
+  url: string
+  name: string
+  desc: string
+  icon: string
+  'user_id': number
+  date: string
+  status: number
+  'view_in_home': boolean
+}
+const getHomeLink = async () => {
+  const { data: res } = await getHomeLinkApi()
+  links.value = res.data
+}
+getHomeLink()
 </script>
 
 <template>
@@ -29,25 +49,12 @@ import { LinkOne, Right } from '@icon-park/vue-next'
     <!-- <div class="item">
       <el-image class="cover" src="https://alongw.cn/icon/logo.jpg" fit="cover" />阿龙博客
     </div>-->
-    <div class="item">
-      <el-image
-        class="cover"
-        src="https://www.buerka.xyz/upload/2022/04/buerka@500px.jpg"
-        fit="cover"
-      />不二卡博客
-    </div>
-    <div class="item">
-      <el-image
-        class="cover"
-        src="https://www.daiyuyang.cn/upload/2022/02/logo-2032cb2433a94dcdbc487946d3a49990.jpg"
-        fit="cover"
-      />Sigma的博客
-    </div>
-    <div class="item">
-      <el-image class="cover" src="https://jsun969.cn/favicon.ico" fit="cover" />荆棘小栈
-    </div>
+    <a class="item" v-for="i in links" :key="i.id" :href="i.url" target="_black">
+      <el-image class="cover" :src="i.icon" fit="cover" />
+      {{ i.name }}
+    </a>
     <div class="any">
-      <router-link to="/">
+      <router-link to="/friend">
         查看更多
         <right theme="filled" size="20" fill="#333" :strokeWidth="3" />
       </router-link>
@@ -62,7 +69,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
   box-sizing: border-box;
   .title {
     font-size: 20px;
-    color: #2c3e50;
+    color: @text-color;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -74,6 +81,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
     align-items: center;
     font-size: 18px;
     margin: 5px 0 5px 5px;
+    color: @text-color;
     .cover {
       width: 40px;
       height: 40px;
@@ -84,7 +92,7 @@ import { LinkOne, Right } from '@icon-park/vue-next'
   .any {
     display: flex;
     align-items: center;
-    color: #2c3e50;
+    color: @text-color-line;
     font-weight: 600;
     font-size: 17px;
   }

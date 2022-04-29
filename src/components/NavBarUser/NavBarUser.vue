@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 19:16:33
- * @LastEditTime: 2022-04-08 18:47:24
+ * @LastEditTime: 2022-04-25 19:25:08
  * @LastEditors: litfa
  * @Description: 顶部栏用户模块
  * @FilePath: /blog/src/components/NavBarUser/NavBarUser.vue
@@ -9,16 +9,26 @@
 -->
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useCounterStore } from '@/store/index'
 import Details from './Details.vue'
 
-const store = useStore()
+const store = useCounterStore()
 let user = computed(() => {
-  return store.state.user
+  return store
 })
 const open = ref(false)
 const display = ref(false)
-const showPopover = (isShow: boolean, cssdisplay?: boolean) => {
+let timeout: any = 0
+const showPopover = (isShow: boolean, cssdisplay?: boolean, stopTimeout?: boolean, startTimeout?: boolean) => {
+  if (stopTimeout) {
+    clearTimeout(timeout)
+  }
+  if (startTimeout) {
+    timeout = setTimeout(() => {
+      open.value = false
+    }, 800)
+  }
+
   open.value = isShow
   if (cssdisplay != undefined) {
     if (cssdisplay == true) {
@@ -38,7 +48,7 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean) => {
       class="avatar-mini"
       :src="user.avatar"
       fit="cover"
-      @mouseover="showPopover(true, true)"
+      @mouseover="showPopover(true, true, false, true)"
     ></el-image>
     <el-popover
       placement="bottom"
@@ -46,7 +56,7 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean) => {
       trigger="hover"
       :show-after="100"
       :show-arrow="false"
-      @show="showPopover(true)"
+      @show="showPopover(true, undefined, true)"
       @hide="showPopover(false)"
       @after-leave="showPopover(false, false)"
       :offset="-10"

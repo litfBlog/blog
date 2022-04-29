@@ -1,28 +1,26 @@
 /*
  * @Author: litfa
  * @Date: 2022-03-08 10:27:31
- * @LastEditTime: 2022-03-09 10:36:20
+ * @LastEditTime: 2022-04-25 19:21:55
  * @LastEditors: litfa
  * @Description: 获取用户信息
  * @FilePath: /blog/src/utils/getUserInfo.ts
  * 
  */
-import { useStore, mapState } from 'vuex'
+import { useCounterStore } from '@/store/index'
 import getUserInfoApi from '@/apis/getUserInfo'
 
 export default async (): Promise<any> => {
-  const store = useStore()
-  if (store.state.isLogin) {
+  const store = useCounterStore()
+  if (store.isLogin) {
     // 登录过的
-    return store.state
+    return store
   }
   // 没登陆
   // 有 token
   if (localStorage.getItem('token')) {
     const { data: res } = await getUserInfoApi()
     const { username: userName, avatar, id } = res.userInfo
-    console.log(store.commit('setUserInfo', { isLogin: true, userName, avatar, id }))
-    console.log(store.state)
-
+    store.increment({ isLogin: true, userName, avatar, id })
   }
 }

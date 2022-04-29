@@ -1,5 +1,14 @@
+<!--
+ * @Author: litfa
+ * @Date: 2022-02-16 02:07:22
+ * @LastEditTime: 2022-04-29 16:49:20
+ * @LastEditors: litfa
+ * @Description: 
+ * @FilePath: /blog/public/index.html
+ * 
+-->
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
@@ -9,6 +18,30 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+
+  <meta name="description" content="litfBlog分享前端问题解决思路以及个人想法和生活点滴" />
+  <meta name="keywords" content="litfBlog XING博客" />
+  <meta name="renderer" content="webkit" />
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script")
+      hm.src = "https://hm.baidu.com/hm.js?98f81bd41dc410bd61d573f0bb620620"
+      var s = document.getElementsByTagName("script")[0]
+      s.parentNode.insertBefore(hm, s)
+    })();
+  </script>
+
+  <script>
+    if (
+      window.__SERVER_CONFIG__ && window.__SERVER_CONFIG__.isModern === false || navigator.userAgent.toLowerCase().indexOf('trident') > -1 ? true : false
+    ) {
+      alert('当前浏览器版本较低，为保证您的使用体验，建议使用最新版本的浏览器访问。')
+      window.location.href('https://google.cn/chrome')
+    }
+  </script>
+
 </head>
 
 <body>

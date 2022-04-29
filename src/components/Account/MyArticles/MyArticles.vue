@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 20:28:23
- * @LastEditTime: 2022-04-07 15:55:44
+ * @LastEditTime: 2022-04-29 15:01:46
  * @LastEditors: litfa
  * @Description: 我的文章
  * @FilePath: /blog/src/components/Account/MyArticles/MyArticles.vue
@@ -11,12 +11,12 @@
 import Card from '@/components/Card/Card.vue'
 import { getUser as getListApi } from '@/apis/getList'
 import { computed } from '@vue/reactivity'
-import { useStore } from 'vuex'
+import { useCounterStore } from '@/store/index'
 import { ref } from 'vue'
-const store = useStore()
+const store = useCounterStore()
 
 const user: any = computed(() => {
-  return store.state.user
+  return store
 })
 
 const articlesList: any = ref([])
@@ -42,6 +42,7 @@ getList()
       :desc="i.desc || i.content"
       :cover="i.cover"
       :likes-count="i.likes_count"
+      :author="i.author"
     ></Card>
   </div>
 </template>

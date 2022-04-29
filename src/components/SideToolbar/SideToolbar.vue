@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-04 17:02:34
+ * @LastEditTime: 2022-04-27 16:02:47
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -10,11 +10,15 @@
 <script lang="ts" setup>
 import { onUnmounted, ref } from 'vue'
 import Icon from './Icon/Icon.vue'
-import { ThumbsUp, Up, Star } from '@icon-park/vue-next'
+import { ThumbsUp, Up, Comment, Caution } from '@icon-park/vue-next'
 import { ElBacktop } from 'element-plus'
 import ScrollObserver from '@/utils/scrollObserver'
 import likeApi from '@/apis/like'
+import { getCommentsCount as getCommentsCountApi } from '@/apis/getComment'
 import { useRoute } from 'vue-router'
+import scrollIntoView from '@/utils/scrollIntoView'
+import bus from 'vue3-eventbus'
+import { report } from '@/components/Report/report'
 
 const route = useRoute()
 
@@ -60,6 +64,19 @@ const like = async () => {
   }
   // 请求成功
 }
+
+const commentsCount = ref<'-' | number>('-')
+const getCommentsCount = async () => {
+  const { data: res } = await getCommentsCountApi(Number(route.params.id as string))
+  if (res.status == 1) return commentsCount.value = res.count
+  commentsCount.value = '-'
+}
+getCommentsCount()
+
+const toComments = () => {
+  scrollIntoView('.SendComments')
+  bus.emit('sendCommentsFocus')
+}
 </script>
 
 <template>
@@ -70,18 +87,28 @@ const like = async () => {
           <ThumbsUp
             theme="outline"
             :size="size"
-            fill="#333"
+            fill="var(--text-color)"
             :stroke-width="3"
             :class="{ liked: props.liked }"
           />
         </Icon>
-        <Icon :count="1000">
-          <Star theme="outline" :size="size" fill="#333" />
+        <Icon :count="commentsCount" @click="toComments">
+          <comment theme="outline" :size="size" fill="var(--text-color)" />
+        </Icon>
+        <Icon
+          count="举报"
+          @click="report({
+            open: true,
+            reportId: Number(route.params.id),
+            type: 'articles'
+          })"
+        >
+          <caution theme="outline" :size="size" fill="var(--text-color)" />
         </Icon>
       </div>
 
       <el-backtop :right="100" :bottom="100">
-        <up theme="outline" :size="size" fill="#333" />
+        <up theme="outline" :size="size" fill="var(--text-color)" />
       </el-backtop>
     </div>
   </div>
@@ -112,8 +139,9 @@ const like = async () => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #fff;
+      background-color: @card-background-color;
       transition: all 0.3s;
+      color: @text-color;
     }
   }
   .hidden {

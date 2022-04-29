@@ -1,3 +1,12 @@
+/**
+ * @Author: litfa
+ * @Date: 2022-03-07 09:54:16
+ * @LastEditTime: 2022-04-29 16:03:33
+ * @LastEditors: litfa
+ * @Description: 
+ * @FilePath: /blog/vue.config.js
+ * @
+ */
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
@@ -33,5 +42,13 @@ module.exports = {
         path.resolve(__dirname, './src/assets/style/colors.less')
       ]
     }
+  },
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = 'Litf Blog'
+        return args
+      })
   }
 }

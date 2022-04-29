@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-08 15:52:11
+ * @LastEditTime: 2022-04-25 19:25:58
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -32,13 +32,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import NavBarUser from './NavBarUser/NavBarUser.vue'
-import { useStore } from 'vuex'
+import { useCounterStore } from '@/store/index'
 import { useRouter } from 'vue-router'
-const store = useStore()
+const store = useCounterStore()
 const router = useRouter()
 
 const user = computed(() => {
-  return store.state.user
+  return store
 })
 </script>
 
@@ -61,7 +61,7 @@ const user = computed(() => {
     .title {
       font-size: 26px;
       font-weight: 600;
-      color: #2c3e50;
+      color: @text-color;
     }
   }
   .right {

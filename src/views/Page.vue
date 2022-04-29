@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-22 11:05:47
- * @LastEditTime: 2022-04-04 15:49:13
+ * @LastEditTime: 2022-04-25 20:21:16
  * @LastEditors: litfa
  * @Description: 页面
  * @FilePath: /blog/src/views/Page.vue
@@ -13,9 +13,12 @@ import PageHeader from '@/components/PageHeader/PageHeader.vue'
 import getArticlesApi from '@/apis/getArticles'
 import SideToolbar from '@/components/SideToolbar/SideToolbar.vue'
 import Comments from '@/components/Comments/Comments.vue'
+import Status from '@/components/Status/Status.vue'
+// import FourZeroTour from '@/components/Illustrations/FourZeroTour.vue'
+import { ElLoading } from 'element-plus'
 
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 const route = useRoute()
 
 interface ToolbarData {
@@ -27,7 +30,11 @@ const headerInfo: any = ref({})
 const likes = ref(0)
 const liked = ref(false)
 const toolbarData = ref<ToolbarData>({})
-
+const errCode = ref(0)
+let loadingInstance: any
+onMounted(() => {
+  loadingInstance = ElLoading.service({ target: '.Page', fullscreen: false })
+})
 const getArticles = async () => {
   const { data: res } = await getArticlesApi(route.params.id as string)
 
@@ -35,21 +42,39 @@ const getArticles = async () => {
     content.value = res.data.content
     headerInfo.value.title = res.data.title
     headerInfo.value.avatar = res.data.avatar
-    headerInfo.value.date = res.data.createDate
+    headerInfo.value.date = res.data.create_date
     headerInfo.value.name = res.data.username
     likes.value = res.data.likes_count
     liked.value = Boolean(Number(res.data.liked))
+    document.title = res.data.title
+  } else if (res.status == 6) {
+    // 404
+    errCode.value = 404
+  } else {
+    errCode.value = 500
   }
+  loadingInstance.close()
 }
 getArticles()
 </script>
 
 <template>
   <div class="Page">
-    <page-header v-bind="headerInfo"></page-header>
-    <Render :text="content"></Render>
-    <SideToolbar v-model:likes="likes" v-model:liked="liked"></SideToolbar>
-    <Comments></Comments>
+    <template v-if="errCode">
+      <Status :code="errCode"></Status>
+      <!-- <div style="text-align: center;">
+        <FourZeroTour></FourZeroTour>
+        <router-link to="/">
+          <el-button type="success">回首页</el-button>
+        </router-link>
+      </div>-->
+    </template>
+    <template v-else>
+      <page-header v-bind="headerInfo"></page-header>
+      <Render :text="content"></Render>
+      <SideToolbar v-model:likes="likes" v-model:liked="liked"></SideToolbar>
+      <Comments></Comments>
+    </template>
   </div>
 </template>
 

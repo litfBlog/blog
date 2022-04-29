@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:25:17
- * @LastEditTime: 2022-04-07 18:27:37
+ * @LastEditTime: 2022-04-29 15:01:11
  * @LastEditors: litfa
  * @Description: 文章预览
  * @FilePath: /blog/src/components/Account/MyArticles/Preview.vue
@@ -12,12 +12,12 @@ import Preview from '../Preview/Preview.vue'
 import Card from '@/components/Card/Card.vue'
 import { getUser as getListApi } from '@/apis/getList'
 import { computed } from '@vue/reactivity'
-import { useStore } from 'vuex'
+import { useCounterStore } from '@/store/index'
 import { ref } from 'vue'
-const store = useStore()
+const store = useCounterStore()
 
 const user: any = computed(() => {
-  return store.state.user
+  return store
 })
 
 const articlesList: any = ref([])
@@ -44,6 +44,7 @@ getList()
         :desc="i.desc || i.content"
         :cover="i.cover"
         :likes-count="i.likes_count"
+        :author="i.author"
       ></Card>
     </div>
   </Preview>
@@ -53,7 +54,7 @@ getList()
 .MyArticles {
   padding-bottom: 40px;
   .card {
-    border-bottom: 0.5px rgba(170, 170, 170, 0.274) solid;
+    border-bottom: 0.5px rgba(170, 170, 170, 0.208) solid;
     border-radius: 0;
     height: 160px;
     :deep(.articles) {

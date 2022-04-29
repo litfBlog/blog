@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 19:18:53
- * @LastEditTime: 2022-04-06 19:14:57
+ * @LastEditTime: 2022-04-26 16:31:33
  * @LastEditors: litfa
  * @Description: 个人中心
  * @FilePath: /blog/src/views/Account.vue
@@ -21,9 +21,12 @@ import Account from '@/components/Account/Account.vue'
 
 <style lang="less" scoped>
 .Account {
-  background-color: @card-background-color;
-  max-width: 1000px;
+  max-width: 800px;
   margin: auto;
   padding: 20px;
+  box-sizing: border-box;
+  .User {
+    margin-bottom: 20px;
+  }
 }
 </style>
