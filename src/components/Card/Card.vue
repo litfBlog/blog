@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-29 15:27:34
+ * @LastEditTime: 2022-04-29 15:48:36
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -47,7 +47,7 @@ const isAuthor = computed(() => {
       <el-image class="avatar" :src="avatar" fit="cover"></el-image>
       <div class="info">
         <span class="username">{{ username }}</span>
-        <span class="date">{{ date ? formatDate(date) : '' }}</span>
+        <span class="date">{{ createDate ? formatDate(createDate) : '' }}</span>
       </div>
     </div>
     <div class="articles">
@@ -58,9 +58,9 @@ const isAuthor = computed(() => {
       <el-image v-if="cover" class="cover" :src="cover" fit="cover" lazy></el-image>
     </div>
     <div class="icons">
-      <div class="item">
+      <!-- <div class="item">
         <preview-open theme="filled" :size="size" fill="var(--text-color-line)" />9
-      </div>
+      </div>-->
       <div class="item">
         <thumbs-up theme="filled" :size="size" fill="var(--text-color-line)" />
         {{ props.likesCount }}
