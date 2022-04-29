@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-27 15:59:28
+ * @LastEditTime: 2022-04-29 15:00:09
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -11,9 +11,14 @@
 <script lang="ts" setup>
 import propNames from './props'
 import { useRouter } from 'vue-router'
-import { ThumbsUp, PreviewOpen, Comment, More, Caution } from '@icon-park/vue-next'
+import { ThumbsUp, PreviewOpen, Comment, More, Caution, FileEditingOne } from '@icon-park/vue-next'
 import formatDate from '@/utils/formatDate'
 import { report as Report } from '@/components/Report/report'
+import { useCounterStore } from '@/store/index'
+import { computed } from 'vue'
+
+const store = useCounterStore()
+
 const props = defineProps(propNames)
 const router = useRouter()
 const size = 18
@@ -25,6 +30,10 @@ const report = (reportId: number, type: 'articles' | 'user' | 'comment') => {
     type
   })
 }
+
+const isAuthor = computed(() => {
+  return store.isLogin && store.id == props.author
+})
 </script>
 
 <template>
@@ -65,11 +74,18 @@ const report = (reportId: number, type: 'articles' | 'user' | 'comment') => {
           <template #reference>
             <more theme="filled" :size="size" fill="var(--text-color-line)" />
           </template>
-          <el-button @click="report(Number(props.id), 'articles')">
-            <el-icon style="margin-right: 8px;">
-              <Caution></Caution>
-            </el-icon>举报
-          </el-button>
+          <div class="buttons">
+            <el-button @click="report(Number(props.id), 'articles')">
+              <el-icon style="margin-right: 8px;">
+                <Caution></Caution>
+              </el-icon>举报
+            </el-button>
+            <el-button v-if="isAuthor">
+              <el-icon style="margin-right: 8px;">
+                <file-editing-one />
+              </el-icon>编辑
+            </el-button>
+          </div>
         </el-popover>
       </div>
     </div>

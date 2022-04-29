@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-03 19:02:49
- * @LastEditTime: 2022-04-23 12:21:39
+ * @LastEditTime: 2022-04-29 14:49:55
  * @LastEditors: litfa
  * @Description: 首页文章
  * @FilePath: /blog/src/components/HomeCards/HomeCards.vue
@@ -35,6 +35,7 @@ await initArticles()
       :cover="i.cover"
       :likes-count="i.likes_count"
       :comment-count="i.comment_count"
+      :author="i.author"
     />
   </div>
 </template>

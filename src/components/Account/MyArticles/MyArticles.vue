@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-29 20:28:23
- * @LastEditTime: 2022-04-25 19:29:56
+ * @LastEditTime: 2022-04-29 15:01:46
  * @LastEditors: litfa
  * @Description: 我的文章
  * @FilePath: /blog/src/components/Account/MyArticles/MyArticles.vue
@@ -42,6 +42,7 @@ getList()
       :desc="i.desc || i.content"
       :cover="i.cover"
       :likes-count="i.likes_count"
+      :author="i.author"
     ></Card>
   </div>
 </template>
