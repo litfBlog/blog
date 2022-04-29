@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-30 19:24:50
- * @LastEditTime: 2022-04-18 17:27:13
+ * @LastEditTime: 2022-04-29 16:52:54
  * @LastEditors: litfa
  * @Description: 使用微信小程序
  * @FilePath: /blog/src/components/HomeComponents/Miniprogram.vue
@@ -24,12 +24,14 @@
 <style lang="less" scoped>
 .Miniprogram {
   display: flex;
-  height: 100px;
+  height: 120px;
   background-color: @card-background-color;
   padding: 10px;
   box-sizing: border-box;
   .el-image {
     border-radius: 50%;
+    width: 100px;
+    height: 100px;
   }
   div.text {
     display: flex;
