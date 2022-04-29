@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-17 17:04:04
- * @LastEditTime: 2022-04-29 15:00:09
+ * @LastEditTime: 2022-04-29 15:27:34
  * @LastEditors: litfa
  * @Description: 文章卡片
  * @FilePath: /blog/src/components/Card/Card.vue
@@ -80,7 +80,7 @@ const isAuthor = computed(() => {
                 <Caution></Caution>
               </el-icon>举报
             </el-button>
-            <el-button v-if="isAuthor">
+            <el-button v-if="isAuthor" @click="router.push(`/edit?id=${id}`)">
               <el-icon style="margin-right: 8px;">
                 <file-editing-one />
               </el-icon>编辑

@@ -1,20 +1,20 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-13 16:22:44
- * @LastEditTime: 2022-04-23 16:46:57
+ * @LastEditTime: 2022-04-29 15:23:52
  * @LastEditors: litfa
  * @Description: 编辑界面
  * @FilePath: /blog/src/views/Edit.vue
  * 
 -->
 <script lang="ts" setup>
-import articlesInitApi from '@/apis/articlesInit'
+import articlesInitApi, { initEdit as initEditApi } from '@/apis/articlesInit'
 import saveApi from '@/apis/save'
 import pushApi from '@/apis/push'
 import uploadApi from '@/apis/upload'
-import { ref, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElLoading } from 'element-plus'
 import '@/assets/style/markdownPreview.less'
 
 import Editior from '@/components/Editior/markdown.vue'
@@ -31,8 +31,24 @@ const cover = ref('')
 const editior = ref<any>()
 const id = ref()
 
+let loadingInstance: any
+onMounted(() => {
+  loadingInstance = ElLoading.service({
+    target: '.edit',
+    fullscreen: false
+  })
+})
+
 const initPage = async () => {
-  const { data: res } = await articlesInitApi()
+  // 发布新文章
+  let data
+  if (route.query.id == undefined) {
+    data = await articlesInitApi()
+  } else {
+    // 编辑文章
+    data = await initEditApi(Number(route.query.id))
+  }
+  const res = data.data
   if (res.status == 1) {
     id.value = res.data.id
     content.value = res.data.content || ''
@@ -41,15 +57,9 @@ const initPage = async () => {
   } else {
     ElMessage.error('数据获取失败，请稍后再试')
   }
+  loadingInstance.close()
 }
-
-watch(() => route.query.id, (e) => {
-  // 解决跳转回其他页面时触发
-  if (route.name != 'Edit') return
-  initPage()
-}, {
-  immediate: true
-})
+initPage()
 
 const handleUploadImage = async (event: any, insertImage: any, files: any) => {
   // 拿到 files 之后上传到文件服务器，然后向编辑框中插入对应的内容
