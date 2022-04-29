@@ -58,6 +58,8 @@
 ![](https://blog-1259453062.cos.ap-beijing.myqcloud.com/user1%2F637d0-aohiw.gif)
 
 # 缺陷
+没有缺陷（不是
+
 由于时间紧迫，还有部分功能尚未完善，比如 搜索、关注等，这些会在上线后逐步完善。
 
 由于目前是单页面应用，对搜索引擎并不友好，不能搜索到文章的内容等，后续会考虑使用[nuxtjs](https://v3.nuxtjs.org/)框架优化.
