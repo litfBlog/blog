@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 17:09:41
- * @LastEditTime: 2022-04-30 18:29:21
+ * @LastEditTime: 2022-04-30 18:37:57
  * @LastEditors: litfa
  * @Description: 搜索页面
  * @FilePath: /blog/src/views/Search.vue
@@ -16,7 +16,7 @@ import { ElMessage } from 'element-plus'
 import Card from '@/components/Card/Card.vue'
 const route = useRoute()
 const key = ref('')
-watch(() => route.query.w, (e) => {
+watch(() => route.query.w, (value) => {
   key.value = Math.random().toString()
   search()
 })
@@ -27,6 +27,7 @@ const search = async () => {
   const { data: res } = await searchApi(route.query.w as string)
   if (res.status == 1) {
     results.value = res.data
+    document.title = `${route.query.w}-搜索`
   } else {
     ElMessage.error('数据获取失败')
   }
