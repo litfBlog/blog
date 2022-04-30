@@ -28,6 +28,7 @@ declare module 'vue' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     Emoji: typeof import('./src/components/Emoji/Emoji.vue')['default']
     EmptyList: typeof import('./src/components/Illustrations/EmptyList.vue')['default']
     Footer: typeof import('./src/components/HomeComponents/Footer.vue')['default']

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-30 19:39:58
+ * @LastEditTime: 2022-04-30 19:49:56
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -19,9 +19,17 @@
       <Search v-if="$route.path !== '/search'" style="width: 300px; "></Search>
       <SearchIcon size="28" class="SearchIcon" />
       <div class="login" v-if="!user.isLogin">
-        <router-link to="/login">
-          <user-icon theme="outline" size="24" fill="#333" title="登录/注册" />
-        </router-link>
+        <el-tooltip class="to-login" effect="dark" placement="bottom-end" v-model:visible="tooltip">
+          <template #content>
+            <span style="display: flex; align-items: center;">
+              登录体验更多功能
+              <close-small theme="outline" size="20" fill="#aaa" @click="tooltip = false" />
+            </span>
+          </template>
+          <router-link to="/login">
+            <user-icon theme="outline" size="24" fill="#333" title="登录/注册" />
+          </router-link>
+        </el-tooltip>
       </div>
       <div class="user" v-else>
         <NavBarUser></NavBarUser>
@@ -34,18 +42,20 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import NavBarUser from './NavBarUser/NavBarUser.vue'
 import Search from './Search/Search.vue'
 import { useCounterStore } from '@/store/index'
 import { useRouter } from 'vue-router'
-import { Search as SearchIcon, User as UserIcon } from '@icon-park/vue-next'
+import { Search as SearchIcon, User as UserIcon, CloseSmall } from '@icon-park/vue-next'
 const store = useCounterStore()
 const router = useRouter()
 
 const user = computed(() => {
   return store
 })
+
+const tooltip = ref(true)
 </script>
 
 <style lang="less" scoped>
