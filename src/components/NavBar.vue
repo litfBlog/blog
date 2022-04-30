@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-25 19:25:58
+ * @LastEditTime: 2022-04-30 15:34:00
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -16,6 +16,7 @@
       </router-link>
     </div>
     <div class="right">
+      <Search></Search>
       <div class="login" v-if="!user.isLogin">
         <router-link to="/login">注册/登录</router-link>
       </div>
@@ -32,6 +33,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import NavBarUser from './NavBarUser/NavBarUser.vue'
+import Search from './Search/Search.vue'
 import { useCounterStore } from '@/store/index'
 import { useRouter } from 'vue-router'
 const store = useCounterStore()

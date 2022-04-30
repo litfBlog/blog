@@ -52,6 +52,7 @@ declare module 'vue' {
     Preview: typeof import('./src/components/Account/Likes/Preview.vue')['default']
     Render: typeof import('./src/components/Render/Render.vue')['default']
     Report: typeof import('./src/components/Report/Report.vue')['default']
+    Search: typeof import('./src/components/Search/Search.vue')['default']
     SendComment: typeof import('./src/components/Comments/SendComment/SendComment.vue')['default']
     SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']
     Status: typeof import('./src/components/Status/Status.vue')['default']
