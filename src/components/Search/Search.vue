@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 15:06:05
- * @LastEditTime: 2022-04-30 18:28:43
+ * @LastEditTime: 2022-04-30 19:21:18
  * @LastEditors: litfa
  * @Description: 搜索
  * @FilePath: /blog/src/components/Search/Search.vue
@@ -73,9 +73,6 @@ const highlightKeyword = (value: string) => {
 // 特殊词监听
 const showImg = ref(false)
 watch(() => keyword.value, (value) => {
-  console.log(value)
-  console.log(/['"`]\sor\s[\d\w]\s*=\s*[\d\w]/.test(value))
-
   if (/['"`]\sor\s[\d\w]\s*=\s*[\d\w]/.test(value)) {
     showImg.value = true
     console.log(showImg.value)
