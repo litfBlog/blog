@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-30 15:34:00
+ * @LastEditTime: 2022-04-30 18:22:23
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -16,7 +16,7 @@
       </router-link>
     </div>
     <div class="right">
-      <Search></Search>
+      <Search v-if="$route.path !== '/search'" style="width: 300px; margin-right: 30px;"></Search>
       <div class="login" v-if="!user.isLogin">
         <router-link to="/login">注册/登录</router-link>
       </div>

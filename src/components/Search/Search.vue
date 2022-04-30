@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 15:06:05
- * @LastEditTime: 2022-04-30 17:16:04
+ * @LastEditTime: 2022-04-30 18:28:43
  * @LastEditors: litfa
  * @Description: 搜索
  * @FilePath: /blog/src/components/Search/Search.vue
@@ -13,9 +13,23 @@ import { Search } from '@icon-park/vue-next'
 import { keywords as getKeywordsApi } from '@/apis/search'
 import { ElMessage } from 'element-plus'
 import { filterXSS } from 'xss'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const props = defineProps({
+  target: {
+    type: String,
+    default: '_blank'
+  },
+  value: {
+    type: String
+  },
+  placeholder: String
+})
 
 const focus = ref(false)
-const keyword = ref('')
+const keyword = ref(props.value || '')
 
 interface resultsArr {
   id: number
@@ -34,6 +48,7 @@ const getKeywords = async () => {
 
 let timeout: any = ''
 const onInput = () => {
+  focus.value = true
   clearTimeout(timeout)
   timeout = setTimeout(() => {
     getKeywords()
@@ -67,22 +82,41 @@ watch(() => keyword.value, (value) => {
   } else {
     showImg.value = false
   }
-
 })
+
+const submit = (keyword: string) => {
+  if (props.target == '_blank') {
+    let link = router.resolve({
+      path: '/search',
+      query: {
+        w: keyword
+      }
+    })
+    window.open(link.fullPath)
+  } else {
+    router.push(`/search?w=${keyword}`)
+  }
+}
 </script>
 
 <template>
-  <div class="search-position" @click.stop="focus = true">
+  <div class="search-position" @click.stop="focus = true; getKeywords()">
     <div class="search" :class="{ focus }">
       <div class="input">
-        <input type="text" v-model="keyword" @input="onInput" />
-        <search theme="outline" size="24" fill="#333" class="icon" />
+        <input
+          type="text"
+          :placeholder="placeholder"
+          v-model="keyword"
+          @input="onInput"
+          @keyup.enter="submit(keyword)"
+        />
+        <search theme="outline" size="24" fill="#333" class="icon" @click="submit(keyword)" />
       </div>
 
       <div class="results">
         <img v-if="showImg" src="@/assets/niHenYong.jpg" alt="听说你很勇哦！" />
         <div class="item" v-for="i in results" :key="i.id">
-          <router-link :to="`/search?w=${i.title}`" target="_blank">
+          <router-link :to="`/search?w=${i.title}`" :target="target">
             <div class="title" v-html="highlightKeyword(i.title)"></div>
           </router-link>
         </div>
@@ -93,19 +127,21 @@ watch(() => keyword.value, (value) => {
 
 <style lang="less" scoped>
 .search-position {
-  width: 300px;
   height: 38px;
   position: relative;
 }
 .search {
   position: absolute;
   top: 0;
-  width: 300px;
+  width: 100%;
   height: 38px;
   background-color: #ececec;
   border-radius: 5px;
   transition: all 0.3s;
   overflow: hidden;
+  &:hover {
+    background-color: #efefef;
+  }
   * {
     transition: all 0.3s;
   }
@@ -135,11 +171,12 @@ watch(() => keyword.value, (value) => {
   .results {
     margin: 10px;
     overflow-y: scroll;
+
     img {
       width: 100%;
     }
     .item {
-      padding: 5px 10px;
+      padding: 15px 10px;
       box-sizing: border-box;
       &:hover {
         background-color: #f0f0f0;
@@ -158,6 +195,10 @@ watch(() => keyword.value, (value) => {
   min-height: 100px;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #aaaa;
+
+  &:hover {
+    background-color: #ffffff;
+  }
 
   .input {
     padding: 8px;
