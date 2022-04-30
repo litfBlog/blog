@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 17:09:41
- * @LastEditTime: 2022-04-30 18:37:57
+ * @LastEditTime: 2022-04-30 19:06:12
  * @LastEditors: litfa
  * @Description: 搜索页面
  * @FilePath: /blog/src/views/Search.vue
@@ -14,6 +14,7 @@ import { useRoute } from 'vue-router'
 import { search as searchApi } from '@/apis/search'
 import { ElMessage } from 'element-plus'
 import Card from '@/components/Card/Card.vue'
+import EmptyList from '@/components/Illustrations/EmptyList.vue'
 const route = useRoute()
 const key = ref('')
 watch(() => route.query.w, (value) => {
@@ -54,6 +55,7 @@ search()
       :author="i.author"
       :create-date="i.create_date"
     />
+    <EmptyList v-if="!results[0]"></EmptyList>
   </div>
 </template>
 
