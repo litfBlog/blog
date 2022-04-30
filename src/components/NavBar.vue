@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-30 18:22:23
+ * @LastEditTime: 2022-04-30 19:39:58
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -12,13 +12,16 @@
     <div class="left">
       <router-link to="/">
         <img class="logo" :src="require('@/assets/logo.webp')" alt="logo" />
-        <span class="title">Litf Press</span>
+        <span class="title">Litf Blog</span>
       </router-link>
     </div>
     <div class="right">
-      <Search v-if="$route.path !== '/search'" style="width: 300px; margin-right: 30px;"></Search>
+      <Search v-if="$route.path !== '/search'" style="width: 300px; "></Search>
+      <SearchIcon size="28" class="SearchIcon" />
       <div class="login" v-if="!user.isLogin">
-        <router-link to="/login">注册/登录</router-link>
+        <router-link to="/login">
+          <user-icon theme="outline" size="24" fill="#333" title="登录/注册" />
+        </router-link>
       </div>
       <div class="user" v-else>
         <NavBarUser></NavBarUser>
@@ -36,6 +39,7 @@ import NavBarUser from './NavBarUser/NavBarUser.vue'
 import Search from './Search/Search.vue'
 import { useCounterStore } from '@/store/index'
 import { useRouter } from 'vue-router'
+import { Search as SearchIcon, User as UserIcon } from '@icon-park/vue-next'
 const store = useCounterStore()
 const router = useRouter()
 
@@ -64,6 +68,7 @@ const user = computed(() => {
       font-size: 26px;
       font-weight: 600;
       color: @text-color;
+      transition: all 0.3s;
     }
   }
   .right {
@@ -71,14 +76,51 @@ const user = computed(() => {
     margin-right: 10px;
     display: flex;
     align-items: center;
-    .user {
+    .user,
+    .login {
       height: 100%;
+      margin: 0 15px;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    .login {
+      .i-icon-user {
+        border: 1.5px #333 solid;
+        border-radius: 50%;
+        padding: 3px;
+      }
     }
     .nav {
       .el-button {
         margin: 0 5px;
       }
     }
+    .SearchIcon {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navBar .right {
+    .SearchIcon {
+      display: block;
+    }
+    .search-position {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .navBar .right {
+    .user,
+    .login {
+      margin: 0 4px;
+    }
+  }
+  .navBar .left .title {
+    font-size: 16px;
   }
 }
 </style>
