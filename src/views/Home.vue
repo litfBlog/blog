@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 02:07:22
- * @LastEditTime: 2022-04-28 18:44:24
+ * @LastEditTime: 2022-04-30 18:44:03
  * @LastEditors: litfa
  * @Description: 首页
  * @FilePath: /blog/src/views/Home.vue
@@ -29,6 +29,7 @@
 import HomeComponents from '@/components/HomeComponents/HomeComponents.vue'
 import HomeCards from '@/components/HomeCards/HomeCards.vue'
 import HomeSkeleton from '@/components/HomeSkeleton/HomeSkeleton.vue'
+document.title = 'Litf Blog'
 </script>
 
 <style lang="less" scoped>

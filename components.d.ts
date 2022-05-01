@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Account: typeof import('./src/components/Account/Account.vue')['default']
+    Ad: typeof import('./src/components/HomeComponents/Ad.vue')['default']
     AddFriendLink: typeof import('./src/components/AddFriendLink/AddFriendLink.vue')['default']
     Card: typeof import('./src/components/Card/Card.vue')['default']
     CommentChildItem: typeof import('./src/components/Comments/CommentChildItem/CommentChildItem.vue')['default']
@@ -28,6 +29,7 @@ declare module 'vue' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     Emoji: typeof import('./src/components/Emoji/Emoji.vue')['default']
     EmptyList: typeof import('./src/components/Illustrations/EmptyList.vue')['default']
     Footer: typeof import('./src/components/HomeComponents/Footer.vue')['default']
@@ -52,10 +54,12 @@ declare module 'vue' {
     Preview: typeof import('./src/components/Account/Likes/Preview.vue')['default']
     Render: typeof import('./src/components/Render/Render.vue')['default']
     Report: typeof import('./src/components/Report/Report.vue')['default']
+    Search: typeof import('./src/components/Search/Search.vue')['default']
     SendComment: typeof import('./src/components/Comments/SendComment/SendComment.vue')['default']
     SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']
     Status: typeof import('./src/components/Status/Status.vue')['default']
     SwitchTheme: typeof import('./src/components/SwitchTheme/SwitchTheme.vue')['default']
+    Update: typeof import('./src/components/HomeComponents/Update.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
     User: typeof import('./src/components/Account/User/User.vue')['default']
   }
