@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-04-30 19:49:56
+ * @LastEditTime: 2022-05-01 17:25:36
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -21,7 +21,7 @@
       <div class="login" v-if="!user.isLogin">
         <el-tooltip class="to-login" effect="dark" placement="bottom-end" v-model:visible="tooltip">
           <template #content>
-            <span style="display: flex; align-items: center;">
+            <span style="display: flex; align-items: center; color: #fff">
               登录体验更多功能
               <close-small theme="outline" size="20" fill="#aaa" @click="tooltip = false" />
             </span>

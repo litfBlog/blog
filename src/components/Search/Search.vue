@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 15:06:05
- * @LastEditTime: 2022-04-30 19:21:18
+ * @LastEditTime: 2022-05-01 17:22:51
  * @LastEditors: litfa
  * @Description: 搜索
  * @FilePath: /blog/src/components/Search/Search.vue
@@ -107,7 +107,13 @@ const submit = (keyword: string) => {
           @input="onInput"
           @keyup.enter="submit(keyword)"
         />
-        <search theme="outline" size="24" fill="#333" class="icon" @click="submit(keyword)" />
+        <search
+          theme="outline"
+          size="24"
+          fill="var(--text-color-line)"
+          class="icon"
+          @click="submit(keyword)"
+        />
       </div>
 
       <div class="results">
@@ -132,13 +138,10 @@ const submit = (keyword: string) => {
   top: 0;
   width: 100%;
   height: 38px;
-  background-color: #ececec;
+  background-color: @search-input-background;
   border-radius: 5px;
   transition: all 0.3s;
   overflow: hidden;
-  &:hover {
-    background-color: #efefef;
-  }
   * {
     transition: all 0.3s;
   }
@@ -175,8 +178,9 @@ const submit = (keyword: string) => {
     .item {
       padding: 15px 10px;
       box-sizing: border-box;
+      color: @text-color;
       &:hover {
-        background-color: #f0f0f0;
+        background-color: @search-input-hover-background;
       }
       .title {
         :deep(span) {
@@ -190,12 +194,12 @@ const submit = (keyword: string) => {
 .focus {
   height: auto;
   min-height: 100px;
-  background-color: #ffffff;
+  background-color: @card-background-color;
   box-shadow: 0px 0px 5px #aaaa;
 
-  &:hover {
-    background-color: #ffffff;
-  }
+  // &:hover {
+  //   background-color: #ffffff;
+  // }
 
   .input {
     padding: 8px;
@@ -203,6 +207,7 @@ const submit = (keyword: string) => {
     input {
       border-radius: 5px;
       background-color: #f0f0f0;
+      background-color: @search-input-background;
       color: @text-color;
     }
   }

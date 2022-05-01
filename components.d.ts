@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Account: typeof import('./src/components/Account/Account.vue')['default']
+    Ad: typeof import('./src/components/HomeComponents/Ad.vue')['default']
     AddFriendLink: typeof import('./src/components/AddFriendLink/AddFriendLink.vue')['default']
     Card: typeof import('./src/components/Card/Card.vue')['default']
     CommentChildItem: typeof import('./src/components/Comments/CommentChildItem/CommentChildItem.vue')['default']
@@ -58,6 +59,7 @@ declare module 'vue' {
     SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']
     Status: typeof import('./src/components/Status/Status.vue')['default']
     SwitchTheme: typeof import('./src/components/SwitchTheme/SwitchTheme.vue')['default']
+    Update: typeof import('./src/components/HomeComponents/Update.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
     User: typeof import('./src/components/Account/User/User.vue')['default']
   }
