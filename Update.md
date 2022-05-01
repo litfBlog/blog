@@ -21,6 +21,10 @@
 [点击查看](https://console-docs.apipost.cn/preview/30d1279e811bef63/63ef8f71eaea6784)
 ![](https://blog-1259453062.cos.ap-beijing.myqcloud.com/user1%2FH0%5BAH%5BQ%24E9EGVT\(QNM%259E%5D8.png)
 
+- ### 搜索
+优化了搜索逻辑
+![](https://blog-1259453062.cos.ap-beijing.myqcloud.com/user1%2Fjpbo5-vxtfl.gif)
+
 
 - ### 友链支持自助申请
 交换友链时可以自行填写信息，审核后就能看到咯~
@@ -42,7 +46,7 @@
 ![](https://blog-1259453062.cos.ap-beijing.myqcloud.com/user1%2Fgnfdy-k957c.gif)
 
 - ### 支持存草稿
-旧版不能保存草稿，导致不敢关闭浏览器。新版支持了保存草稿功能。
+新版支持了保存草稿功能。后续将支持自动保存等功能.
 
 - ### 封面
 可以为文章设置封面，web端及小程序都能看到
@@ -54,30 +58,30 @@
 评论还支持emoji哦~
 ![](https://blog-1259453062.cos.ap-beijing.myqcloud.com/user1%2Fh9qnv-mti2j.gif)
 - ### 举报功能
-预防用户发布非法内容，推出了举报功能，用户可对文章及评论发起举报。审核后将删除内容并封禁用户
+预防用户发布违规内容，推出了举报功能，用户可对文章及评论发起举报。审核后将删除内容并封禁用户
 ![](https://blog-1259453062.cos.ap-beijing.myqcloud.com/user1%2F637d0-aohiw.gif)
 
 # 缺陷
-没有缺陷（不是
+~~没有缺陷~~
 
 由于时间紧迫，还有部分功能尚未完善，比如 搜索、关注等，这些会在上线后逐步完善。
 
-由于目前是单页面应用，对搜索引擎并不友好，不能搜索到文章的内容等，后续会考虑使用[nuxtjs](https://v3.nuxtjs.org/)框架优化.
+由于目前是单页面应用，对搜索引擎并不友好，不能爬到文章的内容，后续会考虑使用[nuxtjs](https://v3.nuxtjs.org/)框架优化.
 
 关于微信小程序  
 微信小程序目前使用 `uniapp vue3` 开发,目前没有完善的组件库，同时微信的各种限制: 不能跳转链接、不支持解析`markdown`等  
-目前功能较少,暂时不支持 查看/发送评论、投稿、点赞、暗色模式。这些也会逐步完善
+因此功能较少, 暂时不支持 投稿、点赞、暗色模式、查看/发送评论等，这些也会逐步完善
 
 当前版本还存在部分bug：
 - 暗色模式没有完全适配
-- 文章不能分页加载
+- 文章不能触底加载
 - 没有快捷分享
 - 审核结果无法通知
 - ……
-若您发现问题可以通过github 提交issus  
+若您发现其他问题可以通过github 提交issus 
 [web](https://github.com/litfPress/blog-v2/issues)  
 [小程序](https://github.com/litfPress/blog-miniprogram/issues)  
+[后端](https://github.com/litfPress/admin/issues)  
 [管理后台](https://github.com/litfPress/blog-service/issues)  
-[后端](https://github.com/litfPress/admin/issues)
-
+或通过网站底部联系方式联系  
 也欢迎提交[pr](https://github.com/litfPress/blog-v2/pulls)
