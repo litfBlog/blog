@@ -79,9 +79,9 @@
 - 审核结果无法通知
 - ……
 若您发现其他问题可以通过github 提交issus 
-[web](https://github.com/litfPress/blog-v2/issues)  
-[小程序](https://github.com/litfPress/blog-miniprogram/issues)  
-[后端](https://github.com/litfPress/admin/issues)  
-[管理后台](https://github.com/litfPress/blog-service/issues)  
+[web](https://github.com/litfBlog/blog/issues)  
+[小程序](https://github.com/litfBlog/blog-miniprogram/issues)  
+[后端](https://github.com/litfBlog/admin/issues)  
+[管理后台](https://github.com/litfBlog/blog-service/issues)  
 或通过网站底部联系方式联系  
-也欢迎提交[pr](https://github.com/litfPress/blog-v2/pulls)
+也欢迎提交[pr](https://github.com/litfBlog/blog/pulls)
