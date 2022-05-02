@@ -1,7 +1,7 @@
 /*
  * @Author: litfa
  * @Date: 2022-03-07 09:58:47
- * @LastEditTime: 2022-03-14 09:12:45
+ * @LastEditTime: 2022-05-02 14:46:02
  * @LastEditors: litfa
  * @Description: axios
  * @FilePath: /blog/src/utils/request.ts
@@ -10,7 +10,7 @@
 import axios from 'axios'
 import router from '@/router/index'
 
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = process.env.VUE_APP_ApiBaseutl
 
 // http request 拦截器
 axios.interceptors.request.use(
