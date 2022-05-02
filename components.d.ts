@@ -59,7 +59,6 @@ declare module 'vue' {
     SideToolbar: typeof import('./src/components/SideToolbar/SideToolbar.vue')['default']
     Status: typeof import('./src/components/Status/Status.vue')['default']
     SwitchTheme: typeof import('./src/components/SwitchTheme/SwitchTheme.vue')['default']
-    Update: typeof import('./src/components/HomeComponents/Update.vue')['default']
     UploadCover: typeof import('./src/components/UploadCover.vue')['default']
     User: typeof import('./src/components/Account/User/User.vue')['default']
   }
