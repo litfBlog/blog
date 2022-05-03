@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 19:16:33
- * @LastEditTime: 2022-04-25 19:25:08
+ * @LastEditTime: 2022-05-03 15:11:37
  * @LastEditors: litfa
  * @Description: 顶部栏用户模块
  * @FilePath: /blog/src/components/NavBarUser/NavBarUser.vue
@@ -65,7 +65,12 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean, stopTimeout?: boolea
     >
       <template #reference>
         <div class="avatar-position" :style="{ display: display ? 'block' : 'none' }">
-          <router-link to="/account" class="user" :class="{ open: open, hide: !open }">
+          <router-link
+            to="/account"
+            target="_blank"
+            class="user"
+            :class="{ open: open, hide: !open }"
+          >
             <el-image class="avatar" :src="user.avatar" fit="cover"></el-image>
           </router-link>
         </div>
