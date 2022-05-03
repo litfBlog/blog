@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-04-27 16:02:47
+ * @LastEditTime: 2022-05-03 15:15:15
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -120,6 +120,7 @@ const toComments = () => {
   height: 300px;
   margin: 0 auto;
   position: fixed;
+  z-index: 50;
   left: 0;
   right: 0;
   bottom: 0;
@@ -133,6 +134,7 @@ const toComments = () => {
     align-items: center;
     pointer-events: all;
     .box {
+      border: 0.5px solid rgba(170, 170, 170, 0.157);
       border-radius: 10px;
       margin: 10px;
       padding: 10px;
