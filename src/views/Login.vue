@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-03-07 08:39:21
- * @LastEditTime: 2022-04-10 17:48:36
+ * @LastEditTime: 2022-05-03 16:54:51
  * @LastEditors: litfa
  * @Description: 登录
  * @FilePath: /blog/src/views/Login.vue
@@ -16,6 +16,7 @@ import queryStatusApi from '@/apis/queryStatus'
 import { CheckOne } from '@icon-park/vue-next'
 import getUserInfo from '@/utils/getUserInfo'
 import { useRoute, useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 const route = useRoute()
 const router = useRouter()
 // 退出时清除循环
@@ -50,13 +51,14 @@ const queryStatus = (code: string) => {
       clearInterval(querty)
       getUserInfo()
       loginSuccess.value = true
+      ElMessage.success('登录成功！')
       setTimeout(() => {
         if (route.query.back) {
           router.push(route.query.back as string)
         } else {
           router.push('/')
         }
-      }, 5000)
+      }, 3000)
     }
   }, 1000 * 3)
 
