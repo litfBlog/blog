@@ -1,22 +1,19 @@
-# blog
-博客前端  
-本项目的后端仓库: [blog-service](https://github.com/litfa/blog-service)
+# 博客前端 litfBlog  
+本项目的其他仓库:
+[后端](https://github.com/litfBlog/blog-service)
+[小程序](https://github.com/litfBlog/blog-miniprogram)
+[后台](https://github.com/litfBlog/admin)
 
-# 前端技术
-- vue3
-- router
-- vuex
-- ts
-- less
-- axios
-- wangEdit
-- Element-plus
-- ...
+### [网站](https://www.litf.com.cn)
 
-# 开发进度
-该项目仍在开发中...
+# 特性
+- 使用`vue3`开发, 使用`script setup`语法
+- 使用`TypeScript`
+- 可配置主题
+- 支持暗色模式
 
-# 搭建开发环境
+
+# 使用
 推荐使用 [yarn](https://www.yarnpkg.cn/) 替代 `npm`
 
 ### 克隆仓库
@@ -36,13 +33,13 @@ $ yarn serve
 $ yarn build
 ```
 
-
-
+# 配置
+使用`.env`配置
+- `VUE_APP_ApiBaseutl` api请求地址
 
 # 代码规范
 ### 组件
-统一放在 src/components 中,文件名首字母大写  
-对于较为复杂的组件或多个关联性较强的组件 可在components中创建文件夹存放
+在 src/components 中, 文件夹与文件名首字母大写  
 
 ### 头部注释
 推荐使用 vscode `korofileheader` 插件添加
