@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-08 16:20:23
- * @LastEditTime: 2022-04-08 16:35:46
+ * @LastEditTime: 2022-05-03 15:11:52
  * @LastEditors: litfa
  * @Description: li无须列表
  * @FilePath: /blog/src/components/Li/Li.vue
@@ -15,7 +15,7 @@ const props = defineProps(propNames)
 
 <template>
   <li>
-    <router-link :to="to">
+    <router-link :to="to" target="_blank">
       <div class="left">
         <div class="icon">
           <slot></slot>

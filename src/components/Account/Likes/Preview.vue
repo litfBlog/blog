@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-07 16:05:05
- * @LastEditTime: 2022-04-26 17:50:17
+ * @LastEditTime: 2022-05-03 15:04:36
  * @LastEditors: litfa
  * @Description: 预览
  * @FilePath: /blog/src/components/Account/Likes/Preview.vue
@@ -13,6 +13,7 @@ import Card from '@/components/Card/Card.vue'
 import { computed, ref } from 'vue'
 import getLikesApi from '@/apis/getLikes'
 import { useCounterStore } from '@/store/index'
+import EmptyList from '@/components/Illustrations/EmptyList.vue'
 const store = useCounterStore()
 let user = computed(() => {
   return store
@@ -44,6 +45,7 @@ getLikes()
         :cover="i.cover"
         :likes-count="i.likes_count"
       ></Card>
+      <EmptyList v-if="(likesList.length < 1)"></EmptyList>
     </Preview>
   </div>
 </template>

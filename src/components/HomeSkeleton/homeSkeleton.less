@@ -26,24 +26,25 @@
 
 :deep(.user) {
   display: flex;
-}
 
-:deep(.info) {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-  box-sizing: border-box;
-  justify-content: space-around;
+  .info {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    box-sizing: border-box;
+    justify-content: space-around;
 
-  div {
-    margin: 0 !important;
+    div {
+      margin: 0 !important;
+    }
   }
 }
 
+
 :deep(.articles) {
   display: flex;
-
+  flex-direction: row-reverse;
 
   .cover {
     width: 25%;
@@ -51,10 +52,17 @@
     border-radius: 12px;
     flex-shrink: 0;
     margin-left: 8%;
+    margin-right: 8%;
   }
 
-  :deep(.info) {
-    display: flex;
-    flex: 1;
+  .info {
+    width: 100%;
+    margin-left: 35px;
+    // flex: 1;
+    height: 80%;
+
+    .el-skeleton__item {
+      margin-top: 8px;
+    }
   }
 }

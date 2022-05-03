@@ -10,6 +10,7 @@
 
   :deep(.vuepress-markdown-body) {
     background-color: @card-background-color;
+    color: @text-color;
 
     h1,
     h2,
@@ -19,15 +20,21 @@
     h6 {
       color: @text-color;
     }
+
+    p,
+    li {
+      color: @text-color;
+    }
   }
 
-  code {
-    color: @code-text-color;
+  :deep(code) {
+    background-color: #f2f2f2dd;
   }
 
   .v-md-plugin-tip.tip {
     background-color: @content-background-color;
   }
+
 }
 
 

@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 17:09:41
- * @LastEditTime: 2022-04-30 19:20:01
+ * @LastEditTime: 2022-05-03 14:41:19
  * @LastEditors: litfa
  * @Description: 搜索页面
  * @FilePath: /blog/src/views/Search.vue
@@ -66,7 +66,7 @@ search()
         :author="i.author"
         :create-date="i.create_date"
       />
-      <EmptyList v-if="!results[0] && !isLoading"></EmptyList>
+      <EmptyList v-if="!results[0] && !isLoading && $route.query.w"></EmptyList>
     </div>
   </div>
 </template>
