@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-02-16 18:24:27
- * @LastEditTime: 2022-05-03 14:33:43
+ * @LastEditTime: 2022-05-03 14:36:41
  * @LastEditors: litfa
  * @Description: 顶部栏
  * @FilePath: /blog/src/components/NavBar.vue
@@ -17,7 +17,9 @@
     </div>
     <div class="right">
       <Search v-if="$route.path !== '/search'" style="width: 300px; "></Search>
-      <SearchIcon size="28" class="SearchIcon" fill="var(--text-color)" />
+      <router-link to="/search">
+        <SearchIcon size="28" class="SearchIcon" fill="var(--text-color)" />
+      </router-link>
       <div class="login" v-if="!user.isLogin">
         <el-tooltip class="to-login" effect="dark" placement="bottom-end" v-model:visible="tooltip">
           <template #content>
