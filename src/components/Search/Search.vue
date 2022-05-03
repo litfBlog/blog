@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-30 15:06:05
- * @LastEditTime: 2022-05-01 17:22:51
+ * @LastEditTime: 2022-05-03 14:38:11
  * @LastEditors: litfa
  * @Description: 搜索
  * @FilePath: /blog/src/components/Search/Search.vue
@@ -157,6 +157,9 @@ const submit = (keyword: string) => {
       border: none;
       background-color: rgba(255, 255, 255, 0);
       color: @text-color-line;
+      &::placeholder {
+        color: @text-color-line;
+      }
     }
     .icon {
       position: absolute;
