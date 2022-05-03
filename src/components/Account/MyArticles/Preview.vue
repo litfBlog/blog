@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-06 19:25:17
- * @LastEditTime: 2022-04-29 15:01:11
+ * @LastEditTime: 2022-05-03 15:04:38
  * @LastEditors: litfa
  * @Description: 文章预览
  * @FilePath: /blog/src/components/Account/MyArticles/Preview.vue
@@ -14,6 +14,7 @@ import { getUser as getListApi } from '@/apis/getList'
 import { computed } from '@vue/reactivity'
 import { useCounterStore } from '@/store/index'
 import { ref } from 'vue'
+import EmptyList from '@/components/Illustrations/EmptyList.vue'
 const store = useCounterStore()
 
 const user: any = computed(() => {
@@ -46,6 +47,7 @@ getList()
         :likes-count="i.likes_count"
         :author="i.author"
       ></Card>
+      <EmptyList v-if="(articlesList.length < 1)"></EmptyList>
     </div>
   </Preview>
 </template>
