@@ -1,7 +1,7 @@
 <!--
  * @Author: litfa
  * @Date: 2022-04-01 16:06:13
- * @LastEditTime: 2022-05-03 15:15:15
+ * @LastEditTime: 2022-05-03 15:21:45
  * @LastEditors: litfa
  * @Description: 文章侧边工具栏
  * @FilePath: /blog/src/components/SideToolbar/SideToolbar.vue
@@ -148,6 +148,18 @@ const toComments = () => {
   }
   .hidden {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .SideToolbar {
+    width: 100%;
+    .SideBar {
+      transform: scale(0.7);
+      .box {
+        margin: 0;
+      }
+    }
   }
 }
 </style>
