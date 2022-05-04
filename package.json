@@ -16,7 +16,7 @@
     "axios": "^0.26.0",
     "core-js": "^3.6.5",
     "dayjs": "^1.11.0",
-    "element-plus": "^2.0.2",
+    "element-plus": "2.1.11",
     "pinia": "^2.0.13",
     "style-resources-loader": "^1.5.0",
     "vue": "^3.0.0",
