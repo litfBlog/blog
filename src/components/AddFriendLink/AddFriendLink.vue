@@ -12,7 +12,7 @@ import FriendLinkItem from '../FriendLinkItem/FriendLinkItem.vue'
 import { ref, reactive, watch } from 'vue'
 import addFriendLinkApi from '@/apis/addFriendLink'
 import { ElMessage } from 'element-plus'
-const open = ref(true)
+const open = ref(false)
 
 const form = reactive({
   name: '',
