@@ -18,7 +18,7 @@
 
 ### 克隆仓库
 ```bash
-$ git clone https://github.com/litfa/blog-v2.git
+$ git clone https://github.com/litfa/blog.git
 ```
 ### 安装模块
 ```bash
