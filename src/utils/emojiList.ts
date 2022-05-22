@@ -10,7 +10,7 @@
 import emojis from '@/assets/emoji/list'
 const emojiUrl: any = {}
 emojis.forEach(async item => {
-  emojiUrl[item] = require(`@/assets/emoji/${item}.jpg`)
+  emojiUrl[item] = require(`@/assets/emoji/${item}.png`)
 })
 
 export default emojiUrl
