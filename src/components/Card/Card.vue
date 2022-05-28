@@ -16,6 +16,7 @@ import formatDate from '@/utils/formatDate'
 import { report as Report } from '@/components/Report/report'
 import { useCounterStore } from '@/store/index'
 import { computed } from 'vue'
+import Avatar from '@/components/Avatar'
 
 const store = useCounterStore()
 
@@ -44,7 +45,7 @@ const isAuthor = computed(() => {
     target="_blank"
   >
     <div class="user" v-if="props.viewAuthor">
-      <el-image class="avatar" :src="avatar" fit="cover"></el-image>
+      <Avatar class="avatar" :src="avatar" />
       <div class="info">
         <span class="username">{{ username }}</span>
         <span class="date">{{ createDate ? formatDate(createDate) : '' }}</span>

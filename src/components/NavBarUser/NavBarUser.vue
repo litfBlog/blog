@@ -11,6 +11,7 @@
 import { computed, ref } from 'vue'
 import { useCounterStore } from '@/store/index'
 import Details from './Details.vue'
+import Avatar from '@/components/Avatar'
 
 const store = useCounterStore()
 let user = computed(() => {
@@ -44,12 +45,11 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean, stopTimeout?: boolea
 
 <template>
   <router-link to="/account" class="user" :class="{ open: open, hide: !open }">
-    <el-image
+    <Avatar
       class="avatar-mini"
       :src="user.avatar"
-      fit="cover"
       @mouseover="showPopover(true, true, false, true)"
-    ></el-image>
+    />
     <el-popover
       placement="bottom"
       :width="200"
@@ -66,7 +66,7 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean, stopTimeout?: boolea
       <template #reference>
         <div class="avatar-position" :style="{ display: display ? 'block' : 'none' }">
           <router-link to="/account" class="user" :class="{ open: open, hide: !open }">
-            <el-image class="avatar" :src="user.avatar" fit="cover"></el-image>
+            <Avatar class="avatar" :src="user.avatar" />
           </router-link>
         </div>
       </template>

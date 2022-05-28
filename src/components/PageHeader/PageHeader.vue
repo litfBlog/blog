@@ -11,6 +11,8 @@
 import propNames from './props'
 import formatDate from '@/utils/formatDate'
 import { computed } from '@vue/reactivity'
+import Avatar from '@/components/Avatar'
+
 const props = defineProps(propNames)
 const createDate = computed(() => {
   return formatDate(props.date || 0)
@@ -24,7 +26,7 @@ const createDate = computed(() => {
     <div class="author">
       <div class="user">
         <div class="avatar">
-          <el-image :src="props.avatar" fit="cover"></el-image>
+          <Avatar :src="props.avatar" />
         </div>
         <div class="text">
           <div class="name">{{ name }}</div>
