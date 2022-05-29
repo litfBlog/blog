@@ -45,7 +45,7 @@ const isAuthor = computed(() => {
     target="_blank"
   >
     <div class="user" v-if="props.viewAuthor">
-      <Avatar class="avatar" :src="avatar" />
+      <Avatar class="avatar" :src="avatar" :avatar-pendant-url="avatarPendantUrl" />
       <div class="info">
         <span class="username">{{ username }}</span>
         <span class="date">{{ createDate ? formatDate(createDate) : '' }}</span>
