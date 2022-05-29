@@ -10,4 +10,7 @@ const props = defineProps({
 </template>
 
 <style lang="less" scoped>
+.el-image {
+  border-radius: 50%;
+}
 </style>
