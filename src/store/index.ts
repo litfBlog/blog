@@ -17,7 +17,8 @@ export const useCounterStore = defineStore('counter', {
       isLogin: false,
       userName: '123',
       avatar: '',
-      id: -1
+      id: -1,
+      pendant: ''
     }
   },
   actions: {
@@ -26,6 +27,7 @@ export const useCounterStore = defineStore('counter', {
       this.userName = data?.userName || this.userName
       this.avatar = data?.avatar || this.avatar
       this.id = data?.id || this.id
+      this.pendant = data?.pendant || this.pendant
     }
   }
 })

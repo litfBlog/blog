@@ -48,6 +48,7 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean, stopTimeout?: boolea
     <Avatar
       class="avatar-mini"
       :src="user.avatar"
+      :avatar-pendant-url="user.pendant"
       @mouseover="showPopover(true, true, false, true)"
     />
     <el-popover
@@ -66,7 +67,7 @@ const showPopover = (isShow: boolean, cssdisplay?: boolean, stopTimeout?: boolea
       <template #reference>
         <div class="avatar-position" :style="{ display: display ? 'block' : 'none' }">
           <router-link to="/account" class="user" :class="{ open: open, hide: !open }">
-            <Avatar class="avatar" :src="user.avatar" />
+            <Avatar class="avatar" :src="user.avatar" :avatar-pendant-url="user.pendant" />
           </router-link>
         </div>
       </template>

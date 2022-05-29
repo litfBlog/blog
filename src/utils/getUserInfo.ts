@@ -20,7 +20,7 @@ export default async (): Promise<any> => {
   // 有 token
   if (localStorage.getItem('token')) {
     const { data: res } = await getUserInfoApi()
-    const { username: userName, avatar, id } = res.userInfo
-    store.increment({ isLogin: true, userName, avatar, id })
+    const { username: userName, avatar, id, avatar_pendant_url: pendant } = res.userInfo
+    store.increment({ isLogin: true, userName, avatar, id, pendant })
   }
 }
