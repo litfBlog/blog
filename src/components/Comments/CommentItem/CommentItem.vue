@@ -81,7 +81,12 @@ const likeComment = async () => {
 <template>
   <div class="CommentItem">
     <div class="data">
-      <Avatar :src="props.avatar" :alt="`${props.avatar}的头像`" class="avatar" />
+      <Avatar
+        :src="props.avatar"
+        :alt="`${props.avatar}的头像`"
+        :avatarPendantUrl="avatar_pendant_url"
+        class="avatar"
+      />
       <div class="info">
         <div class="name">{{ username }}</div>
         <div class="content" v-html="content"></div>
