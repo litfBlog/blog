@@ -16,7 +16,7 @@
       </router-link>
     </div>
     <div class="right">
-      <Search v-if="$route.path !== '/search'" style="width: 300px; "></Search>
+      <Search v-if="$route.path !== '/search'" style="width: 300px; " placeholder="端午"></Search>
       <router-link to="/search">
         <SearchIcon size="28" class="SearchIcon" fill="var(--text-color)" />
       </router-link>

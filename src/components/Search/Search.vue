@@ -82,6 +82,7 @@ watch(() => keyword.value, (value) => {
 })
 
 const submit = (keyword: string) => {
+  if (keyword == '') keyword = props.placeholder || ''
   if (props.target == '_blank') {
     let link = router.resolve({
       path: '/search',
