@@ -10,9 +10,9 @@
 import { useCounterStore } from '@/store/index'
 import getUserInfoApi from '@/apis/getUserInfo'
 
-export default async (): Promise<any> => {
+export default async (reset = false): Promise<any> => {
   const store = useCounterStore()
-  if (store.isLogin) {
+  if (store.isLogin && !reset) {
     // 登录过的
     return store
   }
