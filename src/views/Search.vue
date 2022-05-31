@@ -76,8 +76,8 @@ const getAvatarPendant = async () => {
     <div class="results" ref="resultsRef">
       <div class="get" v-if="showGet">
         <Avatar
-          src="https://thirdwx.qlogo.cn/mmopen/vi_32/yXnndqaOfgHibZDwYHBEalqVkW7SW86s8SMwE2D96YXZwjg36iciaGcPNeLwZ56ssIibwibz4nhwXXKtGg15SMxTBvg/132"
-          avatar-pendant-url="https://static-1259453062.cos.ap-shanghai.myqcloud.com/public%2Favatar-pendant%2F%E9%98%BF%E5%B7%B4%E6%80%AA.png"
+          :src="user.avatar"
+          avatar-pendant-url="https://static-1259453062.cos.ap-shanghai.myqcloud.com/public%2Favatar-pendant%2F%E7%AB%AF%E5%8D%88%E5%A4%B4%E5%83%8F%E6%A1%86.png"
           class="avatar"
         ></Avatar>
         <el-button @click="getAvatarPendant" :disabled="pendant">{{ pendant ? '已领取' : '领取' }}</el-button>
