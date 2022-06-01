@@ -20,6 +20,8 @@ import formatDate from '@/utils/formatDate'
 import likeCommentApi from '@/apis/likeComment'
 import { useRoute } from 'vue-router'
 import { report } from '@/components/Report/report'
+import Avatar from '@/components/Avatar'
+
 const props = defineProps(propNames)
 const route = useRoute()
 const content = computed(() => {
@@ -79,7 +81,12 @@ const likeComment = async () => {
 <template>
   <div class="CommentItem">
     <div class="data">
-      <el-image :src="props.avatar" :alt="`${props.avatar}的头像`" fit="cover" />
+      <Avatar
+        :src="props.avatar"
+        :alt="`${props.avatar}的头像`"
+        :avatarPendantUrl="avatar_pendant_url"
+        class="avatar"
+      />
       <div class="info">
         <div class="name">{{ username }}</div>
         <div class="content" v-html="content"></div>

@@ -37,6 +37,7 @@ await initArticles()
       :comment-count="i.comment_count"
       :author="i.author"
       :create-date="i.create_date"
+      :avatar-pendant-url="i.avatar_pendant_url"
     />
   </div>
 </template>

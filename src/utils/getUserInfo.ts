@@ -10,9 +10,9 @@
 import { useCounterStore } from '@/store/index'
 import getUserInfoApi from '@/apis/getUserInfo'
 
-export default async (): Promise<any> => {
+export default async (reset = false): Promise<any> => {
   const store = useCounterStore()
-  if (store.isLogin) {
+  if (store.isLogin && !reset) {
     // 登录过的
     return store
   }
@@ -20,7 +20,7 @@ export default async (): Promise<any> => {
   // 有 token
   if (localStorage.getItem('token')) {
     const { data: res } = await getUserInfoApi()
-    const { username: userName, avatar, id } = res.userInfo
-    store.increment({ isLogin: true, userName, avatar, id })
+    const { username: userName, avatar, id, avatar_pendant_url: pendant } = res.userInfo
+    store.increment({ isLogin: true, userName, avatar, id, pendant })
   }
 }

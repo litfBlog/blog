@@ -46,5 +46,6 @@ export default {
   },
   author: {
     type: Number
-  }
+  },
+  avatarPendantUrl: String
 }

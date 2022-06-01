@@ -41,5 +41,8 @@ export default {
   },
   liked: {
     type: Number
+  },
+  avatar_pendant_url: {
+    type: String
   }
 }

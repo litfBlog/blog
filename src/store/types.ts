@@ -11,7 +11,8 @@ export interface User {
   isLogin?: boolean,
   userName?: string,
   avatar?: string,
-  id?: number
+  id?: number,
+  pendant?: string
 }
 
 export interface ProfileState {
