@@ -38,6 +38,7 @@ declare module 'vue' {
     FriendLink: typeof import('./src/components/FriendLink/FriendLink.vue')['default']
     FriendLinkItem: typeof import('./src/components/FriendLinkItem/FriendLinkItem.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Holiday: typeof import('./src/components/HomeComponents/Holiday.vue')['default']
     HomeCards: typeof import('./src/components/HomeCards/HomeCards.vue')['default']
     HomeComponents: typeof import('./src/components/HomeComponents/HomeComponents.vue')['default']
     HomeSkeleton: typeof import('./src/components/HomeSkeleton/HomeSkeleton.vue')['default']
