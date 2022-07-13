@@ -12,7 +12,7 @@ import Miniprogram from './Miniprogram.vue'
 import FriendLink from './FriendLink.vue'
 import Footer from './Footer.vue'
 import Ad from './Ad.vue'
-import Holiday from './Holiday.vue'
+// import Holiday from './Holiday.vue'
 import { ref } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 const components = [Miniprogram, FriendLink, Footer]
@@ -30,7 +30,7 @@ const targetIsVisible = useElementVisibility(target)
       <div v-show="!targetIsVisible" class="sticky-block">
         <Miniprogram></Miniprogram>
         <!-- <Ad></Ad> -->
-        <Holiday></Holiday>
+        <!-- <Holiday></Holiday> -->
       </div>
     </transition>
   </div>

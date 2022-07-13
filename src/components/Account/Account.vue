@@ -78,7 +78,7 @@ watch(() => route.hash, (e) => {
         </span>
       </template>
       <!-- 两个style 优化异步组件加载时 页面抖动 -->
-      <my-articles style="display: :none;" :style="{ display: 'block' }"></my-articles>
+      <my-articles style="display: none;" :style="{ display: 'block' }"></my-articles>
     </el-tab-pane>
     <el-tab-pane name="likes" lazy>
       <template #label>
@@ -89,7 +89,7 @@ watch(() => route.hash, (e) => {
         </span>
       </template>
       <!-- 两个style 优化异步组件加载时 页面抖动 -->
-      <Likes style="display: :none;" :style="{ display: 'block' }"></Likes>
+      <Likes style="display: none;" :style="{ display: 'block' }"></Likes>
     </el-tab-pane>
     <!-- <el-tab-pane name="stars">
       <template #label>
