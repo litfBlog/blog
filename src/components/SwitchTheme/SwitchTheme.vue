@@ -9,10 +9,13 @@
 -->
 <script lang="ts" setup>
 import { Sun } from '@icon-park/vue-next'
+import { useCounterStore } from '@/store/index'
+const user = useCounterStore()
+
 </script>
 
 <template>
-  <span>
+  <span v-if="!user.isLogin">
     <sun theme="filled" size="24" fill="var(--text-color)" :strokeWidth="3" />
   </span>
 </template>
