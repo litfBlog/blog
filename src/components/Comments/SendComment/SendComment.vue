@@ -66,7 +66,7 @@ bus.on('sendCommentsFocus', focusInput)
       <div class="icons">
         <Emoji @select-emoji="selectEmoji"></Emoji>
       </div>
-      <el-button type="success" @click="sendComment" :loading="loading">发送</el-button>
+      <el-button type="success" @click="sendComment" :loading="loading" :disabled="textarea.trim().length < 1">发送</el-button>
     </div>
   </div>
 </template>
