@@ -14,6 +14,7 @@ import { useRoute } from 'vue-router'
 import sendCommentApi from '@/apis/sendComment'
 import propNames from './props'
 import bus from 'vue3-eventbus'
+import { ElMessage } from 'element-plus'
 
 const props = defineProps(propNames)
 
@@ -37,8 +38,9 @@ const sendComment = async () => {
   if (res.status === 1) {
     textarea.value = ''
     bus.emit('reSetComment')
+    ElMessage.success('发送成功')
   } else {
-    // alert
+    ElMessage.error('发送失败，请稍后再试')
   }
   loading.value = false
 }
