@@ -10,10 +10,15 @@
 <script lang="ts" setup>
 import Li from '@/components/Li/Li.vue'
 import { User, Word, Star } from '@icon-park/vue-next'
+import SwitchTheme from '../SwitchTheme/Switch.vue'
 </script>
 
 <template>
-  <div class="Details">
+  <div class="Details" >
+    <div class="dark">
+      暗色模式
+      <SwitchTheme />
+    </div>
     <Li text="个人中心" to="/account">
       <user theme="outline" size="22" fill="#666" :strokeWidth="3" />
     </Li>
@@ -29,8 +34,13 @@ import { User, Word, Star } from '@icon-park/vue-next'
 <style lang="less" scoped>
 .Details {
   width: 100%;
-  li {
+  li,.dark {
     margin: 20px 0;
+  }
+  .dark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

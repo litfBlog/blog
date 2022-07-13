@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import NavBar from '@/components/NavBar.vue'
-import { defineComponent } from 'vue'
+import { inject } from 'vue'
 import getUserInfo from '@/utils/getUserInfo'
 import { setTheme } from '@/assets/theme/index'
 import SwitchTheme from './components/SwitchTheme/SwitchTheme.vue'
@@ -53,6 +53,8 @@ const swichTheme = () => {
     theme = 'default'
   }
 }
+
+inject('swichTheme')
 </script>
 
 <template>
