@@ -30,8 +30,11 @@ axios.interceptors.response.use(
   config => {
     // 身份认证失败，跳转登录
     if (config.data.status == 3) {
+      // 清除已过期的 token
+      try {
+        localStorage.removeItem('token')
+      } catch {}
       router.push('/login')
-
     }
 
     return config
